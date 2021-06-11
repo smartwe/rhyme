@@ -1,4 +1,4 @@
-# RhymePlayer
+# Rhyme
 A beautiful looking music player which supports
 - Playing online music and local music files
 - Create custom playlists
