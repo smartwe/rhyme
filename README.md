@@ -1,4 +1,11 @@
-# Rhyme
+<!-- PROJECT LOGO -->
+<p align="center">
+  <a href="https://github.com/Rhyme-Player/RhymeApp">
+    <img src="icons/linux/256x256.png" alt="Logo" width="128" height="128">
+  </a>
+
+  <h3 align="center">Rhyme</h3>
+</p>
 
 A beautiful looking music player which supports
 
@@ -28,3 +35,5 @@ A beautiful looking music player which supports
 ### From site
 
 - Not Available yet
+
+<!-- [Use Emojis](#emojis-for-commit-messages) -->
