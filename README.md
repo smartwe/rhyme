@@ -4,7 +4,7 @@
     <img src="icons/linux/256x256.png" alt="Logo" width="128" height="128">
   </a>
 
-  <h3 align="center">Rhyme</h3>
+  <h1 align="center">Rhyme</h1>
 </p>
 
 A beautiful looking music player which supports
