@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 <!--
 * Be sure to search open and closed issues for duplicates
 * A detailed report will help us address your issue more quickly. Do your best!
@@ -17,6 +26,9 @@
 1.
 2.
 3.
+
+## Screenshots
+<!-- If applicable, add screenshots to help explain your problem.-->
 
 
 ### Logs
