@@ -1,38 +1,34 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+<!--
+* Be sure to search open and closed issues for duplicates
+* A detailed report will help us address your issue more quickly. Do your best!
+-->
 
----
+## What Happened
+<!--Describe the issue in detail-->
 
-**Describe the bug**
-A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Expected Behavior
+<!--Explain how what happened is different from what you wanted to happen-->
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Steps to Reproduce
+<!--Explain the exact steps one would take to experience the issue. If applicable, add screenshots or screen recordings.-->
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+1.
+2.
+3.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
 
-**Additional context**
-Add any other context about the problem here.
+### Logs
+<!-- If applicable, please share logs or error messages:-->
+
+
+## Platform Information
+<!--
+* The operating system you are using and its version
+* The version of the software you are using such as "1.0", "Compiled from git", or "Latest release" if you're not sure but you have run updates
+* Relevant hardware information such as graphics drivers, unconventional setups, etc.
+-->
+
+
+<!--Please be sure to preview your issue before saving. Thanks!-->
