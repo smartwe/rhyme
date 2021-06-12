@@ -3,7 +3,9 @@
   <a href="https://github.com/Rhyme-Player/RhymeApp">
     <img src="icons/linux/256x256.png" alt="Logo" width="128" height="128">
   </a>
-
+  <p align-"center">
+    The #1 Open-Source Music Player
+  </p>
   <h1 align="center">Rhyme</h1>
 </p>
 
