@@ -7,7 +7,6 @@
   <h3 align="center">
     The #1 Open-Source Music Player
   </h3>
-  </p>
 </p>
 
 A beautiful looking music player which supports
