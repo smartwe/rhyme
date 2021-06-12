@@ -4,8 +4,9 @@
     <img src="icons/linux/256x256.png" alt="Logo" width="128" height="128">
   </a>
   <h1 align="center">Rhyme</h1>
-  <p align="center">
+  <h3 align="center">
     The #1 Open-Source Music Player
+  </h3>
   </p>
 </p>
 
