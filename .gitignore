@@ -1,0 +1,8 @@
+/node_modules/
+/public/build/
+/build_dist/
+
+.DS_Store
+.vscode
+yarn.lock
+package-lock.json
