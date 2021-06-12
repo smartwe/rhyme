@@ -21,6 +21,10 @@ A beautiful looking music player which supports
 - run `yarn` or `npm i` to install dependencies
 - run `yarn build` or `npm run build` to generate executable for your os in the `build_dist` dir
 
+### From github releases
+- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
+- Download executable for your system
+
 ### From site
 
 - Not Available yet
