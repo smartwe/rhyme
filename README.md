@@ -7,6 +7,14 @@
   <h3 align="center">
     The #1 Open-Source Music Player
   </h3>
+<h3 align="center">
+Discord: <img src ="https://img.shields.io/discord/848185747319816212">
+Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
+<img src ="https://img.shields.io/github/issues-raw/Rhyme-Player/RhymeApp">
+<img src ="https://img.shields.io/github/issues-pr/Rhyme-Player/RhymeApp">
+<img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
+<img src ="https://img.shields.io/github/stars/Rhyme-Player/RhymeApp">
+</h3>
 </p>
 
 A beautiful looking music player which supports
