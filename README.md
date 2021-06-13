@@ -38,4 +38,14 @@ A beautiful looking music player which supports
 
 - Not Available yet
 
-<!-- [Use Emojis](#emojis-for-commit-messages) -->
+# Contributing
+
+When contributing to `Rhyme`, please first discuss the change you wish to make via a discussion or an issue
+When creating a pull request please use Emojis for your commits
+See also [gitmoji](https://gitmoji.carloscuesta.me/).
+
+# Pull Requests
+
+Please put in mind that even if you have the write access to merge a PR wait for reviews from me or other contributors
+if the feature that the PR implements is still not finished please convert the PR to a draft to let reviewers know that it is incomplete
+before you make your PR ready for reviews you must make sure that it passed all the checks
