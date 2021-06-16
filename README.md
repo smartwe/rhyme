@@ -1,3 +1,4 @@
+#### We are currently working on the app design at [Figma](https://www.figma.com/file/9RdbT3hJ5gdO1uktuSMUbP/Rhyme) if you have a design suggestion please open an issue at [Rhyme Design Repo](https://github.com/Rhyme-Player/RhymeDesign)
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
