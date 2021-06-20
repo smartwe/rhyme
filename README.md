@@ -1,4 +1,5 @@
 #### We are currently working on the app design at [Figma](https://www.figma.com/file/9RdbT3hJ5gdO1uktuSMUbP/Rhyme) if you have a design suggestion please open an issue at [Rhyme Design Repo](https://github.com/Rhyme-Player/RhymeDesign)
+
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
@@ -37,9 +38,10 @@ A beautiful looking music player which supports
 
 - clone repo and `cd` into it
 - run `yarn` or `npm i` to install dependencies
-- run `yarn build` or `npm run build` to generate executable for your os in the `build_dist` dir
+- run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
 
 ### From github releases
+
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Download executable for your system
 
