@@ -45,7 +45,6 @@
       "icon": "icons/icon.icns",
       "target": [
         "dmg",
-        "mas",
         "pkg"
       ]
     },
