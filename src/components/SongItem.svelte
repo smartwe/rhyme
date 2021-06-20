@@ -1,11 +1,13 @@
-<script>
-  export let artistName;
-  export let songName;
-  export let imgSrc;
+<script lang="ts">
+  export let artistName: string;
+  export let songName: string;
+  export let imgSrc: string;
   export let normalSong = true;
+  import { settings } from "../store";
+  let mainBG = $settings["useDarkTheme"] ? (normalSong ? "#121212" : "black") : normalSong ? "#ededed" : "white";
 </script>
 
-<main style="background-color:{normalSong ? '#ededed' : 'white'}">
+<main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}">
   <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   <div class="titles">
@@ -41,12 +43,20 @@
       text-align: center;
     }
     p {
-      color: $gray;
+      color: $gray_theme_light;
       font-size: 0.8em;
     }
     h4 {
       font-weight: normal;
       font-size: 1em;
+    }
+  }
+  .dark {
+    h4 {
+      color: white;
+    }
+    p {
+      color: $light_gray_theme_dark;
     }
   }
 </style>

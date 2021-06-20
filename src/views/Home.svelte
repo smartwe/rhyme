@@ -1,19 +1,15 @@
 <script>
-  import SearchBar from "../components/SearchBar.svelte";
+  import SearchBar from "../controls/SearchBar.svelte";
   import SongItem from "../components/SongItem.svelte";
   let searchVal = "";
-  import { songs } from "../store";
+  import { songs, settings } from "../store";
 </script>
 
-<main id="home">
+<main id="home" class:dark={$settings["useDarkTheme"]}>
   <SearchBar bind:searchVal />
   <div class="songs">
     {#each $songs as song}
-      <SongItem
-        artistName={song["artist"]}
-        songName={song["song"]}
-        imgSrc={song["imgSrc"]}
-      />
+      <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
     {/each}
   </div>
 </main>
@@ -22,6 +18,7 @@
   main {
     padding: 1em;
     width: 100%;
+    height: 100%;
   }
   .songs {
     display: grid;
@@ -30,5 +27,8 @@
     row-gap: 20px;
     column-gap: 10px;
     margin-top: 25px;
+  }
+  main.dark {
+    background-color: black;
   }
 </style>
