@@ -7,7 +7,7 @@
   "private": false,
   "main": "electron.js",
   "scripts": {
-    "build": "rollup -c && electron-builder",
+    "build": "rollup -c",
     "dev": "rollup -c -w",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
@@ -43,18 +43,33 @@
     },
     "mac": {
       "icon": "icons/icon.icns",
-      "target": "pkg"
+      "target": [
+        "dmg",
+        "mas",
+        "pkg"
+      ]
     },
     "linux": {
       "target": [
-        "deb"
+        "AppImage",
+        "snap",
+        "deb",
+        "rpm",
+        "freebsd",
+        "pacman",
+        "p5p"
       ],
       "category": "Utility",
       "maintainer": "The Rhyme Project",
       "icon": "icons/linux"
     },
     "win": {
-      "icon": "icons/icon.ico"
+      "icon": "icons/icon.ico",
+      "target": [
+        "appx",
+        "msi",
+        "nsis"
+      ]
     }
   },
   "devDependencies": {

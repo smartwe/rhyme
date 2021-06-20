@@ -65,7 +65,12 @@ getFiles(path.join(__dirname, "src")).forEach((file) => {
       // console.log(lineOfCode);
       if (lineOfCode.includes(messageItem.message)) {
         // Remove comments
-        lineOfCode = lineOfCode.replace("<!--", "").replace("-->", "").replace("//", "").replace("#", "").trim();
+        lineOfCode = lineOfCode
+          .replace("<!--", "")
+          .replace("-->", "")
+          .replace("//", "")
+          .replace("#", "")
+          .trim();
         console.log(`${messageItem.color}%s\x1b[0m`, lineOfCode);
         console.log(`At line ${i + 1} in ${file}`);
       }
