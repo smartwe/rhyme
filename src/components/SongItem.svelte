@@ -6,6 +6,7 @@
 </script>
 
 <main style="background-color:{normalSong ? '#ededed' : 'white'}">
+  <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   <div class="titles">
     <h4>{songName}</h4>
