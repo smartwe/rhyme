@@ -54,6 +54,7 @@ A beautiful looking music player which supports
 When contributing to `Rhyme`, please first discuss the change you wish to make via a discussion or an issue
 When creating a pull request please use Emojis for your commits
 See also [gitmoji](https://gitmoji.carloscuesta.me/).
+to view comments or notes left in the code run `yarn notes-checker`or `npm run notes-checker`
 
 # Pull Requests
 
