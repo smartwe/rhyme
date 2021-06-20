@@ -42,4 +42,20 @@ app.on("ready", () => {
       ])
     );
   }
+
+  const storage = require("electron-json-storage");
+  storage.has("settings", (err, hasKey) => {
+    if (err) throw err;
+    if (!hasKey) {
+      let settings = {
+        musicPath: app.getPath("music"),
+        useDarkTheme: false,
+        heyRhymeActivate: false,
+      };
+
+      storage.set("settings", settings, (err) => {
+        if (err) throw err;
+      });
+    }
+  });
 });

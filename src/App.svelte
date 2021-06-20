@@ -1,16 +1,89 @@
 <script lang="ts">
-  import { Add, HomeOutlined, HomeFilled } from "rhyme-icons";
+  import Sidebar from "./components/Sidebar.svelte";
+  import Router from "svelte-spa-router";
+  // Routes
+  import Home from "./views/Home.svelte";
+  import RhymeAI from "./views/RhymeAI.svelte";
+  import Playlists from "./views/Playlists.svelte";
+  import Settings from "./views/Settings.svelte";
+  const routes = {
+    "/": Home,
+    "/rhyme-ai": RhymeAI,
+    "/settings": Settings,
+    "/playlists": Playlists,
+  };
+
+  const fs = require("fs");
+  const path = require("path");
+  const mm = require("music-metadata");
+  const chokidar = require("chokidar");
+  let dirWatcher = chokidar.watch($settings["musicPath"], {
+    ignored: /[\/\\]\./,
+    persistent: true,
+  });
+
+  import { settings, songs } from "./store";
+
+  function getFolderContent(filePath: string, array?: string[]): string[] {
+    let folderContent: string[] = array || [];
+    fs.readdirSync(filePath).forEach((file: string) => {
+      file = path.join(filePath, file);
+
+      if (fs.statSync(file).isDirectory()) {
+        folderContent = getFolderContent(file, folderContent);
+      } else {
+        if (file.endsWith(".mp3") || file.endsWith(".m4a") || file.endsWith(".webm") || file.endsWith(".wav") || file.endsWith(".aac") || file.endsWith(".ogg") || file.endsWith(".opus")) {
+          folderContent.push(file);
+        }
+      }
+    });
+    return folderContent;
+  }
+
+  async function parseFiles(audioFiles: string[]): Promise<object[]> {
+    let parsedSongs: object[] = [];
+    for (const audioFile of audioFiles) {
+      const metadata = await mm.parseFile(audioFile, { skipCovers: false });
+      let song = metadata.common.title ? metadata.common.title : audioFile.split(path.sep).slice(-1)[0];
+      let artist = metadata.common.artist ? metadata.common.artist : "Unknown";
+      let album = metadata.common.album ? metadata.common.album : "Unknown";
+      let imgSrc = null;
+      if (metadata.common.picture) {
+        imgSrc = `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString("base64")}`;
+      }
+      parsedSongs.push({
+        song,
+        artist,
+        album,
+        imgSrc,
+        file: audioFile,
+        howl: null,
+      });
+    }
+    return parsedSongs;
+  }
+
+  async function getSongs() {
+    let files = getFolderContent($settings["musicPath"] as string);
+    songs.set(await parseFiles(files));
+  }
+  getSongs();
 </script>
 
 <main>
-  <Add size="32px" fill="black" />
-  <HomeOutlined size="32px" fill="black" />
-  <HomeFilled size="32px" fill="black" />
+  <Sidebar />
+  <div class="main_content">
+    <Router {routes} />
+  </div>
 </main>
 
-<style>
+<style lang="scss">
   main {
     width: 100vw;
     height: 100vh;
+    display: flex;
+  }
+  .main_content {
+    width: 100%;
   }
 </style>
