@@ -53,10 +53,7 @@
         "AppImage",
         "snap",
         "deb",
-        "rpm",
-        "freebsd",
-        "pacman",
-        "p5p"
+        "rpm"
       ],
       "category": "Utility",
       "maintainer": "The Rhyme Project",
