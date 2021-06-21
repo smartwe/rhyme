@@ -34,7 +34,15 @@
       if (fs.statSync(file).isDirectory()) {
         folderContent = getFolderContent(file, folderContent);
       } else {
-        if (file.endsWith(".mp3") || file.endsWith(".m4a") || file.endsWith(".webm") || file.endsWith(".wav") || file.endsWith(".aac") || file.endsWith(".ogg") || file.endsWith(".opus")) {
+        if (
+          file.endsWith(".mp3") ||
+          file.endsWith(".m4a") ||
+          file.endsWith(".webm") ||
+          file.endsWith(".wav") ||
+          file.endsWith(".aac") ||
+          file.endsWith(".ogg") ||
+          file.endsWith(".opus")
+        ) {
           folderContent.push(file);
         }
       }
@@ -45,12 +53,16 @@
   async function parseFiles(audioFiles: string[]) {
     for (const audioFile of audioFiles) {
       const metadata = await mm.parseFile(audioFile, { skipCovers: false });
-      let song = metadata.common.title ? metadata.common.title : audioFile.split(path.sep).slice(-1)[0];
+      let song = metadata.common.title
+        ? metadata.common.title
+        : audioFile.split(path.sep).slice(-1)[0];
       let artist = metadata.common.artist ? metadata.common.artist : "Unknown";
       let album = metadata.common.album ? metadata.common.album : "Unknown";
       let imgSrc = null;
       if (metadata.common.picture) {
-        imgSrc = `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString("base64")}`;
+        imgSrc = `data:${
+          metadata.common.picture[0].format
+        };base64,${metadata.common.picture[0].data.toString("base64")}`;
       }
       $songs.push({
         song,
