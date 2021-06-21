@@ -9,11 +9,21 @@
   <SearchBar bind:searchVal />
   <div class="songs">
     {#each $songs as song}
-      <SongItem
-        artistName={song["artist"]}
-        songName={song["song"]}
-        imgSrc={song["imgSrc"]}
-      />
+      {#if searchVal !== ""}
+        {#if song["artist"].includes(searchVal) || song["song"].includes(searchVal)}
+          <SongItem
+            artistName={song["artist"]}
+            songName={song["song"]}
+            imgSrc={song["imgSrc"]}
+          />
+        {/if}
+      {:else}
+        <SongItem
+          artistName={song["artist"]}
+          songName={song["song"]}
+          imgSrc={song["imgSrc"]}
+        />
+      {/if}
     {/each}
   </div>
 </main>
