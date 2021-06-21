@@ -29,12 +29,7 @@
         <br />
         <p>You will need to restart the app to view changes</p>
       </span>
-      <PathChooser
-        bind:folderPath
-        defaultPath={$settings["musicPath"]}
-        title="Choose the folder containing your music"
-        onEnd={changeMusicDir}
-      />
+      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
     </li>
   </ul>
   <h2>Appeareance</h2>
@@ -57,6 +52,7 @@
     height: 100%;
     color: $gray_theme_light;
     background-color: white;
+    transition: 0.3s;
   }
 
   li {
@@ -66,12 +62,15 @@
     gap: 10px;
     span > p {
       font-size: 0.7em;
-      color: white;
+      color: black;
     }
   }
 
   .dark {
     background-color: black;
     color: $light_gray_theme_dark;
+    span > p {
+      color: white;
+    }
   }
 </style>

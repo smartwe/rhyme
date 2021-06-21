@@ -3,13 +3,9 @@
 </script>
 
 <main class:dark={$settings["useDarkTheme"]}>
-  {#if $currentSong}
+  {#if $currentSong !== null}
     <div class="song-info">
-      <img
-        src={$currentSong["imgSrc"]}
-        style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}"
-        alt=""
-      />
+      <img src={$currentSong["imgSrc"]} style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}" alt="" />
       <div class="titles">
         <span><p>{$currentSong["song"]}</p></span>
         <p>{$currentSong["artist"]}</p>
@@ -27,6 +23,8 @@
     box-shadow: #5c5c5c5c 1px -15px 15px;
     z-index: 10;
     background-color: white;
+    transition: 0.3s;
+
     .song-info {
       display: flex;
       align-items: center;

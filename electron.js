@@ -59,3 +59,14 @@ app.on("ready", () => {
     }
   });
 });
+
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on("second-instance", (event, commandLine, workingDirectory) => {
+    // Unhide window
+    console.log("Second Instance");
+  });
+}
