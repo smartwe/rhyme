@@ -9,8 +9,10 @@ if (isDev) {
   });
 }
 
+let win;
+
 app.on("ready", () => {
-  let win = new BrowserWindow({
+  win = new BrowserWindow({
     icon: path.join(__dirname, "icon.png"),
     title: "Rhyme",
     width: 900,
@@ -65,7 +67,7 @@ const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
   app.quit();
 } else {
-  app.on("second-instance", (event, commandLine, workingDirectory) => {
+  app.on("second-instance", (_event, _commandLine, _workingDirectory) => {
     // Unhide window
     console.log("Second Instance");
   });
