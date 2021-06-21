@@ -6,12 +6,18 @@
   const remote = require("electron").remote;
   import { settings } from "../store";
   function openDialog() {
-    remote.dialog.showOpenDialog(remote.getCurrentWindow(), { properties: ["openDirectory"], title, defaultPath }).then((data) => {
-      if (data["filePaths"][0]) {
-        folderPath = data["filePaths"][0];
-        onEnd();
-      }
-    });
+    remote.dialog
+      .showOpenDialog(remote.getCurrentWindow(), {
+        properties: ["openDirectory"],
+        title,
+        defaultPath,
+      })
+      .then((data) => {
+        if (data["filePaths"][0]) {
+          folderPath = data["filePaths"][0];
+          onEnd();
+        }
+      });
   }
 </script>
 
