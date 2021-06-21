@@ -4,11 +4,7 @@
   import { settings } from "../store";
 </script>
 
-<main
-  class:checked
-  on:click={clickEvent}
-  class:dark={$settings["useDarkTheme"]}
-/>
+<main class:checked on:click={clickEvent} class:dark={$settings["useDarkTheme"]} />
 
 <style lang="scss">
   @import "../variables";
@@ -29,6 +25,7 @@
     position: absolute;
     left: 3px;
     top: 3px;
+    cursor: pointer;
   }
   main.dark {
     background-color: $light_gray_theme_dark;

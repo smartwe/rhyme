@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PathChooser from "../controls/PathChooser.svelte";
   import Toggle from "../controls/Toggle.svelte";
   import { settings } from "../store";
 
@@ -10,13 +11,27 @@
     let newSettings = $settings;
     newSettings["useDarkTheme"] = useDarkTheme;
     settings.set(newSettings);
-    storage.set("settings", newSettings, (error: string) => {
-      if (error) throw error;
-    });
+  }
+  let folderPath = $settings["musicPath"];
+  function changeMusicDir() {
+    let newSettings = $settings;
+    newSettings["musicPath"] = folderPath;
+    settings.set(newSettings);
   }
 </script>
 
 <main class:dark={useDarkTheme}>
+  <h2>General</h2>
+  <ul>
+    <li>
+      <span>
+        Music folder path
+        <br />
+        <p>You will need to restart the app to view changes</p>
+      </span>
+      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
+    </li>
+  </ul>
   <h2>Appeareance</h2>
   <ul>
     <li>
@@ -36,11 +51,18 @@
     width: 100%;
     height: 100%;
     color: $gray_theme_light;
+    background-color: white;
   }
 
   li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    span > p {
+      font-size: 0.7em;
+      color: white;
+    }
   }
 
   .dark {

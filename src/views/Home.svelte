@@ -9,20 +9,19 @@
   <SearchBar bind:searchVal />
   <div class="songs">
     {#each $songs as song}
-      <SongItem
-        artistName={song["artist"]}
-        songName={song["song"]}
-        imgSrc={song["imgSrc"]}
-      />
+      <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
     {/each}
   </div>
 </main>
 
-<style>
+<style lang="scss">
+  @import "../variables";
   main {
     padding: 1em;
     width: 100%;
     height: 100%;
+    color: $gray_theme_light;
+    background-color: white;
   }
   .songs {
     display: grid;
@@ -32,7 +31,8 @@
     column-gap: 10px;
     margin-top: 25px;
   }
-  main.dark {
+  .dark {
     background-color: black;
+    color: $light_gray_theme_dark;
   }
 </style>

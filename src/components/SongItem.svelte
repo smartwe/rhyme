@@ -4,13 +4,7 @@
   export let imgSrc: string;
   export let normalSong = true;
   import { settings } from "../store";
-  let mainBG = $settings["useDarkTheme"]
-    ? normalSong
-      ? "#121212"
-      : "black"
-    : normalSong
-    ? "#ededed"
-    : "white";
+  let mainBG = $settings["useDarkTheme"] ? (normalSong ? "#121212" : "black") : normalSong ? "#ededed" : "white";
 </script>
 
 <main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}">
