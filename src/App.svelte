@@ -49,8 +49,7 @@
     return folderContent;
   }
 
-  async function parseFiles(audioFiles: string[]): Promise<object[]> {
-    let parsedSongs: object[] = [];
+  async function parseFiles(audioFiles: string[]) {
     for (const audioFile of audioFiles) {
       const metadata = await mm.parseFile(audioFile, { skipCovers: false });
       let song = metadata.common.title
@@ -64,7 +63,7 @@
           metadata.common.picture[0].format
         };base64,${metadata.common.picture[0].data.toString("base64")}`;
       }
-      parsedSongs.push({
+      $songs.push({
         song,
         artist,
         album,
@@ -72,13 +71,14 @@
         file: audioFile,
         howl: null,
       });
+      songs.set($songs);
     }
-    return parsedSongs;
   }
 
   async function getSongs() {
     let files = getFolderContent($settings["musicPath"] as string);
-    songs.set(await parseFiles(files));
+    await parseFiles(files);
+    console.log($songs);
   }
   getSongs();
 </script>
