@@ -43,6 +43,8 @@ app.on("ready", () => {
         },
       ])
     );
+  } else {
+    win.setMenu(null);
   }
 
   const storage = require("electron-json-storage");
