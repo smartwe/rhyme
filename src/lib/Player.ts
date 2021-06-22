@@ -6,8 +6,8 @@ import { get } from "svelte/store";
 export default class Player {
   index: number = 0;
   songs = [];
-  sound:typeof Howl;
-  randomArr:number[];
+  sound: typeof Howl;
+  randomArr: number[];
   randomNum = 0;
 
   constructor(songs: object[]) {
@@ -15,27 +15,26 @@ export default class Player {
     this.play();
     this.randomArr = this.randomize(
       Array.from({ length: this.songs.length }, (_, i) => i)
-  );
+    );
   }
 
   play(index?: number) {
-
-    if(!get(repeat)){
-      if(get(shuffle)) {
+    if (!get(repeat)) {
+      if (get(shuffle)) {
         this.randomNum += 1;
         if (this.randomNum >= this.randomArr.length) {
           this.randomNum = 0;
         }
         index = this.randomArr[this.randomNum];
       }
-  
-      index = index || this.index; 
+
+      index = index || this.index;
     }
 
     index = this.index;
 
     let data = this.songs[index];
-    if(this.sound){
+    if (this.sound) {
       this.sound.pause();
     }
     this.sound = new Howl({
@@ -45,7 +44,7 @@ export default class Player {
         currentSong.set(data);
         songPlaying.set(true);
       },
-      onend: function () {;
+      onend: function () {
         this.next();
       },
     });
@@ -60,27 +59,27 @@ export default class Player {
     songPlaying.set(false);
   }
 
-  resume(){
+  resume() {
     this.sound.play();
     songPlaying.set(true);
   }
 
-  previous(){
-    if(this.sound){
-      if(this.sound.seek() >= 3){
+  previous() {
+    if (this.sound) {
+      if (this.sound.seek() >= 3) {
         this.play();
         return;
       }
 
-      if(this.index > 0){
+      if (this.index > 0) {
         this.index--;
       }
       this.play();
     }
   }
 
-  next(){
-    if(this.index === this.songs.length - 1){
+  next() {
+    if (this.index === this.songs.length - 1) {
       this.index = 0;
       this.play();
       return;
@@ -92,9 +91,9 @@ export default class Player {
 
   randomize(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-}
+  }
 }
