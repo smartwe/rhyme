@@ -10,4 +10,5 @@ settings.subscribe((value) => {
 });
 export const songs = writable<object[]>([]);
 export const songsPlayer = writable<Player>(null);
+export const songPlaying = writable<boolean>(null);
 export const currentSong = writable<object>(null);

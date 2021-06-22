@@ -1,15 +1,11 @@
-const { Howl } = require("howler");
+const { Howl,Howler } = require("howler");
 const storage = require("electron-json-storage");
-import { currentSong } from "../store";
+import { currentSong,songPlaying } from "../store";
 
 export default class Player {
   index: number = 0;
   songs = [];
-  currentSong = {
-    song: "",
-    artist: "",
-    imgSrc: "",
-  };
+  sound:typeof Howl;
 
   constructor(songs: object[]) {
     this.songs = songs;
@@ -19,33 +15,60 @@ export default class Player {
   play(index?: number) {
     let self = this;
 
-    index = index ? index : this.index;
+    index = index || this.index;
 
     let data = this.songs[index];
-    let sound = new Howl({
+    if(this.sound){
+      this.sound.pause();
+    }
+    this.sound = new Howl({
       src: [data.file],
       html5: true,
       onplay: function () {
-        console.log("Started");
-        console.log(this.duration() / 60);
         currentSong.set(data);
-        console.log(data);
+        songPlaying.set(true);
       },
       onend: function () {
-        console.log("Ended");
-        self.index += 1;
-        self.play();
+        this.next();
       },
     });
 
-    sound.play();
+    this.sound.play();
 
     this.index = index;
   }
 
   pause() {
-    var sound = this.songs[this.index].howl;
+    this.sound.pause();
+    songPlaying.set(false);
+  }
 
-    sound.pause();
+  resume(){
+    this.sound.play();
+    songPlaying.set(true);
+  }
+
+  previous(){
+    if(this.sound){
+      if(this.sound.seek() >= 3){
+        this.play();
+        return;
+      }
+
+      if(this.index > 0){
+        this.index--;
+      }
+      this.play();
+    }
+  }
+
+  next(){
+    if(this.index === this.songs.length - 1){
+      this.index = 0;
+      this.play();
+      return;
+    }
+    this.index++;
+    this.play();
   }
 }
