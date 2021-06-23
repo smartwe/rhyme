@@ -2,8 +2,9 @@ const { Howl, Howler } = require("howler");
 const storage = require("electron-json-storage");
 import { currentSong, songPlaying, repeat, shuffle } from "../store";
 import { get } from "svelte/store";
+const Events = require("events");
 
-export default class Player {
+export default class Player extends Events {
   index: number = 0;
   songs = [];
   sound: typeof Howl;
@@ -11,32 +12,28 @@ export default class Player {
   randomNum = 0;
 
   constructor(songs: object[]) {
+    super();
     this.songs = songs;
     this.play();
-    this.randomArr = this.randomize(
-      Array.from({ length: this.songs.length }, (_, i) => i)
-    );
+    this.randomArr = this.randomize(Array.from({ length: this.songs.length }, (_, i) => i));
   }
 
   play(index?: number) {
-    if (!get(repeat)) {
-      if (get(shuffle)) {
-        this.randomNum += 1;
-        if (this.randomNum >= this.randomArr.length) {
-          this.randomNum = 0;
-        }
-        index = this.randomArr[this.randomNum];
+    if (get(shuffle)) {
+      this.randomNum += 1;
+      if (this.randomNum >= this.randomArr.length) {
+        this.randomNum = 0;
       }
-
-      index = index || this.index;
+      index = this.randomArr[this.randomNum];
     }
 
-    index = this.index;
+    index = index || this.index;
 
     let data = this.songs[index];
     if (this.sound) {
       this.sound.pause();
     }
+    let self = this;
     this.sound = new Howl({
       src: [data.file],
       html5: true,
@@ -45,11 +42,13 @@ export default class Player {
         songPlaying.set(true);
       },
       onend: function () {
-        this.next();
+        self.next();
       },
     });
 
     this.sound.play();
+
+    this.seek();
 
     this.index = index;
   }
@@ -79,6 +78,11 @@ export default class Player {
   }
 
   next() {
+    if (get(repeat)) {
+      this.play();
+      return;
+    }
+
     if (this.index === this.songs.length - 1) {
       this.index = 0;
       this.play();
@@ -95,5 +99,14 @@ export default class Player {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+  }
+  formatTime(secs) {
+    var minutes = Math.floor(secs / 60) || 0;
+    var seconds = secs - minutes * 60 || 0;
+    return (minutes + ":" + (seconds < 10 ? "0" : "") + seconds).split(".")[0];
+  }
+  seek() {
+    this.emit("seek");
+    requestAnimationFrame(this.seek.bind(this));
   }
 }

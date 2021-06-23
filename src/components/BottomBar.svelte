@@ -1,30 +1,31 @@
 <script lang="ts">
-  import {
-    songsPlayer,
-    settings,
-    currentSong,
-    songPlaying,
-    shuffle,
-    repeat,
-  } from "../store";
-  import {
-    PauseCircleFilled,
-    PlayCircleFilled,
-    SkipPrevious,
-    SkipNext,
-    Repeat,
-    Shuffle,
-  } from "rhyme-icons";
+  import { songsPlayer, settings, currentSong, songPlaying, shuffle, repeat, volume } from "../store";
+  import { PauseCircleFilled, PlayCircleFilled, SkipPrevious, SkipNext, Repeat, Shuffle, VolumeOff, VolumeUp } from "rhyme-icons";
+  import SeekBar from "../controls/SeekBar.svelte";
+
+  let currentTime = "";
+  let duration = "";
+
+  let barSize = {};
+
+  songsPlayer.subscribe((val) => {
+    if (val) {
+      $songsPlayer.on("seek", () => {
+        let songDuration = $songsPlayer.sound.duration();
+        let seek = $songsPlayer.sound.seek();
+        barSize["size"] = songDuration;
+        barSize["current"] = seek;
+        duration = $songsPlayer.formatTime(songDuration);
+        currentTime = $songsPlayer.formatTime(seek);
+      });
+    }
+  });
 </script>
 
 {#if $currentSong}
   <main class:dark={$settings["useDarkTheme"]}>
     <div class="song-info">
-      <img
-        src={$currentSong["imgSrc"]}
-        style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}"
-        alt=""
-      />
+      <img src={$currentSong["imgSrc"]} style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}" alt="" />
       <div class="titles">
         <span><p>{$currentSong["song"]}</p></span>
         <p>{$currentSong["artist"]}</p>
@@ -32,79 +33,82 @@
     </div>
     <div class="controls-seekbar">
       <div class="controls">
-        <div
-          on:click={() => {
-            shuffle.set(!$shuffle);
-          }}
-        >
-          <Shuffle
-            fill={$shuffle
-              ? "#ef005f"
-              : $settings["useDarkTheme"]
-              ? "#d2d2d2"
-              : "#5c5c5c"}
-          />
+        <div class="buttons">
+          <div
+            on:click={() => {
+              shuffle.set(!$shuffle);
+            }}
+          >
+            <Shuffle fill={$shuffle ? "#ef005f" : $settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+          </div>
+          <div
+            on:click={() => {
+              $songsPlayer.previous();
+            }}
+          >
+            <SkipPrevious size="28" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+          </div>
+          <div class="play-pause">
+            {#if !$songPlaying}
+              <div
+                on:click={() => {
+                  $songsPlayer.resume();
+                }}
+              >
+                <PlayCircleFilled size="36" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+              </div>
+            {:else}
+              <div
+                on:click={() => {
+                  $songsPlayer.pause();
+                }}
+              >
+                <PauseCircleFilled size="36" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+              </div>
+            {/if}
+          </div>
+          <div
+            on:click={() => {
+              $songsPlayer.next();
+            }}
+          >
+            <SkipNext size="28" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+          </div>
+          <div
+            on:click={() => {
+              repeat.set(!$repeat);
+            }}
+          >
+            <Repeat fill={$repeat ? "#ef005f" : $settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+          </div>
         </div>
-        <div
-          on:click={() => {
-            $songsPlayer.previous();
-          }}
-        >
-          <SkipPrevious
-            size="28"
-            fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-          />
-        </div>
-        <div class="play-pause">
-          {#if !$songPlaying}
+        <div class="volume">
+          {#if $volume === 0}
             <div
               on:click={() => {
-                $songsPlayer.resume();
+                volume.set(1);
               }}
             >
-              <PlayCircleFilled
-                size="36"
-                fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-              />
+              <VolumeOff />
             </div>
           {:else}
             <div
               on:click={() => {
-                $songsPlayer.pause();
+                volume.set(0);
               }}
             >
-              <PauseCircleFilled
-                size="36"
-                fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-              />
+              <VolumeUp />
             </div>
           {/if}
-        </div>
-        <div
-          on:click={() => {
-            $songsPlayer.next();
-          }}
-        >
-          <SkipNext
-            size="28"
-            fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-          />
-        </div>
-        <div
-          on:click={() => {
-            repeat.set(!$repeat);
-          }}
-        >
-          <Repeat
-            fill={$repeat
-              ? "#ef005f"
-              : $settings["useDarkTheme"]
-              ? "#d2d2d2"
-              : "#5c5c5c"}
-          />
+          <SeekBar width="100px" height="5px" bind:currentSize={$volume} fullSize={1} />
+          {($volume * 100).toFixed()}
         </div>
       </div>
-      <div class="seekbar" />
+      <div class="seekbar">
+        {currentTime}
+        <SeekBar bind:fullSize={barSize["size"]} bind:currentSize={barSize["current"]} isSeekBar={true} />
+        {duration}
+      </div>
     </div>
   </main>
 {/if}
@@ -124,15 +128,40 @@
     .controls {
       display: flex;
       align-items: center;
-      gap: 10px;
       * {
         display: flex;
+      }
+
+      .buttons {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        div {
+          cursor: pointer;
+        }
       }
     }
     .controls-seekbar {
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      gap: 5px;
+      .seekbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0px 15px;
+        font-size: 0.8em;
+      }
+      .volume {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8em;
+        padding-right: 15px;
+      }
     }
 
     .song-info {
@@ -165,5 +194,6 @@
     .song-info > .titles > span > p {
       color: white;
     }
+    color: white;
   }
 </style>
