@@ -24,6 +24,7 @@ A beautiful looking music player which supports
 - view albums
 - view artists
 - AI to control your app speechly
+- Tray Icon to control your app if you close the window the AI will work too
 - Settings page to make the app work the way you want
 - More are coming
 
