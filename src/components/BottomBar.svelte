@@ -1,23 +1,6 @@
 <script lang="ts">
-  import {
-    songsPlayer,
-    settings,
-    currentSong,
-    songPlaying,
-    shuffle,
-    repeat,
-    volume,
-  } from "../store";
-  import {
-    PauseCircleFilled,
-    PlayCircleFilled,
-    SkipPrevious,
-    SkipNext,
-    Repeat,
-    Shuffle,
-    VolumeOff,
-    VolumeUp,
-  } from "rhyme-icons";
+  import { songsPlayer, settings, currentSong, songPlaying, shuffle, repeat, volume } from "../store";
+  import { PauseCircleFilled, PlayCircleFilled, SkipPrevious, SkipNext, Repeat, Shuffle, VolumeOff, VolumeUp } from "rhyme-icons";
   import SeekBar from "../controls/SeekBar.svelte";
 
   let currentTime = "";
@@ -35,18 +18,53 @@
         duration = $songsPlayer.formatTime(songDuration);
         currentTime = $songsPlayer.formatTime(seek);
       });
+      document.body.addEventListener("keydown", keyDown);
     }
   });
+
+  function keyDown(event) {
+    switch (event.key) {
+      case "ArrowRight":
+        $songsPlayer.sound.seek($songsPlayer.sound.seek() + 5);
+        break;
+      case "ArrowLeft":
+        $songsPlayer.sound.seek($songsPlayer.sound.seek() - 5);
+        break;
+      case "ArrowUp":
+        if ($volume !== 1) {
+          $volume += 0.02;
+        }
+        break;
+      case "ArrowDown":
+        if ($volume > 0) {
+          $volume -= 0.02;
+        }
+        break;
+      case " ":
+        if ($songPlaying) {
+          $songsPlayer.pause();
+        } else {
+          $songsPlayer.resume();
+        }
+        break;
+      case "Home":
+        if ($songsPlayer.sound.seek() <= 5) {
+          $songsPlayer.previous();
+        } else {
+          $songsPlayer.sound.seek(0);
+        }
+        break;
+      case "End":
+        $songsPlayer.next();
+        break;
+    }
+  }
 </script>
 
 {#if $currentSong}
   <main class:dark={$settings["useDarkTheme"]}>
     <div class="song-info">
-      <img
-        src={$currentSong["imgSrc"]}
-        style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}"
-        alt=""
-      />
+      <img src={$currentSong["imgSrc"]} style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}" alt="" />
       <div class="titles">
         <span><p>{$currentSong["song"]}</p></span>
         <p>{$currentSong["artist"]}</p>
@@ -60,23 +78,14 @@
               shuffle.set(!$shuffle);
             }}
           >
-            <Shuffle
-              fill={$shuffle
-                ? "#ef005f"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
-            />
+            <Shuffle fill={$shuffle ? "#ef005f" : $settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
           </div>
           <div
             on:click={() => {
               $songsPlayer.previous();
             }}
           >
-            <SkipPrevious
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipPrevious size="28" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
           </div>
           <div class="play-pause">
             {#if !$songPlaying}
@@ -85,10 +94,7 @@
                   $songsPlayer.resume();
                 }}
               >
-                <PlayCircleFilled
-                  size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-                />
+                <PlayCircleFilled size="36" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
               </div>
             {:else}
               <div
@@ -96,10 +102,7 @@
                   $songsPlayer.pause();
                 }}
               >
-                <PauseCircleFilled
-                  size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-                />
+                <PauseCircleFilled size="36" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
               </div>
             {/if}
           </div>
@@ -108,23 +111,14 @@
               $songsPlayer.next();
             }}
           >
-            <SkipNext
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipNext size="28" fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
           </div>
           <div
             on:click={() => {
               repeat.set(!$repeat);
             }}
           >
-            <Repeat
-              fill={$repeat
-                ? "#ef005f"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
-            />
+            <Repeat fill={$repeat ? "#ef005f" : $settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
           </div>
         </div>
         <div class="volume">
@@ -145,22 +139,13 @@
               <VolumeUp />
             </div>
           {/if}
-          <SeekBar
-            width="100px"
-            height="5px"
-            bind:currentSize={$volume}
-            fullSize={1}
-          />
-          {($volume * 100).toFixed()}
+          <SeekBar width="100px" height="5px" bind:currentSize={$volume} fullSize={1} />
+          {($volume * 100).toFixed().replace("-", "")}
         </div>
       </div>
       <div class="seekbar">
         {currentTime}
-        <SeekBar
-          bind:fullSize={barSize["size"]}
-          bind:currentSize={barSize["current"]}
-          isSeekBar={true}
-        />
+        <SeekBar bind:fullSize={barSize["size"]} bind:currentSize={barSize["current"]} isSeekBar={true} />
         {duration}
       </div>
     </div>

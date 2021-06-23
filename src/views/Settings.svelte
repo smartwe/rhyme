@@ -29,12 +29,7 @@
         <br />
         <p>You will need to restart the app to view changes</p>
       </span>
-      <PathChooser
-        bind:folderPath
-        defaultPath={$settings["musicPath"]}
-        title="Choose the folder containing your music"
-        onEnd={changeMusicDir}
-      />
+      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
     </li>
   </ul>
   <h2>Appeareance</h2>
@@ -43,6 +38,22 @@
       <span>Prefer dark theme</span>
       <Toggle bind:checked={useDarkTheme} clickEvent={toggleTheme} />
     </li>
+  </ul>
+  <h2>Keystrokes</h2>
+  <ul>
+    <li>Space <span>Pause/Resume song</span></li>
+    <br />
+    <li>Home <span>Go to the start of song if the song is at the start go to previous song</span></li>
+    <br />
+    <li>End <span>Next song</span></li>
+    <br />
+    <li>Arrow Down <span>Decrease volume</span></li>
+    <br />
+    <li>Arrow Up <span>Increase volume</span></li>
+    <br />
+    <li>Arrow Left <span>Go 5 sec back</span></li>
+    <br />
+    <li>Arrow Right <span>Go forward 5 sec</span></li>
   </ul>
 </main>
 
