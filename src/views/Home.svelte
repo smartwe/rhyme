@@ -11,7 +11,12 @@
     <h2 style="margin-top:15px;font-weight:500">Recently Played</h2>
     <div class="recentlyPlayed">
       {#each $recentlyPlayed as song}
-        <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} normalSong={false} />
+        <SongItem
+          artistName={song["artist"]}
+          songName={song["song"]}
+          imgSrc={song["imgSrc"]}
+          normalSong={false}
+        />
       {/each}
     </div>
   {/if}
@@ -19,10 +24,18 @@
     {#each $songs as song}
       {#if searchVal !== ""}
         {#if song["artist"].includes(searchVal) || song["song"].includes(searchVal)}
-          <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
+          <SongItem
+            artistName={song["artist"]}
+            songName={song["song"]}
+            imgSrc={song["imgSrc"]}
+          />
         {/if}
       {:else}
-        <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
+        <SongItem
+          artistName={song["artist"]}
+          songName={song["song"]}
+          imgSrc={song["imgSrc"]}
+        />
       {/if}
     {/each}
   </div>
