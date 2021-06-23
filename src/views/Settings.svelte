@@ -37,6 +37,7 @@
       />
     </li>
   </ul>
+  <br />
   <h2>Appeareance</h2>
   <ul>
     <li>
@@ -44,6 +45,7 @@
       <Toggle bind:checked={useDarkTheme} clickEvent={toggleTheme} />
     </li>
   </ul>
+  <br />
   <h2>Keystrokes</h2>
   <ul>
     <li>Space <span>Pause/Resume song</span></li>
@@ -85,6 +87,7 @@
 
   li {
     display: flex;
+    padding-left: 20px;
     justify-content: space-between;
     align-items: center;
     gap: 5px;

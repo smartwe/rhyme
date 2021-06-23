@@ -173,7 +173,7 @@
                 volume.set(1);
               }}
             >
-              <VolumeOff />
+              <VolumeOff fill={$settings["useDarkTheme"] ? "white" : "black"} />
             </div>
           {:else}
             <div
@@ -181,7 +181,7 @@
                 volume.set(0);
               }}
             >
-              <VolumeUp />
+              <VolumeUp fill={$settings["useDarkTheme"] ? "white" : "black"} />
             </div>
           {/if}
           <SeekBar
@@ -261,13 +261,17 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      overflow-x: visible;
+
       p {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        max-width: 150px;
         color: #818181;
         font-size: 0.8em;
+        width: 120px;
+        flex-shrink: 0;
+        flex-grow: 0;
       }
       span > p {
         font-size: 0.9em;

@@ -32,7 +32,7 @@ export default class Player extends Events {
   }
 
   start(index: number) {
-    index = index || this.index;
+    index = index ?? this.index;
 
     let data = this.songs[index];
     if (this.sound) {
