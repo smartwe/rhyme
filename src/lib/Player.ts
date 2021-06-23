@@ -1,16 +1,9 @@
 const { Howl } = require("howler");
 const storage = require("electron-json-storage");
-import {
-  currentSong,
-  songPlaying,
-  repeat,
-  shuffle,
-  volume,
-  recentlyPlayed,
-} from "../store";
+import { currentSong, songPlaying, repeat, shuffle, volume, recentlyPlayed } from "../store";
 import { get } from "svelte/store";
 const Events = require("events");
-
+const ipcRenderer = require("electron").ipcRenderer;
 export default class Player extends Events {
   index: number = 0;
   songs = [];
@@ -22,9 +15,20 @@ export default class Player extends Events {
     super();
     this.songs = songs;
     this.play();
-    this.randomArr = this.randomize(
-      Array.from({ length: this.songs.length }, (_, i) => i)
-    );
+    this.randomArr = this.randomize(Array.from({ length: this.songs.length }, (_, i) => i));
+    ipcRenderer.on("play/pause", () => {
+      if (get(songPlaying)) {
+        this.pause();
+      } else {
+        this.resume();
+      }
+    });
+    ipcRenderer.on("next", () => {
+      this.next();
+    });
+    ipcRenderer.on("previous", () => {
+      this.previous();
+    });
   }
 
   play(index?: number) {
@@ -35,10 +39,7 @@ export default class Player extends Events {
           this.randomNum = 0;
         }
         index = this.randomArr[this.randomNum];
-        if (
-          this.containsObject(this.songs[index], get(recentlyPlayed)) &&
-          this.songs.length >= 13
-        ) {
+        if (this.containsObject(this.songs[index], get(recentlyPlayed)) && this.songs.length >= 13) {
           randomizedNum();
         }
       };
@@ -49,10 +50,7 @@ export default class Player extends Events {
 
   containsObject(obj: object, list: object[]): boolean {
     for (let i in list) {
-      if (
-        list[i]["song"] === obj["song"] &&
-        list[i]["artist"] === obj["artist"]
-      ) {
+      if (list[i]["song"] === obj["song"] && list[i]["artist"] === obj["artist"]) {
         return true;
       }
     }
@@ -82,6 +80,7 @@ export default class Player extends Events {
         }
         recentlyPlayed.set(newArray);
         this.volume(get(volume));
+        ipcRenderer.send("notification", `${data["song"]} • ${data["artist"]}`);
       },
       onend: function () {
         self.next();
