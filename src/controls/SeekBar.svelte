@@ -7,13 +7,19 @@
   export let isSeekBar = false;
   function onClick(event: any) {
     if (event.target.firstChild) {
-      currentSize = ((event.x - event.target.firstChild.offsetLeft) / event.target.clientWidth) * fullSize;
+      currentSize =
+        ((event.x - event.target.firstChild.offsetLeft) /
+          event.target.clientWidth) *
+        fullSize;
       if (isSeekBar) {
         $songsPlayer.sound.seek(currentSize);
       }
       return;
     }
-    currentSize = ((event.x - event.target.offsetLeft) / event.target.parentNode.clientWidth) * fullSize;
+    currentSize =
+      ((event.x - event.target.offsetLeft) /
+        event.target.parentNode.clientWidth) *
+      fullSize;
     if (isSeekBar) {
       $songsPlayer.sound.seek(currentSize);
     }
