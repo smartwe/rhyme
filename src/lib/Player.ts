@@ -1,11 +1,11 @@
-const { Howl, Howler } = require("howler");
+const { Howl } = require("howler");
 const storage = require("electron-json-storage");
 import {
   currentSong,
   songPlaying,
   repeat,
   shuffle,
-  settings,
+  volume,
   recentlyPlayed,
 } from "../store";
 import { get } from "svelte/store";
@@ -81,6 +81,7 @@ export default class Player extends Events {
           newArray.push(data);
         }
         recentlyPlayed.set(newArray);
+        this.volume(get(volume));
       },
       onend: function () {
         self.next();
