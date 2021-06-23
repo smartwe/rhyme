@@ -5,20 +5,10 @@
   export let normalSong = true;
   import { settings, songsPlayer } from "../store";
   import { PlayCircleFilled } from "rhyme-icons";
-  let mainBG = $settings["useDarkTheme"]
-    ? normalSong
-      ? "#121212"
-      : "black"
-    : normalSong
-    ? "#ededed"
-    : "white";
+  let mainBG = $settings["useDarkTheme"] ? (normalSong ? "#121212" : "black") : normalSong ? "#ededed" : "white";
   const onClick = () => {
     let index = $songsPlayer.songs.findIndex((song) => {
-      if (
-        song["song"] === songName &&
-        song["artist"] === artistName &&
-        song["imgSrc"] === imgSrc
-      ) {
+      if (song["song"] === songName && song["artist"] === artistName && song["imgSrc"] === imgSrc) {
         return true;
       }
     });
@@ -26,11 +16,7 @@
   };
 </script>
 
-<main
-  class:dark={$settings["useDarkTheme"]}
-  style="background-color: {mainBG}"
-  on:click={onClick}
->
+<main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}" on:click={onClick}>
   <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   <div class="hover">
@@ -57,6 +43,7 @@
   }
   main {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     border-radius: 8px;
     width: 140px;

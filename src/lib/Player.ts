@@ -1,6 +1,6 @@
 const { Howl, Howler } = require("howler");
 const storage = require("electron-json-storage");
-import { currentSong, songPlaying, repeat, shuffle } from "../store";
+import { currentSong, songPlaying, repeat, shuffle, settings, recentlyPlayed } from "../store";
 import { get } from "svelte/store";
 const Events = require("events");
 
@@ -15,9 +15,7 @@ export default class Player extends Events {
     super();
     this.songs = songs;
     this.play();
-    this.randomArr = this.randomize(
-      Array.from({ length: this.songs.length }, (_, i) => i)
-    );
+    this.randomArr = this.randomize(Array.from({ length: this.songs.length }, (_, i) => i));
   }
 
   play(index?: number) {
@@ -45,6 +43,22 @@ export default class Player extends Events {
       onplay: function () {
         currentSong.set(data);
         songPlaying.set(true);
+        let newArray = get(recentlyPlayed);
+        if (newArray.length > 12) {
+          newArray.shift();
+        }
+        let containsObject = (obj, list) => {
+          for (let i in list) {
+            if (list[i]["song"] === obj["song"] && list[i]["artist"] === obj["artist"]) {
+              return true;
+            }
+          }
+          return false;
+        };
+        if (!containsObject(data, newArray)) {
+          newArray.push(data);
+        }
+        recentlyPlayed.set(newArray);
       },
       onend: function () {
         self.next();
