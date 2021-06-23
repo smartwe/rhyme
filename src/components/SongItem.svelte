@@ -3,19 +3,26 @@
   export let songName: string;
   export let imgSrc: string;
   export let normalSong = true;
-  import { settings } from "../store";
-  let mainBG = $settings["useDarkTheme"]
-    ? normalSong
-      ? "#121212"
-      : "black"
-    : normalSong
-    ? "#ededed"
-    : "white";
+  import { settings, songsPlayer } from "../store";
+  import { PlayCircleFilled } from "rhyme-icons";
+  let mainBG = $settings["useDarkTheme"] ? (normalSong ? "#121212" : "black") : normalSong ? "#ededed" : "white";
+  const onClick = () => {
+    let index = $songsPlayer.songs.findIndex((song) => {
+      console.log(song);
+      if (song["song"] === songName && song["artist"] === artistName && song["imgSrc"] === imgSrc) {
+        return true;
+      }
+    });
+    $songsPlayer.start(index);
+  };
 </script>
 
-<main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}">
+<main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}" on:click={onClick}>
   <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
+  <div class="hover">
+    <PlayCircleFilled fill="#ef005f" size="50" />
+  </div>
   <div class="titles">
     <h4>{songName}</h4>
     <p>{artistName}</p>
@@ -24,6 +31,17 @@
 
 <style lang="scss">
   @import "../variables";
+  .hover {
+    display: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translateY(-22%);
+    background-color: #1212125c;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
   main {
     display: flex;
     flex-direction: column;
@@ -32,7 +50,9 @@
     height: 180px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     gap: 6px;
+    position: relative;
     img {
       width: 100px;
       height: 100px;
@@ -55,6 +75,12 @@
     h4 {
       font-weight: normal;
       font-size: 1em;
+    }
+  }
+
+  main:hover {
+    .hover {
+      display: flex;
     }
   }
   .dark {

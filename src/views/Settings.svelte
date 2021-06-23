@@ -29,12 +29,7 @@
         <br />
         <p>You will need to restart the app to view changes</p>
       </span>
-      <PathChooser
-        bind:folderPath
-        defaultPath={$settings["musicPath"]}
-        title="Choose the folder containing your music"
-        onEnd={changeMusicDir}
-      />
+      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
     </li>
   </ul>
   <h2>Appeareance</h2>
@@ -49,9 +44,7 @@
     <li>Space <span>Pause/Resume song</span></li>
     <br />
     <li>
-      Home <span
-        >Go to the start of song if the song is at the start go to previous song</span
-      >
+      Home <span>Go to the start of song if the song is at the start go to previous song</span>
     </li>
     <br />
     <li>End <span>Next song</span></li>
@@ -69,6 +62,9 @@
 <style lang="scss">
   @import "../variables";
   main {
+    * {
+      flex-shrink: 0;
+    }
     display: flex;
     flex-direction: column;
     padding: 1em;
@@ -84,7 +80,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     span > p {
       font-size: 0.7em;
       color: black;

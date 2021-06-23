@@ -15,9 +15,7 @@ export default class Player extends Events {
     super();
     this.songs = songs;
     this.play();
-    this.randomArr = this.randomize(
-      Array.from({ length: this.songs.length }, (_, i) => i)
-    );
+    this.randomArr = this.randomize(Array.from({ length: this.songs.length }, (_, i) => i));
   }
 
   play(index?: number) {
@@ -28,7 +26,10 @@ export default class Player extends Events {
       }
       index = this.randomArr[this.randomNum];
     }
+    this.start(index);
+  }
 
+  start(index: number) {
     index = index || this.index;
 
     let data = this.songs[index];
