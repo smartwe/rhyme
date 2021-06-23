@@ -54,6 +54,7 @@
   @import "../variables";
   div {
     background-color: $pink;
+    transition: 0.16s;
   }
 
   main {
