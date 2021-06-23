@@ -28,14 +28,35 @@ export default class Player extends Events {
   }
 
   play(index?: number) {
-    if (get(shuffle)) {
-      this.randomNum += 1;
-      if (this.randomNum >= this.randomArr.length) {
-        this.randomNum = 0;
-      }
-      index = this.randomArr[this.randomNum];
+    if (get(shuffle) && index !== this.index - 1) {
+      let randomizedNum = () => {
+        this.randomNum += 1;
+        if (this.randomNum >= this.randomArr.length) {
+          this.randomNum = 0;
+        }
+        index = this.randomArr[this.randomNum];
+        if (
+          this.containsObject(this.songs[index], get(recentlyPlayed)) &&
+          this.songs.length >= 13
+        ) {
+          randomizedNum();
+        }
+      };
+      randomizedNum();
     }
     this.start(index);
+  }
+
+  containsObject(obj: object, list: object[]): boolean {
+    for (let i in list) {
+      if (
+        list[i]["song"] === obj["song"] &&
+        list[i]["artist"] === obj["artist"]
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
   start(index: number) {
@@ -56,18 +77,7 @@ export default class Player extends Events {
         if (newArray.length > 12) {
           newArray.shift();
         }
-        let containsObject = (obj, list) => {
-          for (let i in list) {
-            if (
-              list[i]["song"] === obj["song"] &&
-              list[i]["artist"] === obj["artist"]
-            ) {
-              return true;
-            }
-          }
-          return false;
-        };
-        if (!containsObject(data, newArray)) {
+        if (!self.containsObject(data, newArray)) {
           newArray.push(data);
         }
         recentlyPlayed.set(newArray);
@@ -101,10 +111,12 @@ export default class Player extends Events {
         return;
       }
 
+      let index = this.index;
+
       if (this.index > 0) {
-        this.index--;
+        index--;
       }
-      this.play();
+      this.play(index);
     }
   }
 
@@ -124,7 +136,7 @@ export default class Player extends Events {
     this.play();
   }
 
-  randomize(array) {
+  randomize(array: any[]) {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
