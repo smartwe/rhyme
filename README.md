@@ -6,6 +6,7 @@
   <h1 align="center">Rhyme</h1>
   <h3 align="center">
     The #1 Open-Source Music Player
+  <img src="https://user-images.githubusercontent.com/77546233/123345142-ba54fb00-d555-11eb-97a3-9678da9d3457.png"/>
   </h3>
 <h3 align="center">
 Discord: <img src ="https://img.shields.io/discord/848185747319816212">
