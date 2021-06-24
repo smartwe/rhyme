@@ -101,7 +101,9 @@
           >
             <Shuffle
               fill={$shuffle
-                ? "#ef005f"
+                ? $settings["useDarkTheme"]
+                  ? "#ef005f"
+                  : "#df0058"
                 : $settings["useDarkTheme"]
                 ? "#d2d2d2"
                 : "#5c5c5c"}
@@ -159,7 +161,9 @@
           >
             <Repeat
               fill={$repeat
-                ? "#ef005f"
+                ? $settings["useDarkTheme"]
+                  ? "#ef005f"
+                  : "#df0058"
                 : $settings["useDarkTheme"]
                 ? "#d2d2d2"
                 : "#5c5c5c"}
@@ -260,8 +264,11 @@
     .song-info {
       display: flex;
       align-items: center;
-      gap: 15px;
       overflow-x: visible;
+
+      .titles {
+        padding-left: 15px;
+      }
 
       p {
         text-overflow: ellipsis;

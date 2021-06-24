@@ -7,7 +7,7 @@
 
 <main id="home" class:dark={$settings["useDarkTheme"]}>
   <SearchBar bind:searchVal />
-  {#if $recentlyPlayed}
+  {#if $recentlyPlayed && searchVal === ""}
     <h2 style="margin-top:15px;font-weight:500">Recently Played</h2>
     <div class="recentlyPlayed">
       {#each $recentlyPlayed as song}

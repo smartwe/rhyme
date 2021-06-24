@@ -18,6 +18,7 @@
     border-radius: 12px;
     position: relative;
     background-color: $light_gray_theme_light;
+    cursor: pointer;
   }
   main::before {
     transition: 0.4s;
@@ -29,7 +30,6 @@
     position: absolute;
     left: 3px;
     top: 3px;
-    cursor: pointer;
   }
   main.dark {
     background-color: $light_gray_theme_dark;
