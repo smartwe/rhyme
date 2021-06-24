@@ -55,7 +55,7 @@
         "deb",
         "rpm"
       ],
-      "category": "Utility",
+      "category": "Audio",
       "maintainer": "The Rhyme Project",
       "icon": "icons/linux"
     },
@@ -79,7 +79,7 @@
     "node-sass": "^6.0.0",
     "prettier": "^2.3.1",
     "prettier-plugin-svelte": "^2.3.0",
-    "rhyme-icons": "^1.1.5",
+    "rhyme-icons": "^1.1.9",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
