@@ -6,7 +6,6 @@ const {
   app,
   ipcMain,
   globalShortcut,
-  systemPreferences,
 } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
@@ -140,7 +139,7 @@ app.on("ready", () => {
     if (!hasKey) {
       let settings = {
         musicPath: app.getPath("music"),
-        useDarkTheme: systemPreferences.isDarkMode(),
+        useDarkTheme: true,
         heyRhymeActivate: false,
       };
 
