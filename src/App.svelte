@@ -6,11 +6,13 @@
   import RhymeAI from "./views/RhymeAI.svelte";
   import Playlists from "./views/Playlists.svelte";
   import Settings from "./views/Settings.svelte";
+  import Albums from "./views/Albums.svelte";
   const routes = {
     "/": Home,
     "/rhyme-ai": RhymeAI,
     "/settings": Settings,
     "/playlists": Playlists,
+    "/albums": Albums,
   };
 
   const fs = require("fs");

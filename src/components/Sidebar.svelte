@@ -7,6 +7,8 @@
     AddPlaylist,
     SettingsFilled,
     SettingsOutlined,
+    AlbumFilled,
+    AlbumOutlined,
   } from "rhyme-icons";
   import { location } from "svelte-spa-router";
   import { settings } from "../store";
@@ -23,6 +25,17 @@
         />
       {/if}
       Home
+    </a>
+
+    <a href="#/albums" class:active={$location === "/albums"}>
+      {#if $location === "/albums"}
+        <AlbumFilled fill="white" />
+      {:else}
+        <AlbumOutlined
+          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+        />
+      {/if}
+      Albums
     </a>
 
     <a href="#/playlists" class:active={$location === "/playlists"}>
