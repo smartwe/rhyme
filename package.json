@@ -3,7 +3,7 @@
   "productName": "Rhyme",
   "description": "The #1 cross-platform open source music player and streamer.",
   "author": "The Rhyme Project",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": false,
   "main": "electron.js",
   "scripts": {
