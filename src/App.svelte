@@ -18,7 +18,7 @@
   import fs from "fs";
   import path from "path";
   import mm from "music-metadata";
-  import chokidar = from "chokidar";
+  import chokidar from "chokidar";
   let dirWatcher = chokidar.watch($settings["musicPath"], {
     ignored: /[\/\\]\./,
     persistent: true,
