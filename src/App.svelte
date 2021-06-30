@@ -15,10 +15,10 @@
     "/albums": Albums,
   };
 
-  const fs = require("fs");
-  const path = require("path");
-  const mm = require("music-metadata");
-  const chokidar = require("chokidar");
+  import fs from "fs";
+  import path from "path";
+  import mm from "music-metadata";
+  import chokidar = from "chokidar";
   let dirWatcher = chokidar.watch($settings["musicPath"], {
     ignored: /[\/\\]\./,
     persistent: true,

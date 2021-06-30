@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 import type Player from "./lib/Player";
-const storage = require("electron-json-storage");
+import storage from "electron-json-storage";
 
 export const settings = writable<object>(storage.getSync("settings"));
 settings.subscribe((value) => {

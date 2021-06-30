@@ -7,7 +7,7 @@
 
 <main id="home" class:dark={$settings["useDarkTheme"]}>
   <SearchBar bind:searchVal />
-  {#if $recentlyPlayed && searchVal === ""}
+  {#if $recentlyPlayed.length > 0 && searchVal === ""}
     <h2 style="margin-top:15px;font-weight:500">Recently Played</h2>
     <div class="recentlyPlayed">
       {#each $recentlyPlayed as song}
@@ -23,7 +23,7 @@
   <div class="songs">
     {#each $songs as song}
       {#if searchVal !== ""}
-        {#if song["artist"].includes(searchVal) || song["song"].includes(searchVal)}
+        {#if song["artist"].toLowerCase().includes(searchVal.toLowerCase()) || song["song"].toLowerCase().includes(searchVal.toLowerCase())}
           <SongItem
             artistName={song["artist"]}
             songName={song["song"]}

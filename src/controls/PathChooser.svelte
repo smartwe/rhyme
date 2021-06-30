@@ -3,7 +3,7 @@
   export let title = "";
   export let defaultPath = "";
   export let onEnd = () => {};
-  const remote = require("electron").remote;
+  import {remote} from "electron";
   import { settings } from "../store";
   function openDialog() {
     remote.dialog
