@@ -3,7 +3,7 @@
   import Toggle from "../controls/Toggle.svelte";
   import { settings } from "../store";
 
-  import storage from "electron-json-storage";
+  const storage = require("electron-json-storage");
 
   let useDarkTheme = $settings["useDarkTheme"];
   function toggleTheme() {

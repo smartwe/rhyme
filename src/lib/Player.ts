@@ -1,6 +1,5 @@
-import { Howl } from "howler";
-import fs from "fs";
-import storage from "electron-json-storage";
+const { Howl } = require("howler");
+const storage = require("electron-json-storage");
 import {
   currentSong,
   songPlaying,
@@ -10,8 +9,8 @@ import {
   recentlyPlayed,
 } from "../store";
 import { get } from "svelte/store";
-import Events from "events";
-import {ipcRenderer} from "electron";
+const Events = require("events");
+const ipcRenderer = require("electron").ipcRenderer;
 export default class Player extends Events {
   index: number = 0;
   songs = [];
