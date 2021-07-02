@@ -2,44 +2,9 @@
   import AlbumItem from "../components/AlbumItem.svelte";
   import { settings, songs, albumsList } from "../store";
   import SearchBar from "../controls/SearchBar.svelte";
-  let albums: object[] = [];
+  $: albums = $albumsList;
   let searchVal = "";
 
-  function albumExists(song): boolean {
-    let exists = false;
-    albums.forEach((album) => {
-      if (album["name"] == song["album"]) {
-        exists = true;
-      }
-    });
-    return exists;
-  }
-
-  songs.subscribe((value) => {
-    albums = [];
-    for (let i = 0; i < value.length; i++) {
-      const song = value[i];
-
-      if (albumExists(song)) {
-        for (let i = 0; i < albums.length; i++) {
-          const element = albums[i];
-          if (song["album"] === element["name"]) {
-            element["songs"].push(song);
-            albums[i] = element;
-            break;
-          }
-        }
-        continue;
-      }
-
-      albums.push({
-        name: song["album"],
-        songs: [song],
-      });
-    }
-    albums = albums;
-    albumsList.set(albums);
-  });
   import { onMount } from "svelte";
   import Scrollbar from "smooth-scrollbar";
   onMount(() => {

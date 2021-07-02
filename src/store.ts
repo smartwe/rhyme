@@ -9,7 +9,41 @@ settings.subscribe((value) => {
   });
 });
 export const songs = writable<object[]>([]);
+
 export const albumsList = writable<object[]>([]);
+function albumExists(song, albums): boolean {
+  let exists = false;
+  albums.forEach((album) => {
+    if (album["name"] == song["album"]) {
+      exists = true;
+    }
+  });
+  return exists;
+}
+songs.subscribe((value) => {
+  let albums = [];
+  for (let i = 0; i < value.length; i++) {
+    const song = value[i];
+
+    if (albumExists(song, albums)) {
+      for (let i = 0; i < albums.length; i++) {
+        const element = albums[i];
+        if (song["album"] === element["name"]) {
+          element["songs"].push(song);
+          albums[i] = element;
+          break;
+        }
+      }
+      continue;
+    }
+
+    albums.push({
+      name: song["album"],
+      songs: [song],
+    });
+  }
+  albumsList.set(albums);
+});
 export const songsPlayer = writable<Player>(null);
 export const songPlaying = writable<boolean>(null);
 export const repeat = writable<boolean>(null);
