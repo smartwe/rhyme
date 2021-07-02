@@ -46,6 +46,10 @@
       "target": [
         "dmg",
         "pkg"
+      ],
+      "arch": [
+        "x64",
+        "ia32"
       ]
     },
     "linux": {
@@ -54,6 +58,10 @@
         "snap",
         "deb",
         "rpm"
+      ],
+      "arch": [
+        "x64",
+        "ia32"
       ],
       "category": "Audio",
       "maintainer": "The Rhyme Project",
@@ -64,6 +72,10 @@
       "target": [
         "msi",
         "nsis"
+      ],
+      "arch": [
+        "x64",
+        "ia32"
       ]
     }
   },
