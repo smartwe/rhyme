@@ -1,12 +1,4 @@
-const {
-  BrowserWindow,
-  Menu,
-  Notification,
-  Tray,
-  app,
-  ipcMain,
-  globalShortcut,
-} = require("electron");
+const { BrowserWindow, Menu, Notification, Tray, app, ipcMain, globalShortcut } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
 const htmlFile = path.join(__dirname, "public", "index.html");
@@ -64,12 +56,7 @@ app.on("ready", () => {
     new Notification({ title: "Rhyme", body }).show();
   });
 
-  tray = new Tray(
-    path.join(
-      __dirname,
-      "icon" + (process.platform === "win32" ? ".ico" : ".png")
-    )
-  );
+  tray = new Tray(path.join(__dirname, "icon" + (process.platform === "win32" ? ".ico" : ".png")));
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Previous",
@@ -141,6 +128,7 @@ app.on("ready", () => {
         musicPath: app.getPath("music"),
         useDarkTheme: true,
         heyRhymeActivate: false,
+        showNotifications: true,
       };
 
       storage.set("settings", settings, (err) => {

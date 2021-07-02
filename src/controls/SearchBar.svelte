@@ -22,7 +22,6 @@
     width: 100%;
     transition: 0.3s;
     &:focus-within {
-      box-shadow: #5c5c5c5c 0px 5px 15px;
       input::placeholder {
         color: transparent;
       }
@@ -37,9 +36,6 @@
   }
   .dark {
     background-color: $gray_theme_dark;
-    &:focus-within {
-      box-shadow: #d2d2d25c 0px 5px 15px;
-    }
     input {
       color: $light_gray_theme_dark;
       &::placeholder {

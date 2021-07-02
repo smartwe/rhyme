@@ -4,21 +4,11 @@
   export let imgSrc: string;
   export let normalSong = true;
   import { settings, songsPlayer } from "../store";
-  import { PlayCircleFilled, UnkownSong } from "rhyme-icons";
-  let mainBG = $settings["useDarkTheme"]
-    ? normalSong
-      ? "#121212"
-      : "black"
-    : normalSong
-    ? "#ededed"
-    : "white";
+  import { PlayCircleFilled, UnknownSong } from "rhyme-icons";
+  let mainBG = $settings["useDarkTheme"] ? (normalSong ? "#121212" : "black") : normalSong ? "#ededed" : "white";
   const onClick = () => {
     let index = $songsPlayer.songs.findIndex((song) => {
-      if (
-        song["song"] === songName &&
-        song["artist"] === artistName &&
-        song["imgSrc"] === imgSrc
-      ) {
+      if (song["song"] === songName && song["artist"] === artistName && song["imgSrc"] === imgSrc) {
         return true;
       }
     });
@@ -26,19 +16,11 @@
   };
 </script>
 
-<main
-  class:dark={$settings["useDarkTheme"]}
-  style="background-color: {mainBG}"
-  on:click={onClick}
->
+<main class:dark={$settings["useDarkTheme"]} style="background-color: {mainBG}" on:click={onClick}>
   <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   {#if !imgSrc}
-    <UnkownSong
-      size="100"
-      firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"}
-      secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"}
-    />
+    <UnknownSong size="100" firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"} secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"} />
   {/if}
   <div class="hover">
     <PlayCircleFilled fill="#ef005f" size="50" />
@@ -56,7 +38,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    transform: translateY(-22%);
+    transform: translateY(-19%);
     background-color: #1212125c;
     align-items: center;
     justify-content: center;

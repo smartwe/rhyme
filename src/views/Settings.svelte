@@ -18,6 +18,13 @@
     newSettings["musicPath"] = folderPath;
     settings.set(newSettings);
   }
+  let showNotifications: boolean = $settings["showNotifications"];
+  function toggleShowNotifications() {
+    showNotifications = !showNotifications;
+    let newSettings = $settings;
+    newSettings["showNotifications"] = showNotifications;
+    settings.set(newSettings);
+  }
 </script>
 
 <main class:dark={useDarkTheme}>
@@ -29,12 +36,11 @@
         <br />
         <p>You will need to restart the app to view changes</p>
       </span>
-      <PathChooser
-        bind:folderPath
-        defaultPath={$settings["musicPath"]}
-        title="Choose the folder containing your music"
-        onEnd={changeMusicDir}
-      />
+      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
+    </li>
+    <li>
+      <span> Show notifications </span>
+      <Toggle bind:checked={showNotifications} clickEvent={toggleShowNotifications} />
     </li>
   </ul>
   <br />
@@ -62,6 +68,12 @@
     color: $gray_theme_light;
     background-color: white;
     transition: 0.3s;
+  }
+
+  ul {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
   }
 
   li {

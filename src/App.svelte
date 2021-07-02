@@ -7,12 +7,14 @@
   import Playlists from "./views/Playlists.svelte";
   import Settings from "./views/Settings.svelte";
   import Albums from "./views/Albums.svelte";
+  import AlbumSongsView from "./views/AlbumSongsView.svelte";
   const routes = {
     "/": Home,
     "/rhyme-ai": RhymeAI,
     "/settings": Settings,
     "/playlists": Playlists,
     "/albums": Albums,
+    "/album-view": AlbumSongsView,
   };
 
   const fs = require("fs");

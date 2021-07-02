@@ -1,15 +1,5 @@
 <script>
-  import {
-    HomeFilled,
-    HomeOutlined,
-    MusicNoteOutlined,
-    MusicNoteFilled,
-    AddPlaylist,
-    SettingsFilled,
-    SettingsOutlined,
-    AlbumFilled,
-    AlbumOutlined,
-  } from "rhyme-icons";
+  import { HomeFilled, HomeOutlined, MusicNoteOutlined, MusicNoteFilled, AddPlaylist, SettingsFilled, SettingsOutlined, AlbumFilled, AlbumOutlined } from "rhyme-icons";
   import { location } from "svelte-spa-router";
   import { settings } from "../store";
 </script>
@@ -20,9 +10,7 @@
       {#if $location === "/"}
         <HomeFilled fill="white" />
       {:else}
-        <HomeOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
+        <HomeOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
       {/if}
       Home
     </a>
@@ -31,9 +19,7 @@
       {#if $location === "/albums"}
         <AlbumFilled fill="white" />
       {:else}
-        <AlbumOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
+        <AlbumOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
       {/if}
       Albums
     </a>
@@ -51,9 +37,7 @@
       {#if $location === "/rhyme-ai"}
         <MusicNoteFilled fill="white" />
       {:else}
-        <MusicNoteOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
+        <MusicNoteOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
       {/if}
       Rhyme AI
     </a>
@@ -62,9 +46,7 @@
     {#if $location === "/settings"}
       <SettingsFilled fill="white" />
     {:else}
-      <SettingsOutlined
-        fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-      />
+      <SettingsOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
     {/if}
     Settings
   </a>
@@ -90,13 +72,12 @@
     a.active {
       background-color: $pink;
       color: white;
-      box-shadow: #5c5c5c 0px 5px 15px;
     }
     a {
       color: $gray_theme_light;
       display: flex;
       align-items: center;
-      padding: 0.5em;
+      padding: 0.4em 0.5em;
       border-radius: 0.3em;
       gap: 5px;
       font-weight: 500;
@@ -107,9 +88,6 @@
     background-color: $gray_theme_dark;
     a {
       color: $light_gray_theme_dark;
-      &.active {
-        box-shadow: #d2d2d25c 0px 5px 15px;
-      }
     }
   }
 </style>
