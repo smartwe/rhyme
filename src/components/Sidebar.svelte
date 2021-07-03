@@ -1,5 +1,15 @@
 <script>
-  import { HomeFilled, HomeOutlined, MusicNoteOutlined, MusicNoteFilled, AddPlaylist, SettingsFilled, SettingsOutlined, AlbumFilled, AlbumOutlined } from "rhyme-icons";
+  import {
+    HomeFilled,
+    HomeOutlined,
+    MusicNoteOutlined,
+    MusicNoteFilled,
+    AddPlaylist,
+    SettingsFilled,
+    SettingsOutlined,
+    AlbumFilled,
+    AlbumOutlined,
+  } from "rhyme-icons";
   import { location } from "svelte-spa-router";
   import { settings } from "../store";
 </script>
@@ -10,7 +20,9 @@
       {#if $location === "/"}
         <HomeFilled fill="white" />
       {:else}
-        <HomeOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+        <HomeOutlined
+          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+        />
       {/if}
       Home
     </a>
@@ -19,7 +31,9 @@
       {#if $location === "/albums"}
         <AlbumFilled fill="white" />
       {:else}
-        <AlbumOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+        <AlbumOutlined
+          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+        />
       {/if}
       Albums
     </a>
@@ -37,7 +51,9 @@
       {#if $location === "/rhyme-ai"}
         <MusicNoteFilled fill="white" />
       {:else}
-        <MusicNoteOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+        <MusicNoteOutlined
+          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+        />
       {/if}
       Rhyme AI
     </a>
@@ -46,7 +62,9 @@
     {#if $location === "/settings"}
       <SettingsFilled fill="white" />
     {:else}
-      <SettingsOutlined fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+      <SettingsOutlined
+        fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+      />
     {/if}
     Settings
   </a>

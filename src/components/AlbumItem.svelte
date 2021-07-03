@@ -13,11 +13,18 @@
   {#if album["songs"].length === 1}
     <img src={album["songs"][0]["imgSrc"]} alt="" />
   {:else}
-    <UnknownAlbum size="100" firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"} secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"} />
+    <UnknownAlbum
+      size="100"
+      firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"}
+      secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"}
+    />
   {/if}
   <div class="titles">
     <h4>{album["name"]}</h4>
-    <p>{album["songs"].length} {album["songs"].length === 1 ? "Song" : "Songs"}</p>
+    <p>
+      {album["songs"].length}
+      {album["songs"].length === 1 ? "Song" : "Songs"}
+    </p>
   </div>
 </main>
 
