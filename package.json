@@ -3,7 +3,7 @@
   "productName": "Rhyme",
   "description": "The #1 cross-platform open source music player and streamer.",
   "author": "The Rhyme Project",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": false,
   "main": "electron.js",
   "scripts": {
@@ -46,10 +46,6 @@
       "target": [
         "dmg",
         "pkg"
-      ],
-      "arch": [
-        "x64",
-        "ia32"
       ]
     },
     "linux": {
@@ -58,10 +54,6 @@
         "snap",
         "deb",
         "rpm"
-      ],
-      "arch": [
-        "x64",
-        "ia32"
       ],
       "category": "Audio",
       "maintainer": "The Rhyme Project",
