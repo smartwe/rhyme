@@ -25,6 +25,13 @@
     newSettings["showNotifications"] = showNotifications;
     settings.set(newSettings);
   }
+  let minimizeToTray: boolean = $settings["minimizeToTray"];
+  function toggleMinimizeToTray() {
+    minimizeToTray = !minimizeToTray;
+    let newSettings = $settings;
+    newSettings["minimizeToTray"] = minimizeToTray;
+    settings.set(newSettings);
+  }
 </script>
 
 <main class:dark={useDarkTheme}>
@@ -42,6 +49,13 @@
         title="Choose the folder containing your music"
         onEnd={changeMusicDir}
       />
+    </li>
+    <li>
+      <span>
+        Run in background <br />
+        <p>If false the app will not run in the background when closed</p>
+      </span>
+      <Toggle bind:checked={minimizeToTray} clickEvent={toggleMinimizeToTray} />
     </li>
     <li>
       <span> Show notifications </span>
@@ -90,9 +104,15 @@
     justify-content: space-between;
     align-items: center;
     gap: 5px;
+    height: auto;
+    flex-shrink: 0;
+    span {
+      max-width: 60%;
+    }
     span > p {
       font-size: 0.7em;
       color: black;
+      margin-top: 10px;
     }
   }
 

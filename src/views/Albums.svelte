@@ -8,9 +8,7 @@
   import { onMount } from "svelte";
   import Scrollbar from "smooth-scrollbar";
   onMount(() => {
-    Scrollbar.initAll({
-      damping: 0.03,
-    });
+    Scrollbar.initAll();
   });
 </script>
 

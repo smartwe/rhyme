@@ -120,9 +120,10 @@ if (!gotTheLock) {
       if (!hasKey) {
         let settings = {
           musicPath: app.getPath("music"),
-          useDarkTheme: true,
+          useDarkTheme: false,
           heyRhymeActivate: false,
           showNotifications: true,
+          minimizeToTray: true,
         };
 
         storage.set("settings", settings, (err) => {
@@ -132,7 +133,7 @@ if (!gotTheLock) {
     });
 
     win.on("close", function (event) {
-      if (!app.isQuiting) {
+      if (!app.isQuiting && storage.getSync("settings").minimizeToTray) {
         event.preventDefault();
         win.hide();
       }

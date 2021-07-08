@@ -33,7 +33,6 @@
   style="background-color: {mainBG}"
   on:click={onClick}
 >
-  <!-- TODO: Use not found image here -->
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   {#if !imgSrc}
     <UnknownSong
@@ -58,7 +57,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    transform: translateY(-19%);
+    transform: translateY(-20%);
     background-color: #1212125c;
     align-items: center;
     justify-content: center;
