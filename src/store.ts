@@ -14,12 +14,24 @@ export const albumsList = writable<object[]>([]);
 function albumExists(song, albums): boolean {
   let exists = false;
   albums.forEach((album) => {
-    if (album["name"] == song["album"]) {
+    if (album["name"] === song["album"]) {
       exists = true;
     }
   });
   return exists;
 }
+
+export const artistsList = writable<object[]>([]);
+function artistExists(song, artists): boolean {
+  let exists = false;
+  artists.forEach((artist) => {
+    if (artist["name"] === song["artist"]) {
+      exists = true;
+    }
+  });
+  return exists;
+}
+
 songs.subscribe((value) => {
   let albums = [];
   for (let i = 0; i < value.length; i++) {

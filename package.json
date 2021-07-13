@@ -1,14 +1,14 @@
 {
   "name": "rhyme",
   "productName": "Rhyme",
-  "description": "The #1 cross-platform open source music player and streamer.",
+  "description": "The Home of your Music.",
   "author": "The Rhyme Project",
   "version": "0.5.7",
   "private": false,
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "dev": "npm run format && rollup -c -w",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -55,7 +55,7 @@
         "deb",
         "rpm"
       ],
-      "category": "Audio",
+      "category": "AudioVideo",
       "maintainer": "The Rhyme Project",
       "icon": "icons/linux"
     },

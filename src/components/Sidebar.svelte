@@ -11,10 +11,13 @@
     AlbumOutlined,
   } from "rhyme-icons";
   import { location } from "svelte-spa-router";
-  import { settings } from "../store";
+  import { settings, inAlbum } from "../store";
 </script>
 
-<main class:dark={$settings["useDarkTheme"]}>
+<main
+  class:dark={$settings["useDarkTheme"]}
+  style={inAlbum ? "width: 0px" : ""}
+>
   <div class="main-links">
     <a href="#/" class:active={$location === "/"}>
       {#if $location === "/"}
