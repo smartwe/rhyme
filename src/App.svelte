@@ -77,13 +77,15 @@
         file: audioFile,
       });
       songs.set($songs);
+      if (!$songsPlayer) {
+        songsPlayer.set(new Player($songs));
+      }
     }
   }
 
   async function getSongs() {
     let files = getFolderContent($settings["musicPath"] as string);
     await parseFiles(files);
-    songsPlayer.set(new Player($songs));
   }
   getSongs();
 </script>

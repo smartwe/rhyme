@@ -82,8 +82,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1em 1.5em;
-    width: 300px;
-    min-width: 200px;
+    flex-shrink: 0;
+    min-width: 250px;
     transition: 0.3s;
     .main-links {
       display: flex;

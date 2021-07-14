@@ -13,7 +13,6 @@
   for (let i = 0; i < album["songs"].length; i++) {
     const song = album["songs"][i];
     if (!artists.includes(song["artist"])) {
-      console.log(i, album["songs"].length);
       artists += `${i === 0 ? "" : " "}${song["artist"]},`;
     }
   }

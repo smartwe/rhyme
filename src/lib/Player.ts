@@ -5,6 +5,7 @@ import {
   songPlaying,
   repeat,
   shuffle,
+  inAlbum,
   volume,
   settings,
   recentlyPlayed,
@@ -87,6 +88,17 @@ export default class Player extends Events {
       onplay: function () {
         currentSong.set(data);
         songPlaying.set(true);
+
+        if (get(inAlbum)) {
+          document.title = `${get(currentSong)["song"]} on ${
+            get(currentSong)["album"]
+          } - Rhyme`;
+        } else {
+          document.title = `${get(currentSong)["song"]} by ${
+            get(currentSong)["artist"]
+          } - Rhyme`;
+        }
+
         let newArray = get(recentlyPlayed);
         if (newArray.length > 12) {
           newArray.shift();

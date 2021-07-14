@@ -123,7 +123,7 @@ if (!gotTheLock) {
           useDarkTheme: false,
           heyRhymeActivate: false,
           showNotifications: true,
-          minimizeToTray: true,
+          minimizeToTray: false,
         };
 
         storage.set("settings", settings, (err) => {

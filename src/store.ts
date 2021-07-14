@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 import type Player from "./lib/Player";
 const storage = require("electron-json-storage");
 
@@ -9,6 +9,7 @@ settings.subscribe((value) => {
   });
 });
 export const songs = writable<object[]>([]);
+export const songsPlayer = writable<Player>(null);
 
 export const albumsList = writable<object[]>([]);
 function albumExists(song, albums): boolean {
@@ -33,6 +34,9 @@ function artistExists(song, artists): boolean {
 }
 
 songs.subscribe((value) => {
+  if (get(songsPlayer)) {
+    get(songsPlayer).songs = value;
+  }
   let albums = [];
   for (let i = 0; i < value.length; i++) {
     const song = value[i];
@@ -56,7 +60,6 @@ songs.subscribe((value) => {
   }
   albumsList.set(albums);
 });
-export const songsPlayer = writable<Player>(null);
 export const songPlaying = writable<boolean>(null);
 export const inAlbum = writable<boolean>(null);
 export const repeat = writable<boolean>(null);
