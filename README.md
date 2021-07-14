@@ -5,7 +5,9 @@
   </a>
   <h1 align="center">Rhyme</h1>
   <h3 align="center">
-    The #1 Open-Source Music Player
+    The Home of your Music
+    <br/>
+    <br/>
   <img src="https://user-images.githubusercontent.com/77546233/124939252-7c95af00-dff8-11eb-94a6-75abdde49640.png"/>
   </h3>
 <h3 align="center">
