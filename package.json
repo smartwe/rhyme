@@ -52,7 +52,7 @@
     "linux": {
       "target": [
         "AppImage",
-        "snap",
+        "pacman",
         "deb",
         "rpm"
       ],
