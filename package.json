@@ -5,6 +5,7 @@
   "author": "The Rhyme Project",
   "version": "0.5.7",
   "private": false,
+  "license": "GPL",
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
