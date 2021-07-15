@@ -16,6 +16,8 @@ jobs:
 
       - name: Install libarchive-tools for linux
         if: ${{ matrix.os }} == ubuntu-latest
+        container:
+          image: elementary/docker:unstable
         run: sudo apt install libarchive-tools
 
       - name: Install Node.js, NPM and Yarn
