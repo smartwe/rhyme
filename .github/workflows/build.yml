@@ -14,9 +14,8 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Install libarchive-tools for linux
-        if: ${{ matrix.os }} == ubuntu-latest
-        run: sudo apt-get install libarchive-tools
+      - name: Install libarchive-tools for linux to package pacman
+        run: echo ${{ matrix.os }}
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
