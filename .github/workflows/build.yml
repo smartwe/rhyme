@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install libarchive-tools for linux to package pacman
-        if: ${{ matrix.os }} == ubuntu-latest
+        if: ${{ matrix.os }} == 'ubuntu-latest'
         run: sudo apt install libarchive-tools
 
       - name: Install Node.js, NPM and Yarn
