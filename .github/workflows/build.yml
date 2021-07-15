@@ -5,13 +5,14 @@ on: push
 jobs:
   release-ubuntu:
     runs-on: ubuntu-latest
-    - name: Check out Git repository
-        uses: actions/checkout@v1
+    steps:
+      - name: Check out Git repository
+          uses: actions/checkout@v1
 
-    - name: Install Node.js, NPM and Yarn
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
 
     - name: install libarchive-tools
       run: sudo apt install libarchive-tools
