@@ -67,7 +67,9 @@ export const repeat = writable<boolean>(null);
 export const shuffle = writable<boolean>(null);
 export const currentSong = writable<object>(null);
 export const volume = writable<number>(100);
-export const recentlyPlayed = writable<object[]>(storage.getSync("recentlyPlayed").recentlyPlayed ?? []);
+export const recentlyPlayed = writable<object[]>(
+  storage.getSync("recentlyPlayed").recentlyPlayed ?? []
+);
 recentlyPlayed.subscribe((value) => {
   storage.set("recentlyPlayed", { recentlyPlayed: value }, (error) => {
     if (error) throw error;
