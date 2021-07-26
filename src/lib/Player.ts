@@ -107,7 +107,6 @@ export default class Player extends Events {
           newArray.push(data);
         }
         recentlyPlayed.set(newArray);
-        this.volume(get(volume));
         if (get(settings)["showNotifications"]) {
           ipcRenderer.send(
             "notification",

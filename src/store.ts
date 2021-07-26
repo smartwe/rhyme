@@ -1,6 +1,7 @@
 import { writable, get } from "svelte/store";
 import type Player from "./lib/Player";
 const storage = require("electron-json-storage");
+const { Howler } = require("howler");
 
 export const settings = writable<object>(storage.getSync("settings"));
 settings.subscribe((value) => {
@@ -65,7 +66,7 @@ export const inAlbum = writable<boolean>(null);
 export const repeat = writable<boolean>(null);
 export const shuffle = writable<boolean>(null);
 export const currentSong = writable<object>(null);
-export const volume = writable<number>(1);
+export const volume = writable<number>(100);
 export const recentlyPlayed = writable<object[]>(
   storage.getSync("recentlyPlayed").recentlyPlayed ?? []
 );
@@ -74,10 +75,8 @@ recentlyPlayed.subscribe((value) => {
     if (error) throw error;
   });
 });
-songsPlayer.subscribe((val) => {
-  if (val) {
-    volume.subscribe((value) => {
-      val.sound.volume(value);
-    });
-  }
+
+volume.subscribe((value) => {
+  volume.set(+value.toFixed());
+  Howler.volume(value / 100);
 });

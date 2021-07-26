@@ -51,16 +51,17 @@
         $songsPlayer.sound.seek($songsPlayer.sound.seek() + 5);
         break;
       case "ArrowLeft":
-        $songsPlayer.sound.seek($songsPlayer.sound.seek() - 5);
+        let seekedValue = $songsPlayer.sound.seek();
+        $songsPlayer.sound.seek(seekedValue >= 5 ? seekedValue - 5 : 0);
         break;
       case "ArrowUp":
-        if ($volume !== 1) {
-          $volume += 0.02;
+        if ($volume !== 100) {
+          $volume += 1;
         }
         break;
       case "ArrowDown":
-        if ($volume > 0) {
-          $volume -= 0.02;
+        if ($volume !== 0) {
+          $volume -= 1;
         }
         break;
       case " ":
@@ -183,7 +184,7 @@
           {#if $volume === 0}
             <div
               on:click={() => {
-                volume.set(1);
+                volume.set(100);
               }}
             >
               <VolumeOff fill={$settings["useDarkTheme"] ? "white" : "black"} />
@@ -201,9 +202,9 @@
             width="100px"
             height="5px"
             bind:currentSize={$volume}
-            fullSize={1}
+            fullSize={100}
           />
-          {($volume * 100).toFixed().replace("-", "")}
+          {$volume}
         </div>
       </div>
       <div class="seekbar">
