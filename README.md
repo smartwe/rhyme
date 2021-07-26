@@ -23,7 +23,7 @@ Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
 A beautiful looking music player which supports
 
 - Local music files
-- Can handle more than 57,340 songs without ny performance issues
+- Can handle more than 57,340 songs without any performance issues
 - Create custom playlists
 - view albums
 - view artists
