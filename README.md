@@ -34,22 +34,45 @@ A beautiful looking music player which supports
 
 # Download
 
-## On linux
-
-### Snap
-
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
-
 ## From source
 
 - clone repo and `cd` into it
 - run `yarn` or `npm i` to install dependencies
 - run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
 
-## From github releases
+## On linux
+
+### Snap
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
+
+### Flatpak
+Comming soon
+
+### Package manager
+- `apt` - Not yet supported
+- `pacman` - Not yet supported
+- `dnf` - Not yet supported
+
+### Github
+- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
+- Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
+
+## On windows
+- Download from [site](https://rhyme.netlify.app/downloads/win/)
+
+Or
 
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
-- Download executable for your system
+- Search for file we currently support `exe` and `msi` files
+
+
+## On mac os
+- Download from [site](https://rhyme.netlify.app/downloads/mac/)
+
+Or
+
+- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
+- Search for file we currently support `dmg` and `pkg` files
 
 # Contributing
 
