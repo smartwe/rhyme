@@ -1,3 +1,4 @@
+<!-- Link to latest file: https://github.com/Rhyme-Player/RhymeApp/releases/latest/download/file.name -->
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
