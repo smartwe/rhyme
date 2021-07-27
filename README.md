@@ -21,20 +21,19 @@ Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
 </p>
 
 A beautiful looking music player which supports
-
 - Local music files
 - Can handle more than 57,340 songs without any performance issues
-- Create custom playlists
 - view albums
-- view artists
-- AI to control your app speechly
 - Tray Icon to control your app if you close the window the AI will work too
 - Settings page to make the app work the way you want
-- More are coming
+- More is coming
 
 > Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org) or our public [Discord Room](https://discord.gg/zjvdRsux)
 
 # Download
+
+### On linux
+- Download rhyme from [Snap Store](https://snapcraft.io/rhyme)
 
 ### From source
 
@@ -46,10 +45,6 @@ A beautiful looking music player which supports
 
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Download executable for your system
-
-### From site
-
-- Not Available yet
 
 # Contributing
 
