@@ -22,6 +22,7 @@ Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
 </p>
 
 A beautiful looking music player which supports
+
 - Local music files
 - Can handle more than 57,340 songs without any performance issues
 - view albums
@@ -34,6 +35,7 @@ A beautiful looking music player which supports
 # Download
 
 ### On linux
+
 - Download rhyme from [Snap Store](https://snapcraft.io/rhyme)
 
 ### From source
