@@ -34,17 +34,19 @@ A beautiful looking music player which supports
 
 # Download
 
-### On linux
+## On linux
 
-- Download rhyme from [Snap Store](https://snapcraft.io/rhyme)
+### Snap
 
-### From source
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
+
+## From source
 
 - clone repo and `cd` into it
 - run `yarn` or `npm i` to install dependencies
 - run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
 
-### From github releases
+## From github releases
 
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Download executable for your system
