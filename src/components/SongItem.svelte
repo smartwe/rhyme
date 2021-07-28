@@ -3,15 +3,14 @@
   export let songName: string;
   export let imgSrc: string;
   export let normalSong = true;
-  import { settings, songs, songsPlayer, inAlbum } from "../store";
+  import {
+    settings,
+    songs,
+    songsPlayer,
+    inAlbum,
+    currentTheme,
+  } from "../store";
   import { PlayCircleFilled, UnknownSong } from "rhyme-icons";
-  let mainBG = $settings["useDarkTheme"]
-    ? normalSong
-      ? "#121212"
-      : "black"
-    : normalSong
-    ? "#ededed"
-    : "white";
   const onClick = () => {
     $songsPlayer.songs = $songs;
     let index = $songsPlayer.songs.findIndex((song) => {
@@ -29,20 +28,21 @@
 </script>
 
 <main
-  class:dark={$settings["useDarkTheme"]}
-  style="background-color: {mainBG}"
+  style="background-color: {normalSong
+    ? 'var(--panels-color)'
+    : 'var(--background-color'}"
   on:click={onClick}
 >
   <img src={imgSrc} style="display:{imgSrc ? 'block' : 'none'}" alt="" />
   {#if !imgSrc}
     <UnknownSong
       size="100"
-      firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"}
-      secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"}
+      firstFill="#929292"
+      secondFill={$currentTheme["textColor"]}
     />
   {/if}
   <div class="hover">
-    <PlayCircleFilled fill="#ef005f" size="50" />
+    <PlayCircleFilled fill={$currentTheme["accentColor"]} size="50" />
   </div>
   <div class="titles">
     <h4>{songName}</h4>
@@ -51,7 +51,6 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   .hover {
     display: none;
     width: 100px;
@@ -87,15 +86,15 @@
       white-space: nowrap;
       overflow: hidden;
       max-width: 100px;
-      color: black;
       text-align: center;
     }
     p {
-      color: $gray_theme_light;
+      color: var(--text-color);
       font-size: 0.8em;
     }
     h4 {
       font-weight: normal;
+      color: var(--titles-color);
       font-size: 1em;
     }
   }
@@ -103,14 +102,6 @@
   main:hover {
     .hover {
       display: flex;
-    }
-  }
-  .dark {
-    h4 {
-      color: white;
-    }
-    p {
-      color: $light_gray_theme_dark;
     }
   }
 </style>

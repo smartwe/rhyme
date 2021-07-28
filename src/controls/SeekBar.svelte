@@ -51,9 +51,8 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   div {
-    background-color: $pink;
+    background-color: var(--accent-color);
     transition: 0.16s;
   }
 
@@ -61,8 +60,5 @@
     border-radius: 20px;
     background-color: lightgray;
     cursor: pointer;
-  }
-  .dark {
-    background-color: $light_gray_theme_dark;
   }
 </style>

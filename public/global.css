@@ -43,16 +43,17 @@ body {
 }
 
 .scrollbar-track {
-  background-color: white !important;
   width: 0px;
-}
-.dark > .scrollbar-track {
-  background-color: black !important;
+  background-color: transparent !important;
 }
 
-.dark > .scrollbar-track > .scrollbar-thumb {
-  background-color: lightgray !important;
-}
 .scrollbar-thumb {
+  background-color: rgb(182, 182, 182) !important;
   max-width: 5px !important;
+}
+
+.page {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
 }

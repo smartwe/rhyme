@@ -1,16 +1,17 @@
 <script lang="ts">
   import PathChooser from "../controls/PathChooser.svelte";
   import Toggle from "../controls/Toggle.svelte";
-  import { settings } from "../store";
+  import { settings, themeManager, currentTheme } from "../store";
 
   const storage = require("electron-json-storage");
 
   let useDarkTheme = $settings["useDarkTheme"];
-  function toggleTheme() {
-    useDarkTheme = !useDarkTheme;
-    let newSettings = $settings;
-    newSettings["useDarkTheme"] = useDarkTheme;
-    settings.set(newSettings);
+  function changeTheme(event) {
+    currentTheme.set(
+      $themeManager["installedThemes"].filter((value: object) => {
+        return event.target.value === value["id"];
+      })[0]
+    );
   }
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
@@ -70,7 +71,15 @@
   <ul>
     <li>
       <span>Prefer dark theme</span>
-      <Toggle bind:checked={useDarkTheme} clickEvent={toggleTheme} />
+      <select
+        on:change={(event) => {
+          changeTheme(event);
+        }}
+      >
+        {#each $themeManager["installedThemes"] as theme}
+          <option value={theme["id"]}>{theme["name"]}</option>
+        {/each}
+      </select>
     </li>
   </ul>
 </main>
@@ -90,6 +99,14 @@
     color: $gray_theme_light;
     background-color: white;
     transition: 0.3s;
+  }
+  select {
+    border: none;
+    padding: 0.5em;
+    option {
+      border: none;
+      padding: 0.5em;
+    }
   }
 
   ul {

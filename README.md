@@ -43,21 +43,26 @@ A beautiful looking music player which supports
 ## On linux
 
 ### Snap
+
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
 ### Flatpak
+
 Comming soon
 
 ### Package manager
+
 - `apt` - Not yet supported
 - `pacman` - Not yet supported
 - `dnf` - Not yet supported
 
 ### Github
+
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
 
 ## On windows
+
 - Download from [site](https://rhyme.netlify.app/downloads/win/)
 
 Or
@@ -65,8 +70,8 @@ Or
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `exe` and `msi` files
 
-
 ## On mac os
+
 - Download from [site](https://rhyme.netlify.app/downloads/mac/)
 
 Or

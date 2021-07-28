@@ -2,7 +2,7 @@
   import {
     songsPlayer,
     inAlbum,
-    settings,
+    currentTheme,
     currentSong,
     songPlaying,
     shuffle,
@@ -86,7 +86,7 @@
 </script>
 
 {#if $currentSong}
-  <main class:dark={$settings["useDarkTheme"]}>
+  <main>
     <div class="song-info">
       <img
         src={$currentSong["imgSrc"]}
@@ -111,12 +111,8 @@
           >
             <Shuffle
               fill={$shuffle
-                ? $settings["useDarkTheme"]
-                  ? "#ef005f"
-                  : "#df0058"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
             />
           </div>
           <div
@@ -124,10 +120,7 @@
               $songsPlayer.previous();
             }}
           >
-            <SkipPrevious
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipPrevious size="28" fill={$currentTheme["textColor"]} />
           </div>
           <div class="play-pause">
             {#if !$songPlaying}
@@ -136,10 +129,7 @@
                   $songsPlayer.resume();
                 }}
               >
-                <PlayCircleFilled
-                  size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-                />
+                <PlayCircleFilled size="36" fill={$currentTheme["textColor"]} />
               </div>
             {:else}
               <div
@@ -149,7 +139,7 @@
               >
                 <PauseCircleFilled
                   size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+                  fill={$currentTheme["textColor"]}
                 />
               </div>
             {/if}
@@ -159,10 +149,7 @@
               $songsPlayer.next();
             }}
           >
-            <SkipNext
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipNext size="28" fill={$currentTheme["textColor"]} />
           </div>
           <div
             on:click={() => {
@@ -171,12 +158,8 @@
           >
             <Repeat
               fill={$repeat
-                ? $settings["useDarkTheme"]
-                  ? "#ef005f"
-                  : "#df0058"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
             />
           </div>
         </div>
@@ -187,7 +170,7 @@
                 volume.set(100);
               }}
             >
-              <VolumeOff fill={$settings["useDarkTheme"] ? "white" : "black"} />
+              <VolumeOff fill={$currentTheme["textColor"]} />
             </div>
           {:else}
             <div
@@ -195,7 +178,7 @@
                 volume.set(0);
               }}
             >
-              <VolumeUp fill={$settings["useDarkTheme"] ? "white" : "black"} />
+              <VolumeUp fill={$currentTheme["textColor"]} />
             </div>
           {/if}
           <SeekBar
@@ -221,7 +204,6 @@
 {/if}
 
 <style lang="scss">
-  @import "../variables";
   $height: 70px;
   main {
     min-height: $height;
@@ -231,6 +213,7 @@
     background-color: white;
     transition: 0.3s;
     align-items: center;
+    background-color: var(--background-color);
 
     .controls {
       display: flex;
@@ -292,7 +275,7 @@
       }
       span > p {
         font-size: 0.9em;
-        color: black;
+        color: var(--titles-color);
       }
     }
     img {
@@ -302,12 +285,5 @@
       min-height: $height;
       object-fit: cover;
     }
-  }
-  .dark {
-    background-color: $gray_theme_dark;
-    .song-info > .titles > span > p {
-      color: white;
-    }
-    color: white;
   }
 </style>

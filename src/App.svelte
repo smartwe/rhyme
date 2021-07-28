@@ -27,7 +27,7 @@
     persistent: true,
   });
 
-  import { settings, songs, songsPlayer } from "./store";
+  import { settings, songs, currentTheme, songsPlayer } from "./store";
   import BottomBar from "./components/BottomBar.svelte";
   import Player from "./lib/Player";
 
@@ -90,7 +90,15 @@
   getSongs();
 </script>
 
-<main>
+<main
+  style="
+  --accent-color: {$currentTheme['accentColor']};
+  --background-color: {$currentTheme['backgroundColor']};
+  --panels-color: {$currentTheme['panelsColor']};
+  --text-color: {$currentTheme['textColor']};
+  --titles-color: {$currentTheme['titleColor']};
+  --sidebar-active-color: {$currentTheme['sidebarActiveColor']};"
+>
   <Sidebar />
   <div class="main_content">
     <Router {routes} />
@@ -103,6 +111,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    color: var(--text-color);
   }
   .main_content {
     width: 100%;
