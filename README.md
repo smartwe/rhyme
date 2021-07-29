@@ -43,7 +43,9 @@ A beautiful looking music player which supports
 ## On linux
 
 ### Snap
-> Note: After you install the snap run `snap connect rhyme:audio-playback  rhyme:home` in the terminal to allow rhyme to read files and play sound
+> Note: After you install the snap run `snap connect rhyme:audio-playback  rhyme:home` in the terminal to allow rhyme to read files and play sound or from the permessions gui in the store
+
+
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
 ### Flatpak
