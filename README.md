@@ -43,8 +43,8 @@ A beautiful looking music player which supports
 ## On linux
 
 ### Snap
+> Note: After you install the snap run `snap connect rhyme:audio-playback  rhyme:home` in the terminal to allow rhyme to read files and play sound
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
-After you install the snap run `snap connect rhyme:audio-playback  rhyme:home` in the terminal to allow rhyme to read files and play sound
 
 ### Flatpak
 Comming soon
