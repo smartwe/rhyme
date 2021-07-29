@@ -13,8 +13,8 @@
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format-check": "prettier --check \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,md,json,svelte}\"",
-    "format": "prettier --write \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,md,json,svelte}\""
+    "format-check": "prettier --check \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,json,svelte}\"",
+    "format": "prettier --write \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,json,svelte}\""
   },
   "build": {
     "appId": "com.github.rhyme_player.rhyme",
