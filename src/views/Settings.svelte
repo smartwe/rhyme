@@ -35,7 +35,7 @@
   }
 </script>
 
-<main class:dark={useDarkTheme}>
+<main class="page">
   <h2>General</h2>
   <ul>
     <li>
@@ -70,6 +70,7 @@
   <h2>Appeareance</h2>
   <ul>
     <li>
+      <!-- TODO: Replace this with a better interface -->
       <span>Prefer dark theme</span>
       <select
         on:change={(event) => {
@@ -85,19 +86,11 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
-    * {
-      flex-shrink: 0;
-    }
     display: flex;
     flex-direction: column;
-    padding: 1em;
     gap: 15px;
-    width: 100%;
-    height: 100%;
-    color: $gray_theme_light;
-    background-color: white;
+    background-color: var(--background-color);
     transition: 0.3s;
   }
   select {
@@ -128,16 +121,8 @@
     }
     span > p {
       font-size: 0.7em;
-      color: black;
+      color: var(--titles-color);
       margin-top: 10px;
-    }
-  }
-
-  .dark {
-    background-color: black;
-    color: $light_gray_theme_dark;
-    span > p {
-      color: white;
     }
   }
 </style>

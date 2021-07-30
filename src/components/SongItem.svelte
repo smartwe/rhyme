@@ -3,13 +3,7 @@
   export let songName: string;
   export let imgSrc: string;
   export let normalSong = true;
-  import {
-    settings,
-    songs,
-    songsPlayer,
-    inAlbum,
-    currentTheme,
-  } from "../store";
+  import { songs, songsPlayer, inAlbum, currentTheme } from "../store";
   import { PlayCircleFilled, UnknownSong } from "rhyme-icons";
   const onClick = () => {
     $songsPlayer.songs = $songs;
@@ -37,8 +31,8 @@
   {#if !imgSrc}
     <UnknownSong
       size="100"
-      firstFill="#929292"
-      secondFill={$currentTheme["textColor"]}
+      firstFill={$currentTheme["textColor"]}
+      secondFill={$currentTheme["panelsColor"]}
     />
   {/if}
   <div class="hover">
@@ -89,7 +83,6 @@
       text-align: center;
     }
     p {
-      color: var(--text-color);
       font-size: 0.8em;
     }
     h4 {

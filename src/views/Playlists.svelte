@@ -1,8 +1,7 @@
 <script>
-  import { settings } from "../store";
 </script>
 
-<main class:dark={$settings["useDarkTheme"]}>
+<main>
   <h1>Playlists</h1>
   <p>Coming Soon</p>
 </main>
@@ -16,10 +15,6 @@
     gap: 15px;
     width: 100%;
     height: 100%;
-    background-color: white;
-  }
-  .dark {
-    background: black;
-    color: white;
+    background-color: var(--background-color);
   }
 </style>

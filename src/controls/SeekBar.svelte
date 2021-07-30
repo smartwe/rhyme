@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { settings, songsPlayer } from "../store";
+  import { songsPlayer } from "../store";
   export let fullSize = 0;
   export let currentSize = 0;
   export let height = "7px";
@@ -31,7 +31,6 @@
 <main
   style="height: {height}; width: {width}"
   on:click={onClick}
-  class:dark={$settings["useDarkTheme"]}
   on:mousemove={(event) => {
     if (mouseDown) {
       onClick(event);

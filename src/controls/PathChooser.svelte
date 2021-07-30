@@ -21,14 +21,13 @@
   }
 </script>
 
-<main class:dark={$settings["useDarkTheme"]} on:click={openDialog}>
+<main on:click={openDialog}>
   {folderPath}
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
-    background-color: $light_gray_theme_light;
+    background-color: var(--panels-color);
     padding: 0.5em 1em;
     border-radius: 8px;
     max-width: 70%;
@@ -36,8 +35,5 @@
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
-  }
-  .dark {
-    background-color: $gray_theme_dark;
   }
 </style>

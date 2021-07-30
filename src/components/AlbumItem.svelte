@@ -1,7 +1,7 @@
 <script lang="ts">
   export let album = {};
   export let key;
-  import { settings } from "../store";
+  import { currentTheme } from "../store";
   import { UnknownAlbum } from "rhyme-icons";
   import { push } from "svelte-spa-router";
   const onClick = () => {
@@ -9,14 +9,14 @@
   };
 </script>
 
-<main class:dark={$settings["useDarkTheme"]} on:click={onClick}>
+<main on:click={onClick}>
   {#if album["songs"].length === 1}
     <img src={album["songs"][0]["imgSrc"]} alt="" />
   {:else}
     <UnknownAlbum
       size="100"
-      firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"}
-      secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"}
+      firstFill={$currentTheme["textColor"]}
+      secondFill={$currentTheme["panelsColor"]}
     />
   {/if}
   <div class="titles">
@@ -29,10 +29,9 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
     display: flex;
-    background-color: $light_gray_theme_light;
+    background-color: var(--panels-color);
     flex-direction: column;
     border-radius: 8px;
     width: 140px;
@@ -55,26 +54,15 @@
       white-space: nowrap;
       overflow: hidden;
       max-width: 100px;
-      color: black;
       text-align: center;
     }
     p {
-      color: $gray_theme_light;
       font-size: 0.8em;
     }
     h4 {
       font-weight: normal;
+      color: var(--titles-color);
       font-size: 1em;
-    }
-  }
-
-  .dark {
-    background-color: $gray_theme_dark;
-    h4 {
-      color: white;
-    }
-    p {
-      color: $light_gray_theme_dark;
     }
   }
 </style>
