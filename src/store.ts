@@ -13,6 +13,7 @@ settings.subscribe((value) => {
 
 // Theme manager
 export const themeManager = writable<object>(storage.getSync("theme-manager"));
+console.log(get(themeManager));
 
 // Current Theme
 export const currentTheme = writable<object>(
@@ -21,12 +22,21 @@ export const currentTheme = writable<object>(
   })[0]
 );
 
+currentTheme.subscribe((value) => {
+  let newTheme = get(themeManager);
+  newTheme["currentTheme"] = value["id"];
+  storage.set("theme-manager", newTheme, (error: string) => {
+    if (error) throw error;
+  });
+});
+
 themeManager.subscribe((value) => {
   currentTheme.set(
     value["installedThemes"].filter((value: object) => {
       return value["id"] === get(themeManager)["currentTheme"];
     })[0]
   );
+
   storage.set("theme-manager", value, (error: string) => {
     if (error) throw error;
   });
