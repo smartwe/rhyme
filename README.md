@@ -12,8 +12,7 @@
   <img src="https://user-images.githubusercontent.com/77546233/124939252-7c95af00-dff8-11eb-94a6-75abdde49640.png"/>
   </h3>
 <h3 align="center">
-Discord: <img src ="https://img.shields.io/discord/848185747319816212">
-Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
+<img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
 <img src ="https://img.shields.io/github/issues-raw/Rhyme-Player/RhymeApp">
 <img src ="https://img.shields.io/github/issues-pr/Rhyme-Player/RhymeApp">
 <img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
