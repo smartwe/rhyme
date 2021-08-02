@@ -30,7 +30,7 @@ A beautiful looking music player which supports
 - Settings page to make the app work the way you want
 - More is coming
 
-> Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org) or our public [Discord Room](https://discord.gg/zjvdRsux)
+> Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org)
 
 # Download
 
