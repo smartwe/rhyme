@@ -1,15 +1,5 @@
 <script>
-  import {
-    HomeFilled,
-    HomeOutlined,
-    MusicNoteOutlined,
-    MusicNoteFilled,
-    AddPlaylist,
-    SettingsFilled,
-    SettingsOutlined,
-    AlbumFilled,
-    AlbumOutlined,
-  } from "rhyme-icons";
+  import { HomeFilled, HomeOutlined, AddPlaylist, SettingsFilled, SettingsOutlined, AlbumFilled, AlbumOutlined } from "rhyme-icons";
   import { location as spaLocation } from "svelte-spa-router";
   import { currentTheme } from "../store";
   function navigateLink(event) {
@@ -63,21 +53,6 @@
         <AddPlaylist fill={$currentTheme["textColor"]} />
       {/if}
       Playlists
-    </a>
-
-    <a
-      href="#/rhyme-ai"
-      class:active={$spaLocation === "/rhyme-ai"}
-      on:click={(event) => {
-        navigateLink(event);
-      }}
-    >
-      {#if $spaLocation === "/rhyme-ai"}
-        <MusicNoteFilled fill={$currentTheme["sidebarActiveColor"]} />
-      {:else}
-        <MusicNoteOutlined fill={$currentTheme["textColor"]} />
-      {/if}
-      Rhyme AI
     </a>
   </div>
   <a
