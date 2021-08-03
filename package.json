@@ -9,7 +9,7 @@
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
-    "dev": "npm run format && rollup -c -w",
+    "dev": "rollup -c -w",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",

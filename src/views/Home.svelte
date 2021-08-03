@@ -2,9 +2,10 @@
   import SearchBar from "../controls/SearchBar.svelte";
   import SongItem from "../components/SongItem.svelte";
   let searchVal = "";
-  import { songs, currentTheme, recentlyPlayed } from "../store";
+  import { songs, recentlyPlayed } from "../store";
   import { onMount } from "svelte";
   import Scrollbar from "smooth-scrollbar";
+  import { songExists } from "../lib/RhymeUtils";
   onMount(() => {
     Scrollbar.initAll();
   });
@@ -14,18 +15,17 @@
   <SearchBar bind:searchVal />
   <div class="content">
     {#if $recentlyPlayed.length > 0 && searchVal.length === 0}
-      <h2 style="margin-top:15px;font-weight:500">Recently Played</h2>
-      <div
-        class="recentlyPlayed"
-        style="background-color: {$currentTheme['panelsColor']};"
-      >
+      <h2 style="margin-top: 15px;font-weight: 500">Recently Played</h2>
+      <div class="recentlyPlayed">
         {#each $recentlyPlayed as song}
-          <SongItem
-            artistName={song["artist"]}
-            songName={song["song"]}
-            imgSrc={song["imgSrc"]}
-            normalSong={false}
-          />
+          {#if songExists(song, $songs)}
+            <SongItem
+              artistName={song["artist"]}
+              songName={song["song"]}
+              imgSrc={song["imgSrc"]}
+              normalSong={false}
+            />
+          {/if}
         {/each}
       </div>
     {/if}
