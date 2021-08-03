@@ -50,7 +50,7 @@
     width: 100px;
     height: 100px;
     position: absolute;
-    transform: translateY(-20%);
+    transform: translateY(-19%);
     background-color: #1212125c;
     align-items: center;
     justify-content: center;

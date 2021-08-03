@@ -122,7 +122,6 @@
     span > p {
       font-size: 0.7em;
       color: var(--titles-color);
-      margin-top: 10px;
     }
   }
 </style>

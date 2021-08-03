@@ -121,7 +121,9 @@ volume.subscribe((value) => {
 });
 
 // Recently played songs
-export const recentlyPlayed = writable<object[]>(storage.getSync("recentlyPlayed").recentlyPlayed ?? []);
+export const recentlyPlayed = writable<object[]>(
+  storage.getSync("recentlyPlayed").recentlyPlayed ?? []
+);
 recentlyPlayed.subscribe((value) => {
   storage.set("recentlyPlayed", { recentlyPlayed: value }, (error) => {
     if (error) throw error;

@@ -12,7 +12,7 @@
   });
 </script>
 
-<main id="albums" data-scrollbar>
+<main class="page" data-scrollbar>
   <SearchBar bind:searchVal />
   <div class="albums">
     {#if $songs}
@@ -31,9 +31,6 @@
 
 <style lang="scss">
   main {
-    padding: 1em;
-    width: 100%;
-    height: 100%;
     background-color: var(--background-color);
   }
   .albums {
