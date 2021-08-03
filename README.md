@@ -12,8 +12,7 @@
   <img src="https://user-images.githubusercontent.com/77546233/124939252-7c95af00-dff8-11eb-94a6-75abdde49640.png"/>
   </h3>
 <h3 align="center">
-Discord: <img src ="https://img.shields.io/discord/848185747319816212">
-Matrix: <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
+<img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
 <img src ="https://img.shields.io/github/issues-raw/Rhyme-Player/RhymeApp">
 <img src ="https://img.shields.io/github/issues-pr/Rhyme-Player/RhymeApp">
 <img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
@@ -30,7 +29,7 @@ A beautiful looking music player which supports
 - Settings page to make the app work the way you want
 - More is coming
 
-> Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org) or our public [Discord Room](https://discord.gg/zjvdRsux)
+> Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org)
 
 # Download
 
@@ -43,6 +42,8 @@ A beautiful looking music player which supports
 ## On linux
 
 ### Snap
+
+> Note: After you install the snap run `snap connect rhyme:audio-playback rhyme:home` in the terminal to allow rhyme to read files and play sound or from the permessions gui in the store
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
