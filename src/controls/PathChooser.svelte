@@ -21,7 +21,7 @@
   }
 </script>
 
-<main on:click={openDialog}>
+<main on:click={openDialog} class="ellipsis-text">
   {folderPath}
 </main>
 
@@ -31,9 +31,6 @@
     padding: 0.5em 1em;
     border-radius: 8px;
     max-width: 70%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     cursor: pointer;
   }
 </style>

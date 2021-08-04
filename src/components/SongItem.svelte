@@ -39,8 +39,8 @@
     <PlayCircleFilled fill={$currentTheme["accentColor"]} size="50" />
   </div>
   <div class="titles">
-    <h4>{songName}</h4>
-    <p>{artistName}</p>
+    <h4 class="ellipsis-text">{songName}</h4>
+    <p class="ellipsis-text">{artistName}</p>
   </div>
 </main>
 
@@ -51,7 +51,7 @@
     height: 100px;
     position: absolute;
     transform: translateY(-19%);
-    background-color: #1212125c;
+    background-color: #3838389c;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
@@ -76,9 +76,6 @@
     }
     h4,
     p {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
       max-width: 100px;
       text-align: center;
     }

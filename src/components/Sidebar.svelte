@@ -1,5 +1,13 @@
 <script>
-  import { HomeFilled, HomeOutlined, AddPlaylist, SettingsFilled, SettingsOutlined, AlbumFilled, AlbumOutlined } from "rhyme-icons";
+  import {
+    HomeFilled,
+    HomeOutlined,
+    AddPlaylist,
+    SettingsFilled,
+    SettingsOutlined,
+    AlbumFilled,
+    AlbumOutlined,
+  } from "rhyme-icons";
   import { location as spaLocation } from "svelte-spa-router";
   import { currentTheme } from "../store";
   function navigateLink(event) {

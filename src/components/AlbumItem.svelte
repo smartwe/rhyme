@@ -20,8 +20,8 @@
     />
   {/if}
   <div class="titles">
-    <h4>{album["name"]}</h4>
-    <p>
+    <h4 class="ellipsis-text">{album["name"]}</h4>
+    <p class="ellipsis-text">
       {album["songs"].length}
       {album["songs"].length === 1 ? "Song" : "Songs"}
     </p>
@@ -50,9 +50,6 @@
     }
     h4,
     p {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
       max-width: 100px;
       text-align: center;
     }

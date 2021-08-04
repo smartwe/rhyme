@@ -94,8 +94,8 @@
         alt=""
       />
       <div class="titles">
-        <span><p>{$currentSong["song"]}</p></span>
-        <p>
+        <span><p class="ellipsis-text">{$currentSong["song"]}</p></span>
+        <p class="ellipsis-text">
           by {$currentSong["artist"]}
           {$inAlbum ? "on " + $currentSong["album"] : ""}
         </p>
@@ -270,9 +270,6 @@
       }
 
       p {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
         color: #818181;
         font-size: 0.8em;
         width: 120px;

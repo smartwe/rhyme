@@ -42,9 +42,9 @@
       {/if}
     </div>
     <div class="titles">
-      <span>{album["name"]}</span>
-      <p>By {artists}</p>
-      <p>
+      <span class="ellipsis-text">{album["name"]}</span>
+      <p class="ellipsis-text">By {artists}</p>
+      <p class="ellipsis-text">
         {album["songs"].length}
         {album["songs"].length > 1 ? "Songs" : "Song"}
       </p>
@@ -62,7 +62,7 @@
       >
         <div class="info">
           <p>{(key += 1)}</p>
-          <p>{song["song"]}</p>
+          <p class="ellipsis-text">{song["song"]}</p>
         </div>
       </div>
     {/each}
@@ -102,9 +102,6 @@
       gap: 10px;
       flex: 1;
       * {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
         max-width: 90%;
       }
       span {
