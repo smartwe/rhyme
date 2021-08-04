@@ -215,7 +215,7 @@
     min-height: $height;
     display: flex;
     box-shadow: #5c5c5c5c 1px -15px 15px;
-    z-index: 10;
+    z-index: 1;
     background-color: white;
     transition: 0.3s;
     align-items: center;

@@ -28,6 +28,7 @@
   import { settings, songs, currentTheme, songsPlayer } from "./store";
   import BottomBar from "./components/BottomBar.svelte";
   import Player from "./lib/Player";
+  import PopUpDialog from "./controls/PopUpDialog.svelte";
 
   function getFolderContent(filePath: string, array?: string[]): string[] {
     let folderContent: string[] = array || [];
