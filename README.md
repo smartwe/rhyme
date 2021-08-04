@@ -10,7 +10,7 @@
     <br/>
     <br/>
     <a href="https://www.producthunt.com/posts/rhyme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rhyme" target="_blank">
-      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=307173&theme=dark" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?v=1&post_id=307173&theme=dark" style="width: 250px; height: 54px;" width="250" height="54" /></a>
   </h2>
   <h1 align="center">
     <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
