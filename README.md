@@ -5,9 +5,14 @@
     <img src="icons/linux/128x128.png" alt="Logo">
   </a>
   <h1 align="center">Rhyme</h1>
+  <h4 align="center">
+    Support us by sharing the app or up voting us on product
+    <br/>
+    <br/>
+    <a href="https://www.producthunt.com/posts/rhyme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rhyme" target="_blank">
+      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=307173&theme=dark" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+  </h2>
   <h1 align="center">
-  <a href="https://www.producthunt.com/posts/rhyme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rhyme" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=307173&theme=dark" alt="Rhyme - The home of your music | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-  <br/>
     <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
     <img src ="https://img.shields.io/github/issues-raw/Rhyme-Player/RhymeApp">
     <img src ="https://img.shields.io/github/issues-pr/Rhyme-Player/RhymeApp">
