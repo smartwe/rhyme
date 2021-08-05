@@ -6,7 +6,7 @@
   </a>
   <h1 align="center">Rhyme</h1>
   <h4 align="center">
-    Support us by sharing the app or up voting us on product
+    Support us by sharing the app or up voting us on product hunt
     <br/>
     <br/>
     <a href="https://www.producthunt.com/posts/rhyme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rhyme" target="_blank">
