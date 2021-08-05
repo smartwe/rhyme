@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let placeholder = "Search";
   export let searchVal = "";
   import { Search } from "rhyme-icons";

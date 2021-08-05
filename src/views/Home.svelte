@@ -1,6 +1,6 @@
 <script lang="ts">
   import SearchBar from "../controls/SearchBar.svelte";
-  import SongItem from "../components/SongItem.svelte";
+  import SongItem from "../controls/SongItem.svelte";
   let searchVal = "";
   import { songs, recentlyPlayed } from "../store";
   import { onMount } from "svelte";

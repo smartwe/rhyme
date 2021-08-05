@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AlbumItem from "../components/AlbumItem.svelte";
+  import AlbumItem from "../controls/AlbumItem.svelte";
   import { songs, albumsList } from "../store";
   import SearchBar from "../controls/SearchBar.svelte";
   $: albums = $albumsList;

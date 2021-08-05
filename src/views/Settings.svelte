@@ -1,18 +1,12 @@
 <script lang="ts">
   import PathChooser from "../controls/PathChooser.svelte";
+  import PopUpDialog from "../controls/PopUpDialog.svelte";
+  import TextInput from "../controls/TextInput.svelte";
   import Toggle from "../controls/Toggle.svelte";
   import { settings, themeManager, currentTheme } from "../store";
 
   const storage = require("electron-json-storage");
 
-  let useDarkTheme = $settings["useDarkTheme"];
-  function changeTheme(event) {
-    currentTheme.set(
-      $themeManager["installedThemes"].filter((value: object) => {
-        return event.target.value === value["id"];
-      })[0]
-    );
-  }
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
     let newSettings = $settings;
@@ -33,9 +27,15 @@
     newSettings["minimizeToTray"] = minimizeToTray;
     settings.set(newSettings);
   }
+
+  let showThemesPopUp = false;
 </script>
 
 <main class="page">
+  {#if showThemesPopUp}
+    <PopUpDialog width="90%" height="90%" bind:show={showThemesPopUp} />
+  {/if}
+
   <h2>General</h2>
   <ul>
     <li>
@@ -59,7 +59,7 @@
       <Toggle bind:checked={minimizeToTray} clickEvent={toggleMinimizeToTray} />
     </li>
     <li>
-      <span> Show notifications </span>
+      <span>Show notifications</span>
       <Toggle
         bind:checked={showNotifications}
         clickEvent={toggleShowNotifications}
@@ -70,17 +70,17 @@
   <h2>Appeareance</h2>
   <ul>
     <li>
-      <!-- TODO: Replace this with a better interface -->
-      <span>Prefer dark theme</span>
-      <select
-        on:change={(event) => {
-          changeTheme(event);
+      <span>
+        Open Community Themes
+        <p>Preview and use themes made by the community.</p>
+      </span>
+      <button
+        on:click={() => {
+          showThemesPopUp = !showThemesPopUp;
         }}
       >
-        {#each $themeManager["installedThemes"] as theme}
-          <option value={theme["id"]}>{theme["name"]}</option>
-        {/each}
-      </select>
+        See Community Themes
+      </button>
     </li>
   </ul>
 </main>
@@ -92,14 +92,17 @@
     gap: 15px;
     background-color: var(--background-color);
     transition: 0.3s;
-  }
-  select {
-    border: none;
-    padding: 0.5em;
-    option {
-      border: none;
-      padding: 0.5em;
+    * {
+      flex-shrink: 0;
     }
+  }
+  button {
+    background-color: var(--accent-color);
+    padding: 0.8em 1.5em;
+    color: var(--titles-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
   }
 
   ul {
