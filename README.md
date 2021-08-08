@@ -27,16 +27,27 @@
   </h3>
 </p>
 
-A beautiful looking music player which supports
+<br/>
+<br/>
+<br/>
 
-- Local music files
-- Can handle more than 57,340 songs without any performance issues
-- view albums
-- Tray Icon to control your app if you close the window the AI will work too
-- Settings page to make the app work the way you want
-- More is coming
+## Features
+- Supports: mp3, opus, ogg, wav, aac, m4a and webm.
+- Install themes made by the community
+- Home: Contains your local installed music reads music from default music folder change this in settings
+- Albums: Displays all the albums that are included in the id3 of the music files
+- Playlists: Create and suffle through playlists (Work in progress)
+- Artists: View all the artists that came included with the music files' id3 tag
+- Theme manager:
+   - Dark and light theme come by default
+   - Theme maker to create and use your own theme and you have an option to upload it to the store
+- More comming, if you want a feature implemented feel free to open an issue with a feature request
+
+<br/>
 
 > Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org)
+
+<br/>
 
 # Download
 
@@ -45,6 +56,8 @@ A beautiful looking music player which supports
 - clone repo and `cd` into it
 - run `yarn` or `npm i` to install dependencies
 - run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
+
+<br/>
 
 ## On linux
 
@@ -66,6 +79,8 @@ Comming soon
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
 
+<br/>
+
 ## On windows
 - Download from [site](https://rhyme.netlify.app/downloads/win/)
 
@@ -74,6 +89,7 @@ Or
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `exe` and `msi` files
 
+<br/>
 
 ## On mac os
 - Download from [site](https://rhyme.netlify.app/downloads/mac/)
