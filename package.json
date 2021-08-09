@@ -51,14 +51,34 @@
     },
     "linux": {
       "target": [
-        "AppImage",
-        "deb",
-        "pacman",
-        "rpm"
-      ],
-      "arch": [
-        "x64",
-        "ia32"
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "pacman",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ],
       "category": "AudioVideo",
       "maintainer": "Abdallah Mohammad",
@@ -67,12 +87,20 @@
     "win": {
       "icon": "build/icons/icon.ico",
       "target": [
-        "msi",
-        "nsis"
-      ],
-      "arch": [
-        "x64",
-        "ia32"
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ]
     }
   },
