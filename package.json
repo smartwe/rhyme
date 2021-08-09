@@ -3,12 +3,13 @@
   "productName": "Rhyme",
   "description": "The Home of your Music.",
   "author": "Abdallah Mohammad",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "private": false,
   "license": "GPL-3.0-or-later",
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
+    "snap": "yarn build && yarn electron-builder -l snap",
     "dev": "npm run format && rollup -c -w",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
@@ -49,6 +50,25 @@
         "pkg"
       ]
     },
+    "win": {
+      "icon": "build/icons/icon.ico",
+      "target": [
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
     "linux": {
       "target": [
         {
@@ -82,25 +102,17 @@
       ],
       "category": "AudioVideo",
       "maintainer": "Abdallah Mohammad",
-      "icon": "build/linux/icons"
+      "icon": "build/icons/linux"
     },
-    "win": {
-      "icon": "build/icons/icon.ico",
-      "target": [
-        {
-          "target": "msi",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
+    "snap": {
+      "plugs": [
+        "desktop",
+        "desktop-legacy",
+        "home",
+        "x11",
+        "browser-support",
+        "network",
+        "pulseaudio"
       ]
     }
   },
