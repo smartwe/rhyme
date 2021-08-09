@@ -2,14 +2,15 @@
   "name": "rhyme",
   "productName": "Rhyme",
   "description": "The Home of your Music.",
-  "author": "The Rhyme Project",
-  "version": "0.5.7",
+  "author": "Abdallah Mohammad",
+  "version": "0.5.8",
   "private": false,
   "license": "GPL-3.0-or-later",
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "snap": "yarn build && yarn electron-builder -l snap",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -43,28 +44,75 @@
       ]
     },
     "mac": {
-      "icon": "icons/icon.icns",
+      "icon": "build/icons/icon.icns",
       "target": [
         "dmg",
         "pkg"
       ]
     },
+    "win": {
+      "icon": "build/icons/icon.ico",
+      "target": [
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
     "linux": {
       "target": [
-        "AppImage",
-        "deb",
-        "pacman",
-        "rpm"
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "pacman",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ],
       "category": "AudioVideo",
-      "maintainer": "The Rhyme Project",
-      "icon": "icons/linux"
+      "maintainer": "Abdallah Mohammad",
+      "icon": "build/icons/linux"
     },
-    "win": {
-      "icon": "icons/icon.ico",
-      "target": [
-        "msi",
-        "nsis"
+    "snap": {
+      "plugs": [
+        "desktop",
+        "desktop-legacy",
+        "home",
+        "x11",
+        "browser-support",
+        "network",
+        "pulseaudio"
       ]
     }
   },
@@ -81,7 +129,7 @@
     "prettier": "2.3.2",
     "prettier-plugin-svelte": "2.3.1",
     "rhyme-icons": "1.2.4",
-    "rollup": "2.56.0",
+    "rollup": "2.56.1",
     "rollup-plugin-css-only": "3.1.0",
     "rollup-plugin-livereload": "2.0.5",
     "rollup-plugin-svelte": "7.1.0",
