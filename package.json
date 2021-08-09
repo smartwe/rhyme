@@ -45,8 +45,20 @@
     "mac": {
       "icon": "build/icons/icon.icns",
       "target": [
-        "dmg",
-        "pkg"
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ]
     },
     "linux": {
