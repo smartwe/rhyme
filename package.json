@@ -2,7 +2,7 @@
   "name": "rhyme",
   "productName": "Rhyme",
   "description": "The Home of your Music.",
-  "author": "The Rhyme Project",
+  "author": "Abdallah Mohammad",
   "version": "0.5.7",
   "private": false,
   "license": "GPL-3.0-or-later",
@@ -56,15 +56,23 @@
         "pacman",
         "rpm"
       ],
+      "arch": [
+        "x64",
+        "ia32"
+      ],
       "category": "AudioVideo",
-      "maintainer": "The Rhyme Project",
-      "icon": "build/icons/linux"
+      "maintainer": "Abdallah Mohammad",
+      "icon": "build/linux/icons"
     },
     "win": {
       "icon": "build/icons/icon.ico",
       "target": [
         "msi",
         "nsis"
+      ],
+      "arch": [
+        "x64",
+        "ia32"
       ]
     }
   },
