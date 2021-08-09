@@ -1,7 +1,7 @@
 <script lang="ts">
   import { querystring } from "svelte-spa-router";
   import {
-    settings,
+    currentTheme,
     currentSong,
     albumsList,
     songsPlayer,
@@ -28,7 +28,7 @@
   inAlbum.set(true);
 </script>
 
-<main class:dark={$settings["useDarkTheme"]} data-scrollbar>
+<main data-scrollbar>
   <div class="album-info">
     <div class="cover">
       {#if album["songs"].length === 1}
@@ -36,15 +36,15 @@
       {:else}
         <UnknownAlbum
           size="150"
-          firstFill={$settings["useDarkTheme"] ? "#ededed" : "#121212"}
-          secondFill={$settings["useDarkTheme"] ? "#5c5c5c" : "#d2d2d2"}
+          firstFill={$currentTheme["textColor"]}
+          secondFill={$currentTheme["panelsColor"]}
         />
       {/if}
     </div>
     <div class="titles">
-      <span>{album["name"]}</span>
-      <p>By {artists}</p>
-      <p>
+      <span class="ellipsis-text">{album["name"]}</span>
+      <p class="ellipsis-text">By {artists}</p>
+      <p class="ellipsis-text">
         {album["songs"].length}
         {album["songs"].length > 1 ? "Songs" : "Song"}
       </p>
@@ -62,7 +62,7 @@
       >
         <div class="info">
           <p>{(key += 1)}</p>
-          <p>{song["song"]}</p>
+          <p class="ellipsis-text">{song["song"]}</p>
         </div>
       </div>
     {/each}
@@ -70,7 +70,6 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   .songs-list {
     margin-top: 35px;
     display: flex;
@@ -82,8 +81,7 @@
     padding: 1em;
     width: 100%;
     height: 100%;
-    color: $gray_theme_light;
-    background-color: white;
+    background-color: var(--background-color);
     img {
       object-fit: cover;
       width: 150px;
@@ -104,13 +102,10 @@
       gap: 10px;
       flex: 1;
       * {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
         max-width: 90%;
       }
       span {
-        color: black;
+        color: var(--titles-color);
         font-size: 2em;
       }
       p {
@@ -128,20 +123,8 @@
       gap: 25px;
     }
     &.active {
-      background-color: $light_gray_theme_light;
-      color: $pink;
-    }
-  }
-
-  .dark {
-    background-color: black;
-    color: $light_gray_theme_dark;
-    span {
-      color: white !important;
-    }
-    .active {
-      background-color: $gray_theme_dark !important;
-      color: $pink;
+      background-color: var(--panels-color);
+      color: var(--accent-color);
     }
   }
 </style>

@@ -1,17 +1,12 @@
 <script lang="ts">
   import PathChooser from "../controls/PathChooser.svelte";
+  import PopUpDialog from "../controls/PopUpDialog.svelte";
+  import TextInput from "../controls/TextInput.svelte";
   import Toggle from "../controls/Toggle.svelte";
-  import { settings } from "../store";
+  import { settings, themeManager, currentTheme } from "../store";
 
   const storage = require("electron-json-storage");
 
-  let useDarkTheme = $settings["useDarkTheme"];
-  function toggleTheme() {
-    useDarkTheme = !useDarkTheme;
-    let newSettings = $settings;
-    newSettings["useDarkTheme"] = useDarkTheme;
-    settings.set(newSettings);
-  }
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
     let newSettings = $settings;
@@ -32,9 +27,15 @@
     newSettings["minimizeToTray"] = minimizeToTray;
     settings.set(newSettings);
   }
+
+  let showThemesPopUp = false;
 </script>
 
-<main class:dark={useDarkTheme}>
+<main class="page">
+  {#if showThemesPopUp}
+    <PopUpDialog width="90%" height="90%" bind:show={showThemesPopUp} />
+  {/if}
+
   <h2>General</h2>
   <ul>
     <li>
@@ -58,7 +59,7 @@
       <Toggle bind:checked={minimizeToTray} clickEvent={toggleMinimizeToTray} />
     </li>
     <li>
-      <span> Show notifications </span>
+      <span>Show notifications</span>
       <Toggle
         bind:checked={showNotifications}
         clickEvent={toggleShowNotifications}
@@ -69,27 +70,39 @@
   <h2>Appeareance</h2>
   <ul>
     <li>
-      <span>Prefer dark theme</span>
-      <Toggle bind:checked={useDarkTheme} clickEvent={toggleTheme} />
+      <span>
+        Open Community Themes
+        <p>Preview and use themes made by the community.</p>
+      </span>
+      <button
+        on:click={() => {
+          showThemesPopUp = !showThemesPopUp;
+        }}
+      >
+        See Community Themes
+      </button>
     </li>
   </ul>
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--background-color);
+    transition: 0.3s;
     * {
       flex-shrink: 0;
     }
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    gap: 15px;
-    width: 100%;
-    height: 100%;
-    color: $gray_theme_light;
-    background-color: white;
-    transition: 0.3s;
+  }
+  button {
+    background-color: var(--accent-color);
+    padding: 0.8em 1.5em;
+    color: var(--titles-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
   }
 
   ul {
@@ -111,16 +124,7 @@
     }
     span > p {
       font-size: 0.7em;
-      color: black;
-      margin-top: 10px;
-    }
-  }
-
-  .dark {
-    background-color: black;
-    color: $light_gray_theme_dark;
-    span > p {
-      color: white;
+      color: var(--titles-color);
     }
   }
 </style>

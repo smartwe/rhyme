@@ -2,7 +2,7 @@
   import {
     songsPlayer,
     inAlbum,
-    settings,
+    currentTheme,
     currentSong,
     songPlaying,
     shuffle,
@@ -86,7 +86,7 @@
 </script>
 
 {#if $currentSong}
-  <main class:dark={$settings["useDarkTheme"]}>
+  <main>
     <div class="song-info">
       <img
         src={$currentSong["imgSrc"]}
@@ -94,8 +94,8 @@
         alt=""
       />
       <div class="titles">
-        <span><p>{$currentSong["song"]}</p></span>
-        <p>
+        <span><p class="ellipsis-text">{$currentSong["song"]}</p></span>
+        <p class="ellipsis-text">
           by {$currentSong["artist"]}
           {$inAlbum ? "on " + $currentSong["album"] : ""}
         </p>
@@ -111,12 +111,8 @@
           >
             <Shuffle
               fill={$shuffle
-                ? $settings["useDarkTheme"]
-                  ? "#ef005f"
-                  : "#df0058"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
             />
           </div>
           <div
@@ -124,10 +120,7 @@
               $songsPlayer.previous();
             }}
           >
-            <SkipPrevious
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipPrevious size="28" fill={$currentTheme["textColor"]} />
           </div>
           <div class="play-pause">
             {#if !$songPlaying}
@@ -136,10 +129,7 @@
                   $songsPlayer.resume();
                 }}
               >
-                <PlayCircleFilled
-                  size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-                />
+                <PlayCircleFilled size="36" fill={$currentTheme["textColor"]} />
               </div>
             {:else}
               <div
@@ -149,7 +139,7 @@
               >
                 <PauseCircleFilled
                   size="36"
-                  fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
+                  fill={$currentTheme["textColor"]}
                 />
               </div>
             {/if}
@@ -159,10 +149,7 @@
               $songsPlayer.next();
             }}
           >
-            <SkipNext
-              size="28"
-              fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-            />
+            <SkipNext size="28" fill={$currentTheme["textColor"]} />
           </div>
           <div
             on:click={() => {
@@ -171,12 +158,8 @@
           >
             <Repeat
               fill={$repeat
-                ? $settings["useDarkTheme"]
-                  ? "#ef005f"
-                  : "#df0058"
-                : $settings["useDarkTheme"]
-                ? "#d2d2d2"
-                : "#5c5c5c"}
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
             />
           </div>
         </div>
@@ -187,7 +170,7 @@
                 volume.set(100);
               }}
             >
-              <VolumeOff fill={$settings["useDarkTheme"] ? "white" : "black"} />
+              <VolumeOff fill={$currentTheme["textColor"]} />
             </div>
           {:else}
             <div
@@ -195,7 +178,7 @@
                 volume.set(0);
               }}
             >
-              <VolumeUp fill={$settings["useDarkTheme"] ? "white" : "black"} />
+              <VolumeUp fill={$currentTheme["textColor"]} />
             </div>
           {/if}
           <SeekBar
@@ -208,7 +191,13 @@
         </div>
       </div>
       <div class="seekbar">
-        {currentTime}
+        <p
+          style="color:{$currentTheme[
+            'accentColor'
+          ]};padding:0;margin:0;min-width:max-content;"
+        >
+          {currentTime}
+        </p>
         <SeekBar
           bind:fullSize={barSize["size"]}
           bind:currentSize={barSize["current"]}
@@ -221,16 +210,16 @@
 {/if}
 
 <style lang="scss">
-  @import "../variables";
   $height: 70px;
   main {
     min-height: $height;
     display: flex;
     box-shadow: #5c5c5c5c 1px -15px 15px;
-    z-index: 10;
+    z-index: 1;
     background-color: white;
     transition: 0.3s;
     align-items: center;
+    background-color: var(--background-color);
 
     .controls {
       display: flex;
@@ -281,9 +270,6 @@
       }
 
       p {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
         color: #818181;
         font-size: 0.8em;
         width: 120px;
@@ -292,7 +278,7 @@
       }
       span > p {
         font-size: 0.9em;
-        color: black;
+        color: var(--titles-color);
       }
     }
     img {
@@ -302,12 +288,5 @@
       min-height: $height;
       object-fit: cover;
     }
-  }
-  .dark {
-    background-color: $gray_theme_dark;
-    .song-info > .titles > span > p {
-      color: white;
-    }
-    color: white;
   }
 </style>

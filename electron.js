@@ -120,13 +120,49 @@ if (!gotTheLock) {
       if (!hasKey) {
         let settings = {
           musicPath: app.getPath("music"),
-          useDarkTheme: false,
           heyRhymeActivate: false,
           showNotifications: true,
           minimizeToTray: false,
         };
 
         storage.set("settings", settings, (err) => {
+          if (err) throw err;
+        });
+      }
+    });
+
+    storage.has("theme-manager", (err, hasKey) => {
+      if (err) throw err;
+      if (!hasKey) {
+        let themeManager = {
+          currentTheme: "default-dark",
+          installedThemes: [
+            {
+              id: "default-dark",
+              name: "Default dark",
+              author: "Rhyme Designers",
+              accentColor: "#ea3548",
+              sidebarActiveColor: "#fff",
+              panelsColor: "#121212",
+              textColor: "#bbbbbb",
+              titleColor: "#fff",
+              backgroundColor: "#000",
+            },
+            {
+              id: "default-light",
+              name: "Default light",
+              author: "Rhyme Designers",
+              accentColor: "#ea3548",
+              sidebarActiveColor: "#fff",
+              panelsColor: "#e0e0e0",
+              textColor: "#5c5c5c",
+              titleColor: "#000",
+              backgroundColor: "#fff",
+            },
+          ],
+        };
+
+        storage.set("theme-manager", themeManager, (err) => {
           if (err) throw err;
         });
       }

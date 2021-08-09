@@ -1,83 +1,88 @@
-<script>
+<script lang="ts">
   import {
     HomeFilled,
     HomeOutlined,
-    MusicNoteOutlined,
-    MusicNoteFilled,
     AddPlaylist,
     SettingsFilled,
     SettingsOutlined,
     AlbumFilled,
     AlbumOutlined,
   } from "rhyme-icons";
-  import { location } from "svelte-spa-router";
-  import { settings, inAlbum } from "../store";
+  import { location as spaLocation } from "svelte-spa-router";
+  import { currentTheme } from "../store";
+  function navigateLink(event) {
+    event.preventDefault();
+    location.href = event.target.href;
+  }
 </script>
 
-<main
-  class:dark={$settings["useDarkTheme"]}
-  style={inAlbum ? "width: 0px" : ""}
->
+<main>
   <div class="main-links">
-    <a href="#/" class:active={$location === "/"}>
-      {#if $location === "/"}
-        <HomeFilled fill="white" />
+    <a
+      href="#/"
+      class:active={$spaLocation === "/"}
+      on:click={(event) => {
+        navigateLink(event);
+      }}
+    >
+      {#if $spaLocation === "/"}
+        <HomeFilled fill={$currentTheme["sidebarActiveColor"]} />
       {:else}
-        <HomeOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
+        <HomeOutlined fill={$currentTheme["textColor"]} />
       {/if}
       Home
     </a>
 
-    <a href="#/albums" class:active={$location === "/albums"}>
-      {#if $location === "/albums"}
-        <AlbumFilled fill="white" />
+    <a
+      href="#/albums"
+      class:active={$spaLocation === "/albums"}
+      on:click={(event) => {
+        navigateLink(event);
+      }}
+    >
+      {#if $spaLocation === "/albums"}
+        <AlbumFilled fill={$currentTheme["sidebarActiveColor"]} />
       {:else}
-        <AlbumOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
+        <AlbumOutlined fill={$currentTheme["textColor"]} />
       {/if}
       Albums
     </a>
 
-    <a href="#/playlists" class:active={$location === "/playlists"}>
-      {#if $location === "/playlists"}
-        <AddPlaylist fill="white" />
+    <a
+      href="#/playlists"
+      class:active={$spaLocation === "/playlists"}
+      on:click={(event) => {
+        navigateLink(event);
+      }}
+    >
+      {#if $spaLocation === "/playlists"}
+        <AddPlaylist fill={$currentTheme["sidebarActiveColor"]} />
       {:else}
-        <AddPlaylist fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"} />
+        <AddPlaylist fill={$currentTheme["textColor"]} />
       {/if}
       Playlists
     </a>
-
-    <a href="#/rhyme-ai" class:active={$location === "/rhyme-ai"}>
-      {#if $location === "/rhyme-ai"}
-        <MusicNoteFilled fill="white" />
-      {:else}
-        <MusicNoteOutlined
-          fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-        />
-      {/if}
-      Rhyme AI
-    </a>
   </div>
-  <a href="#/settings" class:active={$location === "/settings"}>
-    {#if $location === "/settings"}
-      <SettingsFilled fill="white" />
+  <a
+    href="#/settings"
+    class:active={$spaLocation === "/settings"}
+    on:click={(event) => {
+      navigateLink(event);
+    }}
+  >
+    {#if $spaLocation === "/settings"}
+      <SettingsFilled fill={$currentTheme["sidebarActiveColor"]} />
     {:else}
-      <SettingsOutlined
-        fill={$settings["useDarkTheme"] ? "#d2d2d2" : "#5c5c5c"}
-      />
+      <SettingsOutlined fill={$currentTheme["textColor"]} />
     {/if}
     Settings
   </a>
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
     overflow-x: visible;
-    background: $light_gray_theme_light;
+    background-color: var(--panels-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -91,24 +96,17 @@
       overflow-x: visible;
     }
     a.active {
-      background-color: $pink;
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--sidebar-active-color);
     }
     a {
-      color: $gray_theme_light;
       display: flex;
       align-items: center;
       padding: 0.4em 0.5em;
       border-radius: 0.3em;
       gap: 5px;
       font-weight: 500;
-    }
-  }
-
-  .dark {
-    background-color: $gray_theme_dark;
-    a {
-      color: $light_gray_theme_dark;
+      color: var(--text-color);
     }
   }
 </style>

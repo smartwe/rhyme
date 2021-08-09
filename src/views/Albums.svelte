@@ -1,6 +1,6 @@
 <script lang="ts">
-  import AlbumItem from "../components/AlbumItem.svelte";
-  import { settings, songs, albumsList } from "../store";
+  import AlbumItem from "../controls/AlbumItem.svelte";
+  import { songs, albumsList } from "../store";
   import SearchBar from "../controls/SearchBar.svelte";
   $: albums = $albumsList;
   let searchVal = "";
@@ -12,7 +12,7 @@
   });
 </script>
 
-<main id="albums" class:dark={$settings["useDarkTheme"]} data-scrollbar>
+<main class="page" data-scrollbar>
   <SearchBar bind:searchVal />
   <div class="albums">
     {#if $songs}
@@ -30,13 +30,8 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   main {
-    padding: 1em;
-    width: 100%;
-    height: 100%;
-    color: $gray_theme_light;
-    background-color: white;
+    background-color: var(--background-color);
   }
   .albums {
     margin-top: 25px;
@@ -46,9 +41,5 @@
     row-gap: 20px;
     column-gap: 10px;
     margin-bottom: 50px;
-  }
-  .dark {
-    background-color: black;
-    color: $light_gray_theme_dark;
   }
 </style>

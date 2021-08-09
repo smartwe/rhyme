@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { settings, songsPlayer } from "../store";
+  import { songsPlayer } from "../store";
   export let fullSize = 0;
   export let currentSize = 0;
   export let height = "7px";
@@ -31,7 +31,6 @@
 <main
   style="height: {height}; width: {width}"
   on:click={onClick}
-  class:dark={$settings["useDarkTheme"]}
   on:mousemove={(event) => {
     if (mouseDown) {
       onClick(event);
@@ -51,9 +50,8 @@
 </main>
 
 <style lang="scss">
-  @import "../variables";
   div {
-    background-color: $pink;
+    background-color: var(--accent-color);
     transition: 0.16s;
   }
 
@@ -61,8 +59,5 @@
     border-radius: 20px;
     background-color: lightgray;
     cursor: pointer;
-  }
-  .dark {
-    background-color: $light_gray_theme_dark;
   }
 </style>

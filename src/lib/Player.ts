@@ -1,5 +1,7 @@
 const { Howl } = require("howler");
 const storage = require("electron-json-storage");
+import { songExists } from "../lib/RhymeUtils";
+
 import {
   currentSong,
   songPlaying,
@@ -51,7 +53,7 @@ export default class Player extends Events {
         }
         index = this.randomArr[this.randomNum];
         if (
-          this.containsObject(this.songs[index], get(recentlyPlayed)) &&
+          songExists(this.songs[index], get(recentlyPlayed)) &&
           this.songs.length >= 13
         ) {
           randomizedNum();
@@ -60,18 +62,6 @@ export default class Player extends Events {
       randomizedNum();
     }
     this.start(index);
-  }
-
-  containsObject(obj: object, list: object[]): boolean {
-    for (let i in list) {
-      if (
-        list[i]["song"] === obj["song"] &&
-        list[i]["artist"] === obj["artist"]
-      ) {
-        return true;
-      }
-    }
-    return false;
   }
 
   start(index: number) {
@@ -103,7 +93,7 @@ export default class Player extends Events {
         if (newArray.length > 12) {
           newArray.shift();
         }
-        if (!self.containsObject(data, newArray)) {
+        if (!songExists(data, newArray)) {
           newArray.push(data);
         }
         recentlyPlayed.set(newArray);

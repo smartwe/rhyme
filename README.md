@@ -62,26 +62,30 @@
 ## On linux
 
 ### Snap
-> Note: After you install the snap run `snap connect rhyme:audio-playback  rhyme:home` in the terminal to allow rhyme to read files and play sound or from the permessions gui in the store
 
+> Note: After you install the snap run `snap connect rhyme:audio-playback rhyme:home` in the terminal to allow rhyme to read files and play sound or from the permessions gui in the store
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
 ### Flatpak
+
 Comming soon
 
 ### Package manager
+
 - `apt` - Not yet supported
 - `pacman` - Not yet supported
 - `dnf` - Not yet supported
 
 ### Github
+
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
 
 <br/>
 
 ## On windows
+
 - Download from [site](https://rhyme.netlify.app/downloads/win/)
 
 Or
@@ -92,6 +96,7 @@ Or
 <br/>
 
 ## On mac os
+
 - Download from [site](https://rhyme.netlify.app/downloads/mac/)
 
 Or
