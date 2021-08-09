@@ -43,7 +43,7 @@
       ]
     },
     "mac": {
-      "icon": "icons/icon.icns",
+      "icon": "build/icons/icon.icns",
       "target": [
         "dmg",
         "pkg"
@@ -58,10 +58,10 @@
       ],
       "category": "AudioVideo",
       "maintainer": "The Rhyme Project",
-      "icon": "icons/linux"
+      "icon": "build/icons/linux"
     },
     "win": {
-      "icon": "icons/icon.ico",
+      "icon": "build/icons/icon.ico",
       "target": [
         "msi",
         "nsis"
