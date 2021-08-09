@@ -2,13 +2,14 @@
   "name": "rhyme",
   "productName": "Rhyme",
   "description": "The Home of your Music.",
-  "author": "The Rhyme Project",
-  "version": "0.5.7",
+  "author": "Abdallah Mohammad",
+  "version": "0.5.8",
   "private": false,
   "license": "GPL-3.0-or-later",
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
+    "snap": "yarn build && yarn electron-builder -l snap",
     "dev": "npm run format && rollup -c -w",
     "notes-checker": "node NotesChecker.js",
     "start": "electron .",
@@ -43,28 +44,75 @@
       ]
     },
     "mac": {
-      "icon": "icons/icon.icns",
+      "icon": "build/icons/icon.icns",
       "target": [
         "dmg",
         "pkg"
       ]
     },
+    "win": {
+      "icon": "build/icons/icon.ico",
+      "target": [
+        {
+          "target": "msi",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
     "linux": {
       "target": [
-        "AppImage",
-        "deb",
-        "pacman",
-        "rpm"
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "pacman",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ],
       "category": "AudioVideo",
-      "maintainer": "The Rhyme Project",
-      "icon": "icons/linux"
+      "maintainer": "Abdallah Mohammad",
+      "icon": "build/icons/linux"
     },
-    "win": {
-      "icon": "icons/icon.ico",
-      "target": [
-        "msi",
-        "nsis"
+    "snap": {
+      "plugs": [
+        "desktop",
+        "desktop-legacy",
+        "home",
+        "x11",
+        "browser-support",
+        "network",
+        "pulseaudio"
       ]
     }
   },

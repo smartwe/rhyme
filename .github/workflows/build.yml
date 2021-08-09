@@ -15,7 +15,7 @@ jobs:
           node-version: 14
 
       - name: install libarchive-tools
-        run: sudo apt install libarchive-tools
+        run: sudo apt-get install --no-install-recommends -y libopenjp2-tools libarchive-tools gcc-multilib g++-multilib
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
