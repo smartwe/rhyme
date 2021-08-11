@@ -22,6 +22,9 @@
     newSettings["musicPath"] = folderPath;
     settings.set(newSettings);
     $watcher.add($settings["musicPath"]);
+    if ($songsPlayer) {
+      $songsPlayer.play(0);
+    }
   }
   let showNotifications: boolean = $settings["showNotifications"];
   function toggleShowNotifications() {
