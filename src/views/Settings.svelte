@@ -1,17 +1,27 @@
 <script lang="ts">
   import PathChooser from "../controls/PathChooser.svelte";
   import PopUpDialog from "../controls/PopUpDialog.svelte";
-  import TextInput from "../controls/TextInput.svelte";
   import Toggle from "../controls/Toggle.svelte";
-  import { settings, themeManager, currentTheme } from "../store";
-
-  const storage = require("electron-json-storage");
+  import {
+    settings,
+    watcher,
+    songs,
+    currentSong,
+    recentlyPlayed,
+    songsPlayer,
+    themeManager,
+    currentTheme,
+  } from "../store";
 
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
+    songs.set([]);
+    recentlyPlayed.set([]);
     let newSettings = $settings;
+    $watcher.unwatch(folderPath);
     newSettings["musicPath"] = folderPath;
     settings.set(newSettings);
+    $watcher.add($settings["musicPath"]);
   }
   let showNotifications: boolean = $settings["showNotifications"];
   function toggleShowNotifications() {
@@ -39,11 +49,7 @@
   <h2>General</h2>
   <ul>
     <li>
-      <span>
-        Music folder path
-        <br />
-        <p>You will need to restart the app to view changes</p>
-      </span>
+      <span> Music folder path </span>
       <PathChooser
         bind:folderPath
         defaultPath={$settings["musicPath"]}

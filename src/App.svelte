@@ -19,16 +19,13 @@
   const path = require("path");
   const mm = require("music-metadata");
   const chokidar = require("chokidar");
+  // import chokidar from "chokidar";
 
-  let dirWatcher = chokidar.watch($settings["musicPath"], {
-    ignored: /[\/\\]\./,
-    persistent: true,
-  });
-
-  import { settings, songs, currentTheme, songsPlayer } from "./store";
+  import { settings, watcher, songs, currentTheme, songsPlayer } from "./store";
   import BottomBar from "./components/BottomBar.svelte";
   import Player from "./lib/Player";
   import PopUpDialog from "./controls/PopUpDialog.svelte";
+  import { songExists } from "./lib/RhymeUtils";
 
   function getFolderContent(filePath: string, array?: string[]): string[] {
     let folderContent: string[] = array || [];
@@ -68,16 +65,21 @@
           metadata.common.picture[0].format
         };base64,${metadata.common.picture[0].data.toString("base64")}`;
       }
-      $songs.push({
+
+      let data = {
         song,
         artist,
         album,
         imgSrc,
         file: audioFile,
-      });
-      songs.set($songs);
-      if (!$songsPlayer) {
-        songsPlayer.set(new Player($songs));
+      };
+
+      if (!songExists(data, $songs)) {
+        $songs.push(data);
+        songs.set($songs);
+        if (!$songsPlayer) {
+          songsPlayer.set(new Player($songs));
+        }
       }
     }
   }
@@ -85,6 +87,38 @@
   async function getSongs() {
     let files = getFolderContent($settings["musicPath"] as string);
     await parseFiles(files);
+    watcher.set(
+      chokidar.watch($settings["musicPath"], {
+        ignored: /[\/\\]\./,
+        persistent: true,
+      })
+    );
+    $watcher
+      .on("add", (path: string) => {
+        if (
+          path.endsWith(".mp3") ||
+          path.endsWith(".m4a") ||
+          path.endsWith(".webm") ||
+          path.endsWith(".wav") ||
+          path.endsWith(".aac") ||
+          path.endsWith(".ogg") ||
+          path.endsWith(".opus")
+        ) {
+          parseFiles([path]);
+        }
+      })
+      .on("unlink", (path: string) => {
+        songs.set(
+          $songs.filter((song) => {
+            return song["file"] !== path;
+          })
+        );
+        $songsPlayer.play(
+          $songsPlayer.index > $songsPlayer.songs.length - 1
+            ? $songsPlayer.songs.length - 1
+            : $songsPlayer.index
+        );
+      });
   }
   getSongs();
 </script>
