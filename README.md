@@ -69,7 +69,7 @@
 
 ### Flatpak
 
-Comming soon
+Coming soon
 
 ### Package manager
 
