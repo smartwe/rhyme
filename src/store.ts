@@ -2,6 +2,10 @@ import { writable, get } from "svelte/store";
 import type Player from "./lib/Player";
 const storage = require("electron-json-storage");
 const { Howler } = require("howler");
+const { FSWatcher } = require("chokidar");
+
+// Chokidar directory watcher
+export const watcher = writable<typeof FSWatcher>(null);
 
 // Settings
 export const settings = writable<object>(storage.getSync("settings"));
