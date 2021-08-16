@@ -112,7 +112,8 @@
         "x11",
         "browser-support",
         "network",
-        "pulseaudio"
+        "pulseaudio",
+        "audio-playback"
       ]
     }
   },
