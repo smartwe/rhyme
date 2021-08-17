@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
-    <img src="icons/linux/128x128.png" alt="Logo">
+    <img src="build/icons/linux/128x128.png" alt="Logo">
   </a>
   <h1 align="center">Rhyme</h1>
   <h4 align="center">
@@ -62,8 +62,6 @@
 ## On linux
 
 ### Snap
-
-> Note: After you install the snap run `snap connect rhyme:audio-playback rhyme:home` in the terminal to allow rhyme to read files and play sound or from the permessions gui in the store
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
