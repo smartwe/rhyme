@@ -9228,7 +9228,11 @@
   },
   {
     "type": "shell",
-    "commands": ["FLATPAK_BUILDER_BUILDDIR=$PWD flatpak-node/patch-all.sh", "python3 flatpak-node/generate-index.py", "bash flatpak-node/setup_sdk_node_headers.sh"]
+    "commands": [
+      "FLATPAK_BUILDER_BUILDDIR=$PWD flatpak-node/patch-all.sh",
+      "python3 flatpak-node/generate-index.py",
+      "bash flatpak-node/setup_sdk_node_headers.sh"
+    ]
   },
   {
     "type": "shell",
