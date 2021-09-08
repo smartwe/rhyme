@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
-    <img src="build/icons/linux/128x128.png" alt="Logo">
+    <img src="build/linux/icons/128x128.png" alt="Logo">
   </a>
   <h1 align="center">Rhyme</h1>
   <h4 align="center">
@@ -32,6 +32,7 @@
 <br/>
 
 ## Features
+
 - Supports: mp3, opus, ogg, wav, aac, m4a and webm.
 - Install themes made by the community
 - Home: Contains your local installed music reads music from default music folder change this in settings
@@ -39,8 +40,8 @@
 - Playlists: Create and suffle through playlists (Work in progress)
 - Artists: View all the artists that came included with the music files' id3 tag
 - Theme manager:
-   - Dark and light theme come by default
-   - Theme maker to create and use your own theme and you have an option to upload it to the store
+  - Dark and light theme come by default
+  - Theme maker to create and use your own theme and you have an option to upload it to the store
 - More comming, if you want a feature implemented feel free to open an issue with a feature request
 
 <br/>
@@ -57,7 +58,17 @@
 - run `yarn` or `npm i` to install dependencies
 - run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
 
-<br/>
+### build on linux with flatpak-builder
+
+- Install SDK, sdk node extension, etc
+
+```sh
+flatpak install flathub org.electronjs.Electron2.BaseApp
+flatpak install flathub org.freedesktop.Sdk.Extension.node14
+```
+
+- Build app
+  <br/>
 
 ## On linux
 
