@@ -8,8 +8,6 @@
 .vscode
 .flatpak-builder
 /build/linux/flatpak/build
-/build/linux/flatpak/generated-sources.json
 
 # Files
-yarn.lock
 package-lock.json
