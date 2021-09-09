@@ -10,6 +10,7 @@ command: run.sh
 finish-args:
   - --share=ipc
   - --socket=x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=network
 build-options:
@@ -46,20 +47,34 @@ modules:
       - type: dir
         path: ../../..
         dest: main
+
+      - type: file
+        url: data:yarn-offline-mirror%20/run/build/rhyme/flatpak-node/yarn-mirror%0A--install.offline%20true%0A--run.offline%20true%0A
+        dest: main
+        dest-filename: .yarnrc
+
       - generated-sources.json
+
       - type: script
         dest-filename: run.sh
         commands:
           - zypak-wrapper.sh /app/main/rhyme "$@"
+      - type: file
+        path: ../com.github.rhyme_player.rhyme.desktop
+      - type: file
+        path: ../com.github.rhyme_player.rhyme.appdata.xml
     build-commands:
       # Install dependencies
       - yarn --offline
       - |
         . ../flatpak-node/electron-builder-arch-args.sh
         jq '.build.linux.target="dir"' <<<$(<package.json) > package.json
-        npm run build && npm run electron-builder -- $ELECTRON_BUILDER_ARCH_ARGS  --linux --dir
+        yarn build && yarn electron-builder -- $ELECTRON_BUILDER_ARCH_ARGS  --linux --dir
       # Bundle app and dependencies
-      - cp -a dist/linux*unpacked /app/main
+      - cp -a build_dist/linux*unpacked /app/main
+      # Install icons
+      - for size in 16 32 48 64 128 256;do install -d $FLATPAK_DEST/share/icons/hicolor/${size}x${size}/apps; cp ./build/linux/icons/${size}x${size}.png $FLATPAK_DEST/share/icons/hicolor/${size}x${size}/apps/$FLATPAK_ID.png; done
       # Install app wrapper
       - install -Dm755 -t /app/bin/ ../run.sh
-
+      - install -Dm644 -t $FLATPAK_DEST/share/applications ../$FLATPAK_ID.desktop
+      - install -Dm644 -t $FLATPAK_DEST/share/metainfo ../$FLATPAK_ID.appdata.xml

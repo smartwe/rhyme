@@ -4,7 +4,7 @@
 
 __license__ = 'MIT'
 
-# NOTE: Run this file on when dependencies are added using `python3 flatpak-packages-generator.py yarn --xdg-layout ../../yarn.lock`
+# NOTE: Run `python3 flatpak-packages-generator.py yarn --xdg-layout ../../../yarn.lock` when adding a new dependency
 
 from typing import *  # pyright: reportWildcardImportFromLibrary=false
 # Explictly import these.
