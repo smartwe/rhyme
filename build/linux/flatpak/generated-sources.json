@@ -3672,6 +3672,13 @@
         "dest": "flatpak-node/yarn-mirror"
     },
     {
+        "type": "file",
+        "url": "https://registry.yarnpkg.com/yarn/-/yarn-1.22.11.tgz#d0104043e7349046e0e2aec977c24be106925ed6",
+        "sha512": "0168dee1bcea3bd4549f7b1d9cce4df27e1927406a09cfe4a8526fa4e239fc456420d5ee8b4caebd4ecd0c2105ffff966b11ee35acb6b8e1f1038fadab53f772",
+        "dest-filename": "yarn-1.22.11.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
         "type": "script",
         "commands": [
             "case \"$FLATPAK_ARCH\" in",
