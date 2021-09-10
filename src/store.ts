@@ -16,7 +16,9 @@ settings.subscribe((value) => {
 });
 
 // Theme manager
-export const themeManager = writable<object>(store.get("theme-manager", null) as object);
+export const themeManager = writable<object>(
+  store.get("theme-manager", null) as object
+);
 
 // Current Theme
 export const currentTheme = writable<object>(
@@ -121,7 +123,9 @@ volume.subscribe((value) => {
 });
 
 // Recently played songs
-export const recentlyPlayed = writable<object[]>(store.get("recently-played") ? store.get("recently-played").value : []);
+export const recentlyPlayed = writable<object[]>(
+  store.get("recently-played") ? store.get("recently-played").value : []
+);
 recentlyPlayed.subscribe((value) => {
   store.set("recently-played", { value });
 });
