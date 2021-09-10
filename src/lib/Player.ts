@@ -1,5 +1,4 @@
 const { Howl } = require("howler");
-const storage = require("electron-json-storage");
 import { songExists } from "../lib/RhymeUtils";
 
 import {

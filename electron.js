@@ -7,8 +7,10 @@ const {
   ipcMain,
 } = require("electron");
 const path = require("path");
-const isDev = require("electron-is-dev");
+const isDev = !app.isPackaged;
 const htmlFile = path.join(__dirname, "public", "index.html");
+const Store = require("electron-store");
+const store = new Store();
 
 if (isDev) {
   require("electron-reload")(path.join(__dirname, "public"), {
@@ -85,7 +87,7 @@ if (!gotTheLock) {
       {
         label: "Quit",
         click() {
-          app.isQuiting = true;
+          app.isQuitting = true;
           app.quit();
         },
       },
@@ -114,62 +116,51 @@ if (!gotTheLock) {
       win.setMenu(null);
     }
 
-    const storage = require("electron-json-storage");
-    storage.has("settings", (err, hasKey) => {
-      if (err) throw err;
-      if (!hasKey) {
-        let settings = {
-          musicPath: app.getPath("music"),
-          heyRhymeActivate: false,
-          showNotifications: true,
-          minimizeToTray: false,
-        };
+    if (!store.has("settings")) {
+      let settings = {
+        musicPath: app.getPath("music"),
+        heyRhymeActivate: false,
+        showNotifications: true,
+        minimizeToTray: false,
+      };
 
-        storage.set("settings", settings, (err) => {
-          if (err) throw err;
-        });
-      }
-    });
+      store.set("settings", settings);
+    }
 
-    storage.has("theme-manager", (err, hasKey) => {
-      if (err) throw err;
-      if (!hasKey) {
-        let themeManager = {
-          currentTheme: "default-dark",
-          installedThemes: [
-            {
-              id: "default-dark",
-              name: "Default dark",
-              author: "Rhyme Designers",
-              accentColor: "#ea3548",
-              sidebarActiveColor: "#fff",
-              panelsColor: "#121212",
-              textColor: "#bbbbbb",
-              titleColor: "#fff",
-              backgroundColor: "#000",
-            },
-            {
-              id: "default-light",
-              name: "Default light",
-              author: "Rhyme Designers",
-              accentColor: "#ea3548",
-              sidebarActiveColor: "#fff",
-              panelsColor: "#e0e0e0",
-              textColor: "#5c5c5c",
-              titleColor: "#000",
-              backgroundColor: "#fff",
-            },
-          ],
-        };
+    if (!store.has("theme-manager")) {
+      let themeManager = {
+        currentTheme: "default-dark",
+        installedThemes: [
+          {
+            id: "default-dark",
+            name: "Default dark",
+            author: "Rhyme Designers",
+            accentColor: "#ea3548",
+            sidebarActiveColor: "#fff",
+            panelsColor: "#121212",
+            textColor: "#bbbbbb",
+            titleColor: "#fff",
+            backgroundColor: "#000",
+          },
+          {
+            id: "default-light",
+            name: "Default light",
+            author: "Rhyme Designers",
+            accentColor: "#ea3548",
+            sidebarActiveColor: "#fff",
+            panelsColor: "#e0e0e0",
+            textColor: "#5c5c5c",
+            titleColor: "#000",
+            backgroundColor: "#fff",
+          },
+        ],
+      };
 
-        storage.set("theme-manager", themeManager, (err) => {
-          if (err) throw err;
-        });
-      }
-    });
+      store.set("theme-manager", themeManager);
+    }
 
     win.on("close", function (event) {
-      if (!app.isQuiting && storage.getSync("settings").minimizeToTray) {
+      if (!app.isQuitting && store.get("settings", null).minimizeToTray) {
         event.preventDefault();
         win.hide();
       }
