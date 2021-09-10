@@ -1,6 +1,8 @@
 import { writable, get } from "svelte/store";
 import type Player from "./lib/Player";
-const storage = require("electron-json-storage");
+const Store = require("electron-store");
+const store = new Store();
+
 const { Howler } = require("howler");
 const { FSWatcher } = require("chokidar");
 
@@ -8,15 +10,15 @@ const { FSWatcher } = require("chokidar");
 export const watcher = writable<typeof FSWatcher>(null);
 
 // Settings
-export const settings = writable<object>(storage.getSync("settings"));
+export const settings = writable<object>(store.get("settings", null) as object);
 settings.subscribe((value) => {
-  storage.set("settings", value, (error: string) => {
-    if (error) throw error;
-  });
+  store.set("settings", value);
 });
 
 // Theme manager
-export const themeManager = writable<object>(storage.getSync("theme-manager"));
+export const themeManager = writable<object>(
+  store.get("theme-manager", null) as object
+);
 
 // Current Theme
 export const currentTheme = writable<object>(
@@ -28,9 +30,7 @@ export const currentTheme = writable<object>(
 currentTheme.subscribe((value) => {
   let newTheme = get(themeManager);
   newTheme["currentTheme"] = value["id"];
-  storage.set("theme-manager", newTheme, (error: string) => {
-    if (error) throw error;
-  });
+  store.set("theme-manager", newTheme);
 });
 
 themeManager.subscribe((value) => {
@@ -40,9 +40,7 @@ themeManager.subscribe((value) => {
     })[0]
   );
 
-  storage.set("theme-manager", value, (error: string) => {
-    if (error) throw error;
-  });
+  store.set("theme-manager", value);
 });
 
 // Songs Player
@@ -126,10 +124,8 @@ volume.subscribe((value) => {
 
 // Recently played songs
 export const recentlyPlayed = writable<object[]>(
-  storage.getSync("recentlyPlayed").recentlyPlayed ?? []
+  store.get("recently-played") ? store.get("recently-played").value : []
 );
 recentlyPlayed.subscribe((value) => {
-  storage.set("recentlyPlayed", { recentlyPlayed: value }, (error) => {
-    if (error) throw error;
-  });
+  store.set("recently-played", { value });
 });
