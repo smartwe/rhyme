@@ -70,6 +70,7 @@ export default class Player extends Events {
     if (this.sound) {
       this.sound.pause();
     }
+    if (!data) return;
     let self = this;
     this.sound = new Howl({
       src: [data.file],

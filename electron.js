@@ -5,6 +5,7 @@ const {
   Tray,
   app,
   ipcMain,
+  dialog,
 } = require("electron");
 const path = require("path");
 const isDev = !app.isPackaged;
@@ -13,9 +14,7 @@ const Store = require("electron-store");
 const store = new Store();
 
 if (isDev) {
-  require("electron-reload")(path.join(__dirname, "public"), {
-    electron: require(`${__dirname}/node_modules/electron`),
-  });
+  require("electron-reload")(path.join(__dirname, "public"));
 }
 
 let win;
@@ -45,6 +44,16 @@ if (!gotTheLock) {
 
     ipcMain.on("notification", (_event, body) => {
       new Notification({ title: "Rhyme", body }).show();
+    });
+
+    ipcMain.handle("show-dialog", async (event, config) => {
+      let data = await dialog.showOpenDialog(win, {
+        properties: [config.dialogType],
+        title: config.title,
+        defaultPath: config.defaultPath,
+      });
+
+      return data.filePaths[0];
     });
 
     tray = new Tray(

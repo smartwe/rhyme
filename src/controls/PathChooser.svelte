@@ -3,21 +3,15 @@
   export let title = "";
   export let defaultPath = "";
   export let onEnd = () => {};
-  const remote = require("electron").remote;
+  const { ipcRenderer } = require("electron");
   import { settings } from "../store";
-  function openDialog() {
-    remote.dialog
-      .showOpenDialog(remote.getCurrentWindow(), {
-        properties: ["openDirectory"],
-        title,
-        defaultPath,
-      })
-      .then((data) => {
-        if (data["filePaths"][0]) {
-          folderPath = data["filePaths"][0];
-          onEnd();
-        }
-      });
+  async function openDialog() {
+    folderPath = await ipcRenderer.invoke("show-dialog", {
+      dialogType: "openDirectory",
+      title,
+      defaultPath,
+    });
+    onEnd();
   }
 </script>
 
