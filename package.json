@@ -15,8 +15,8 @@
     "snap": "yarn build && yarn electron-builder -l snap",
     "notes-checker": "node NotesChecker.js",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format-check": "prettier --check \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,json,svelte}\"",
-    "format": "prettier --write \"{,!(node_modules|public)/**/}*.{js,ts,css,scss,json,svelte}\""
+    "format-check": "prettier --check \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\"",
+    "format": "prettier --write \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\""
   },
   "build": {
     "appId": "com.github.rhyme_player.rhyme",
@@ -103,7 +103,7 @@
       ],
       "category": "AudioVideo",
       "maintainer": "Abdallah Mohammad",
-      "icon": "build/icons/linux"
+      "icon": "build/linux/icons"
     },
     "snap": {
       "plugs": [

@@ -6,7 +6,8 @@
 /build_dist/
 .DS_Store
 .vscode
+.flatpak-builder
+/build/linux/flatpak/build
 
 # Files
-yarn.lock
 package-lock.json
