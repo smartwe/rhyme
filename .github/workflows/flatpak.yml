@@ -1,11 +1,11 @@
+name: "CI: Flatpak"
+
 on:
   push:
     branches: [main, flatpak]
   pull_request:
-name: CI
 jobs:
   flatpak:
-    name: "Flatpak"
     runs-on: ubuntu-latest
     container:
       image: bilelmoussaoui/flatpak-github-actions:gnome-40
