@@ -60,15 +60,31 @@
 
 ### build on linux with flatpak-builder
 
+- Add flathub repo
+
+```sh
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
 - Install SDK, sdk node extension, etc
 
 ```sh
 flatpak install flathub org.electronjs.Electron2.BaseApp
+
 flatpak install flathub org.freedesktop.Sdk.Extension.node14
+
+flatpak install flathub org.freedesktop.org.freedesktop.Sdk
+
+flatpak install flathub org.freedesktop.org.freedesktop.Platform
 ```
 
 - Build app
-  <br/>
+
+```sh
+flatpak-builder build com.github.rhyme_player.rhyme.yml --force-clean --install --user
+```
+
+> Wait till it compile and it will show in your applications menu
 
 ## On linux
 
