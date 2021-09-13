@@ -3,7 +3,7 @@
   "productName": "Rhyme",
   "description": "The Home of your Music.",
   "author": "Abdallah Mohammad",
-  "version": "0.6.0",
+  "version": "0.5.8",
   "private": false,
   "license": "GPL-3.0-or-later",
   "main": "electron.js",
