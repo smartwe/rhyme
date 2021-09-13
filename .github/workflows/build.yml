@@ -20,7 +20,6 @@ jobs:
           node-version: 10
 
       - name: Install libarchive-tools
-        uses: samuelmeuli/action-snapcraft@v1
         if: startsWith(matrix.os, 'ubuntu')
         run: sudo apt-get install --no-install-recommends -y libopenjp2-tools libarchive-tools gcc-multilib g++-multilib
 
