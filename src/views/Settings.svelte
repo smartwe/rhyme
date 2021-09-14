@@ -2,9 +2,9 @@
   import PathChooser from "../controls/PathChooser.svelte";
   import PopUpDialog from "../controls/PopUpDialog.svelte";
   import Toggle from "../controls/Toggle.svelte";
+  import { setWatcher } from "../lib/RhymeUtils";
   import {
     settings,
-    watcher,
     songs,
     currentSong,
     recentlyPlayed,
@@ -17,14 +17,16 @@
   function changeMusicDir() {
     songs.set([]);
     recentlyPlayed.set([]);
+    $songsPlayer.songs = [];
+    $songsPlayer.pause();
+    currentSong.set(null);
     let newSettings = $settings;
-    $watcher.unwatch(folderPath);
     newSettings["musicPath"] = folderPath;
     settings.set(newSettings);
-    $watcher.add($settings["musicPath"]);
-    if ($songsPlayer) {
+    setWatcher();
+    setTimeout(() => {
       $songsPlayer.play(0);
-    }
+    }, 1000);
   }
   let showNotifications: boolean = $settings["showNotifications"];
   function toggleShowNotifications() {
@@ -108,7 +110,7 @@
   button {
     background-color: var(--accent-color);
     padding: 0.8em 1.5em;
-    color: var(--titles-color);
+    color: var(--sidebar-active-color);
     border: none;
     border-radius: 8px;
     cursor: pointer;

@@ -7,9 +7,10 @@ import {
   repeat,
   shuffle,
   inAlbum,
-  volume,
   settings,
   recentlyPlayed,
+  songs as songsArray,
+  songsPlayer,
 } from "../store";
 import { get } from "svelte/store";
 const Events = require("events");
@@ -23,6 +24,9 @@ export default class Player extends Events {
 
   constructor(songs: object[]) {
     super();
+    songsArray.subscribe((value) => {
+      if (!get(inAlbum)) this.songs = value;
+    });
     this.songs = songs;
     this.play();
     this.randomArr = this.randomize(
