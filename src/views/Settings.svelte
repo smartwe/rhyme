@@ -3,7 +3,15 @@
   import PopUpDialog from "../controls/PopUpDialog.svelte";
   import Toggle from "../controls/Toggle.svelte";
   import { setWatcher } from "../lib/RhymeUtils";
-  import { settings, songs, currentSong, recentlyPlayed, songsPlayer, themeManager, currentTheme } from "../store";
+  import {
+    settings,
+    songs,
+    currentSong,
+    recentlyPlayed,
+    songsPlayer,
+    themeManager,
+    currentTheme,
+  } from "../store";
 
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
@@ -47,7 +55,12 @@
   <ul>
     <li>
       <span> Music folder path </span>
-      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
+      <PathChooser
+        bind:folderPath
+        defaultPath={$settings["musicPath"]}
+        title="Choose the folder containing your music"
+        onEnd={changeMusicDir}
+      />
     </li>
     <li>
       <span>
@@ -58,7 +71,10 @@
     </li>
     <li>
       <span>Show notifications</span>
-      <Toggle bind:checked={showNotifications} clickEvent={toggleShowNotifications} />
+      <Toggle
+        bind:checked={showNotifications}
+        clickEvent={toggleShowNotifications}
+      />
     </li>
   </ul>
   <br />
@@ -94,7 +110,7 @@
   button {
     background-color: var(--accent-color);
     padding: 0.8em 1.5em;
-    color: var(--titles-color);
+    color: var(--sidebar-active-color);
     border: none;
     border-radius: 8px;
     cursor: pointer;

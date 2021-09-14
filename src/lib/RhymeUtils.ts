@@ -13,7 +13,10 @@ export function songExists(song: object, array: object[]): boolean {
   );
 }
 
-export function getMusicFilesFromPath(filePath: string, array?: string[]): string[] {
+export function getMusicFilesFromPath(
+  filePath: string,
+  array?: string[]
+): string[] {
   let folderContent: string[] = array || [];
   fs.readdirSync(filePath).forEach((file: string) => {
     file = path.join(filePath, file);
@@ -21,7 +24,15 @@ export function getMusicFilesFromPath(filePath: string, array?: string[]): strin
     if (fs.statSync(file).isDirectory()) {
       folderContent = getMusicFilesFromPath(file, folderContent);
     } else {
-      if (file.endsWith(".mp3") || file.endsWith(".m4a") || file.endsWith(".webm") || file.endsWith(".wav") || file.endsWith(".aac") || file.endsWith(".ogg") || file.endsWith(".opus")) {
+      if (
+        file.endsWith(".mp3") ||
+        file.endsWith(".m4a") ||
+        file.endsWith(".webm") ||
+        file.endsWith(".wav") ||
+        file.endsWith(".aac") ||
+        file.endsWith(".ogg") ||
+        file.endsWith(".opus")
+      ) {
         folderContent.push(file);
       }
     }
@@ -31,12 +42,16 @@ export function getMusicFilesFromPath(filePath: string, array?: string[]): strin
 
 export async function getAudioFileMetadata(audioFile: string): Promise<object> {
   const metadata = await mm.parseFile(audioFile, { skipCovers: false });
-  let song = metadata.common.title ? metadata.common.title : audioFile.split(path.sep).slice(-1)[0];
+  let song = metadata.common.title
+    ? metadata.common.title
+    : audioFile.split(path.sep).slice(-1)[0];
   let artist = metadata.common.artist ? metadata.common.artist : "Unknown";
   let album = metadata.common.album ? metadata.common.album : "Unknown";
   let imgSrc = null;
   if (metadata.common.picture) {
-    imgSrc = `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString("base64")}`;
+    imgSrc = `data:${
+      metadata.common.picture[0].format
+    };base64,${metadata.common.picture[0].data.toString("base64")}`;
   }
 
   return {
@@ -57,7 +72,15 @@ export function setWatcher() {
   );
   get(watcher)
     .on("add", async (path: string) => {
-      if (path.endsWith(".mp3") || path.endsWith(".m4a") || path.endsWith(".webm") || path.endsWith(".wav") || path.endsWith(".aac") || path.endsWith(".ogg") || path.endsWith(".opus")) {
+      if (
+        path.endsWith(".mp3") ||
+        path.endsWith(".m4a") ||
+        path.endsWith(".webm") ||
+        path.endsWith(".wav") ||
+        path.endsWith(".aac") ||
+        path.endsWith(".ogg") ||
+        path.endsWith(".opus")
+      ) {
         let song = await getAudioFileMetadata(path);
         if (songExists(song, get(songs))) return;
         let newSongs = get(songs);
@@ -71,6 +94,10 @@ export function setWatcher() {
           return song["file"] !== path;
         })
       );
-      get(songsPlayer).play(get(songsPlayer).index > get(songsPlayer).songs.length - 1 ? get(songsPlayer).songs.length - 1 : get(songsPlayer).index);
+      get(songsPlayer).play(
+        get(songsPlayer).index > get(songsPlayer).songs.length - 1
+          ? get(songsPlayer).songs.length - 1
+          : get(songsPlayer).index
+      );
     });
 }

@@ -1,7 +1,17 @@
 const { Howl } = require("howler");
 import { songExists } from "../lib/RhymeUtils";
 
-import { currentSong, songPlaying, repeat, shuffle, inAlbum, settings, recentlyPlayed, songs as songsArray, songsPlayer } from "../store";
+import {
+  currentSong,
+  songPlaying,
+  repeat,
+  shuffle,
+  inAlbum,
+  settings,
+  recentlyPlayed,
+  songs as songsArray,
+  songsPlayer,
+} from "../store";
 import { get } from "svelte/store";
 const Events = require("events");
 const ipcRenderer = require("electron").ipcRenderer;
@@ -19,7 +29,9 @@ export default class Player extends Events {
     });
     this.songs = songs;
     this.play();
-    this.randomArr = this.randomize(Array.from({ length: this.songs.length }, (_, i) => i));
+    this.randomArr = this.randomize(
+      Array.from({ length: this.songs.length }, (_, i) => i)
+    );
     ipcRenderer.on("play/pause", () => {
       if (get(songPlaying)) {
         this.pause();
@@ -43,7 +55,10 @@ export default class Player extends Events {
           this.randomNum = 0;
         }
         index = this.randomArr[this.randomNum];
-        if (songExists(this.songs[index], get(recentlyPlayed)) && this.songs.length >= 13) {
+        if (
+          songExists(this.songs[index], get(recentlyPlayed)) &&
+          this.songs.length >= 13
+        ) {
           randomizedNum();
         }
       };
@@ -69,9 +84,13 @@ export default class Player extends Events {
         songPlaying.set(true);
 
         if (get(inAlbum)) {
-          document.title = `${get(currentSong)["song"]} on ${get(currentSong)["album"]} - Rhyme`;
+          document.title = `${get(currentSong)["song"]} on ${
+            get(currentSong)["album"]
+          } - Rhyme`;
         } else {
-          document.title = `${get(currentSong)["song"]} by ${get(currentSong)["artist"]} - Rhyme`;
+          document.title = `${get(currentSong)["song"]} by ${
+            get(currentSong)["artist"]
+          } - Rhyme`;
         }
 
         let newArray = get(recentlyPlayed);
@@ -83,7 +102,10 @@ export default class Player extends Events {
         }
         recentlyPlayed.set(newArray);
         if (get(settings)["showNotifications"]) {
-          ipcRenderer.send("notification", `${data["song"]} • ${data["artist"]}`);
+          ipcRenderer.send(
+            "notification",
+            `${data["song"]} • ${data["artist"]}`
+          );
         }
       },
       onend: function () {
