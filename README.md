@@ -23,7 +23,7 @@
     The Home of your Music
     <br/>
     <br/>
-  <img src="https://user-images.githubusercontent.com/77546233/124939252-7c95af00-dff8-11eb-94a6-75abdde49640.png"/>
+    <img src="https://user-images.githubusercontent.com/77546233/133507274-b1815964-c86a-4b1c-a0a5-44d86c962c37.png" />
   </h3>
 </p>
 
