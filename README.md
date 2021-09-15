@@ -13,11 +13,12 @@
       <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?v=1&post_id=307173&theme=dark" style="width: 250px; height: 54px;" width="250" height="54" /></a>
   </h2>
   <h1 align="center">
-    <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
-    <img src ="https://img.shields.io/github/issues-raw/Rhyme-Player/RhymeApp">
-    <img src ="https://img.shields.io/github/issues-pr/Rhyme-Player/RhymeApp">
-    <img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
-    <img src ="https://img.shields.io/github/stars/Rhyme-Player/RhymeApp">
+    <a href="https://app.element.io/#/room/#rhymes-player:matrix.org">
+      <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
+    </a>
+    <a href="https://github.com/Rhyme-Player/Rhyme/releases">
+      <img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
+    </a>
   </h1>
   <h3 align="center">
     The Home of your Music
