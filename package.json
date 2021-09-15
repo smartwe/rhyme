@@ -114,7 +114,8 @@
         "browser-support",
         "network",
         "pulseaudio",
-        "audio-playback"
+        "audio-playback",
+        "alsa"
       ]
     }
   },
