@@ -148,7 +148,7 @@
   "dependencies": {
     "chokidar": "^3.5.1",
     "svelte": "3.42.5",
-    "electron-store": "^8.0.0",
+    "electron-store": "^8.0.1",
     "howler": "^2.2.1",
     "music-metadata": "^7.8.6",
     "smooth-scrollbar": "^8.6.2"
