@@ -139,7 +139,6 @@
     "rollup-plugin-terser": "7.0.2",
     "sass": "1.40.1",
     "sirv-cli": "1.0.14",
-    "svelte": "3.42.5",
     "svelte-check": "2.2.6",
     "svelte-preprocess": "4.9.4",
     "svelte-spa-router": "3.2.0",
@@ -148,6 +147,7 @@
   },
   "dependencies": {
     "chokidar": "^3.5.1",
+    "svelte": "3.42.5",
     "electron-store": "^8.0.0",
     "howler": "^2.2.1",
     "music-metadata": "^7.8.6",

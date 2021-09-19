@@ -14,6 +14,7 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
   - --filesystem=home
+  - --own-name=org.mpris.MediaPlayer2.chromium.*
 build-options:
   append-path: /usr/lib/sdk/node14/bin
   cflags: -O2 -g
