@@ -2,7 +2,7 @@
   export let placeholder = "Search";
   export let searchVal = "";
   import { Search } from "rhyme-icons";
-  import { currentTheme } from "../store";
+  import { currentTheme } from "../../store";
 </script>
 
 <main>

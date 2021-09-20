@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Sidebar from "./components/Sidebar.svelte";
-  import BottomBar from "./components/BottomBar.svelte";
+  import Sidebar from "./widgets/Sidebar.svelte";
+  import BottomBar from "./widgets/BottomBar.svelte";
 
   import Router from "svelte-spa-router";
   // Routes
@@ -19,12 +19,7 @@
   };
 
   import { currentTheme, songsPlayer, settings, songs } from "./store";
-  import {
-    getAudioFileMetadata,
-    getMusicFilesFromPath,
-    songExists,
-    setWatcher,
-  } from "./lib/RhymeUtils";
+  import { getAudioFileMetadata, getMusicFilesFromPath, songExists, setWatcher } from "./lib/RhymeUtils";
   import Player from "./lib/Player";
   let files = getMusicFilesFromPath($settings["musicPath"]);
 

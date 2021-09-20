@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SearchBar from "../controls/SearchBar.svelte";
-  import SongItem from "../controls/SongItem.svelte";
+  import SearchBar from "../components/controls/SearchBar.svelte";
+  import SongItem from "../components/items/SongItem.svelte";
   let searchVal = "";
   import { songs, recentlyPlayed } from "../store";
   import { onMount } from "svelte";
@@ -19,12 +19,7 @@
       <div class="recentlyPlayed">
         {#each $recentlyPlayed as song}
           {#if songExists(song, $songs)}
-            <SongItem
-              artistName={song["artist"]}
-              songName={song["song"]}
-              imgSrc={song["imgSrc"]}
-              normalSong={false}
-            />
+            <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} normalSong={false} />
           {/if}
         {/each}
       </div>
@@ -32,23 +27,11 @@
     <div class="songs">
       {#each $songs as song}
         {#if searchVal !== ""}
-          {#if song["artist"]
-            .toLowerCase()
-            .includes(searchVal.toLowerCase()) || song["song"]
-              .toLowerCase()
-              .includes(searchVal.toLowerCase())}
-            <SongItem
-              artistName={song["artist"]}
-              songName={song["song"]}
-              imgSrc={song["imgSrc"]}
-            />
+          {#if song["artist"].toLowerCase().includes(searchVal.toLowerCase()) || song["song"].toLowerCase().includes(searchVal.toLowerCase())}
+            <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
           {/if}
         {:else}
-          <SongItem
-            artistName={song["artist"]}
-            songName={song["song"]}
-            imgSrc={song["imgSrc"]}
-          />
+          <SongItem artistName={song["artist"]} songName={song["song"]} imgSrc={song["imgSrc"]} />
         {/if}
       {/each}
     </div>
