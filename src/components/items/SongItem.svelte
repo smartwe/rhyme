@@ -8,18 +8,26 @@
   import Item from "./Item.svelte";
 </script>
 
-{#if imgSrc}
-  <Item
-    firstTitle={songName}
-    secondTitle={artistName}
-    image={imgSrc}
-    bgColor={!normalSong ? "#fff" : null}
-  />
-{:else}
-  <Item
-    firstTitle={songName}
-    secondTitle={artistName}
-    component={UnknownSong}
-    bgColor={!normalSong ? "#fff" : null}
-  />
-{/if}
+<main>
+  {#if imgSrc}
+    <Item
+      firstTitle={songName}
+      secondTitle={artistName}
+      image={imgSrc}
+      bgColor={!normalSong ? "#fff" : null}
+    />
+  {:else}
+    <Item
+      firstTitle={songName}
+      secondTitle={artistName}
+      component={UnknownSong}
+      bgColor={!normalSong ? "#fff" : null}
+    />
+  {/if}
+</main>
+
+<style lang="scss">
+  main {
+    flex-shrink: 0;
+  }
+</style>
