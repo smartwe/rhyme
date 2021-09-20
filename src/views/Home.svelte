@@ -23,6 +23,7 @@
               artistName={song["artist"]}
               songName={song["song"]}
               imgSrc={song["imgSrc"]}
+              file={song["file"]}
               normalSong={false}
             />
           {/if}
@@ -41,6 +42,7 @@
               artistName={song["artist"]}
               songName={song["song"]}
               imgSrc={song["imgSrc"]}
+              file={song["file"]}
             />
           {/if}
         {:else}
@@ -48,6 +50,7 @@
             artistName={song["artist"]}
             songName={song["song"]}
             imgSrc={song["imgSrc"]}
+            file={song["file"]}
           />
         {/if}
       {/each}

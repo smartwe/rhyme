@@ -13,7 +13,5 @@ function exit() {
   electron.kill();
 }
 
-electron.on("exit", exit);
-electron.on("exit", exit);
-rollup.on("close", exit);
-rollup.on("close", exit);
+electron.on("disconnect", exit);
+rollup.on("disconnect", exit);
