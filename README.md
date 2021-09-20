@@ -89,13 +89,14 @@ flatpak-builder build com.github.rhyme_player.rhyme.yml --force-clean --install 
 
 ## On linux
 
-### Snap
+|        Snapcraft        | Flathub       	|
+|------------------------	|---------------	|
+<a href="https://snapcraft.io/rhyme"><img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="200px" /></a>|<a href="https://flathub.org/apps/details/com.github.rhyme_player.rhyme"><img src="https://flathub.org/assets/badges/flathub-badge-i-en.svg" width="200px" /></a>
+### Snapcraft
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
 
-### Flatpak
+### Flathub
 
-Coming soon
 
 ### Package manager
 
