@@ -9,7 +9,17 @@
 </script>
 
 {#if imgSrc}
-  <Item firstTitle={songName} secondTitle={artistName} image={imgSrc} bgColor={!normalSong ? "#fff" : null} />
+  <Item
+    firstTitle={songName}
+    secondTitle={artistName}
+    image={imgSrc}
+    bgColor={!normalSong ? "#fff" : null}
+  />
 {:else}
-  <Item firstTitle={songName} secondTitle={artistName} component={UnknownSong} bgColor={!normalSong ? "#fff" : null} />
+  <Item
+    firstTitle={songName}
+    secondTitle={artistName}
+    component={UnknownSong}
+    bgColor={!normalSong ? "#fff" : null}
+  />
 {/if}

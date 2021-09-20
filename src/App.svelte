@@ -19,7 +19,12 @@
   };
 
   import { currentTheme, songsPlayer, settings, songs } from "./store";
-  import { getAudioFileMetadata, getMusicFilesFromPath, songExists, setWatcher } from "./lib/RhymeUtils";
+  import {
+    getAudioFileMetadata,
+    getMusicFilesFromPath,
+    songExists,
+    setWatcher,
+  } from "./lib/RhymeUtils";
   import Player from "./lib/Player";
   let files = getMusicFilesFromPath($settings["musicPath"]);
 

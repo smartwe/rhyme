@@ -9,6 +9,7 @@
     AlbumOutlined,
   } from "rhyme-icons";
   import { location as spaLocation } from "svelte-spa-router";
+  import SidebarLink from "../components/controls/SidebarLink.svelte";
   import { currentTheme } from "../store";
   function navigateLink(event) {
     event.preventDefault();
@@ -18,65 +19,26 @@
 
 <main>
   <div class="main-links">
-    <a
-      href="#/"
-      class:active={$spaLocation === "/"}
-      on:click={(event) => {
-        navigateLink(event);
-      }}
-    >
-      {#if $spaLocation === "/"}
-        <HomeFilled fill={$currentTheme["sidebarActiveColor"]} />
-      {:else}
-        <HomeOutlined fill={$currentTheme["textColor"]} />
-      {/if}
-      Home
-    </a>
-
-    <a
-      href="#/albums"
-      class:active={$spaLocation === "/albums"}
-      on:click={(event) => {
-        navigateLink(event);
-      }}
-    >
-      {#if $spaLocation === "/albums"}
-        <AlbumFilled fill={$currentTheme["sidebarActiveColor"]} />
-      {:else}
-        <AlbumOutlined fill={$currentTheme["textColor"]} />
-      {/if}
-      Albums
-    </a>
-
-    <a
-      href="#/playlists"
-      class:active={$spaLocation === "/playlists"}
-      on:click={(event) => {
-        navigateLink(event);
-      }}
-    >
-      {#if $spaLocation === "/playlists"}
-        <AddPlaylist fill={$currentTheme["sidebarActiveColor"]} />
-      {:else}
-        <AddPlaylist fill={$currentTheme["textColor"]} />
-      {/if}
-      Playlists
-    </a>
+    <SidebarLink
+      text="Home"
+      icons={{ activeIcon: HomeFilled, inactiveIcon: HomeOutlined }}
+    />
+    <SidebarLink
+      text="Albums"
+      link="albums"
+      icons={{ activeIcon: AlbumFilled, inactiveIcon: AlbumOutlined }}
+    />
+    <SidebarLink
+      text="Playlists"
+      link="playlists"
+      icons={{ activeIcon: AddPlaylist, inactiveIcon: AddPlaylist }}
+    />
   </div>
-  <a
-    href="#/settings"
-    class:active={$spaLocation === "/settings"}
-    on:click={(event) => {
-      navigateLink(event);
-    }}
-  >
-    {#if $spaLocation === "/settings"}
-      <SettingsFilled fill={$currentTheme["sidebarActiveColor"]} />
-    {:else}
-      <SettingsOutlined fill={$currentTheme["textColor"]} />
-    {/if}
-    Settings
-  </a>
+  <SidebarLink
+    text="Settings"
+    link="settings"
+    icons={{ activeIcon: SettingsFilled, inactiveIcon: SettingsOutlined }}
+  />
 </main>
 
 <style lang="scss">
@@ -94,19 +56,6 @@
       display: flex;
       flex-direction: column;
       overflow-x: visible;
-    }
-    a.active {
-      background-color: var(--accent-color);
-      color: var(--sidebar-active-color);
-    }
-    a {
-      display: flex;
-      align-items: center;
-      padding: 0.4em 0.5em;
-      border-radius: 0.3em;
-      gap: 5px;
-      font-weight: 500;
-      color: var(--text-color);
     }
   }
 </style>

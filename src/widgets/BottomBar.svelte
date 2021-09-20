@@ -1,6 +1,24 @@
 <script lang="ts">
-  import { songsPlayer, inAlbum, currentTheme, currentSong, songPlaying, shuffle, repeat, volume } from "../store";
-  import { PauseCircleFilled, PlayCircleFilled, SkipPrevious, SkipNext, Repeat, Shuffle, VolumeOff, VolumeUp } from "rhyme-icons";
+  import {
+    songsPlayer,
+    inAlbum,
+    currentTheme,
+    currentSong,
+    songPlaying,
+    shuffle,
+    repeat,
+    volume,
+  } from "../store";
+  import {
+    PauseCircleFilled,
+    PlayCircleFilled,
+    SkipPrevious,
+    SkipNext,
+    Repeat,
+    Shuffle,
+    VolumeOff,
+    VolumeUp,
+  } from "rhyme-icons";
   import SeekBar from "../components/controls/SeekBar.svelte";
 
   let currentTime = "";
@@ -70,7 +88,11 @@
 {#if $currentSong}
   <main>
     <div class="song-info">
-      <img src={$currentSong["imgSrc"]} style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}" alt="" />
+      <img
+        src={$currentSong["imgSrc"]}
+        style="display:{$currentSong['imgSrc'] ? 'block' : 'none'}"
+        alt=""
+      />
       <div class="titles">
         <span><p class="ellipsis-text">{$currentSong["song"]}</p></span>
         <p class="ellipsis-text">
@@ -87,7 +109,11 @@
               shuffle.set(!$shuffle);
             }}
           >
-            <Shuffle fill={$shuffle ? $currentTheme["accentColor"] : $currentTheme["textColor"]} />
+            <Shuffle
+              fill={$shuffle
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
+            />
           </div>
           <div
             on:click={() => {
@@ -111,7 +137,10 @@
                   $songsPlayer.pause();
                 }}
               >
-                <PauseCircleFilled size="36" fill={$currentTheme["textColor"]} />
+                <PauseCircleFilled
+                  size="36"
+                  fill={$currentTheme["textColor"]}
+                />
               </div>
             {/if}
           </div>
@@ -127,7 +156,11 @@
               repeat.set(!$repeat);
             }}
           >
-            <Repeat fill={$repeat ? $currentTheme["accentColor"] : $currentTheme["textColor"]} />
+            <Repeat
+              fill={$repeat
+                ? $currentTheme["accentColor"]
+                : $currentTheme["textColor"]}
+            />
           </div>
         </div>
         <div class="volume">
@@ -148,15 +181,28 @@
               <VolumeUp fill={$currentTheme["textColor"]} />
             </div>
           {/if}
-          <SeekBar width="100px" height="5px" bind:currentSize={$volume} fullSize={100} />
+          <SeekBar
+            width="100px"
+            height="5px"
+            bind:currentSize={$volume}
+            fullSize={100}
+          />
           {$volume}
         </div>
       </div>
       <div class="seekbar">
-        <p style="color:{$currentTheme['accentColor']};padding:0;margin:0;min-width:max-content;">
+        <p
+          style="color:{$currentTheme[
+            'accentColor'
+          ]};padding:0;margin:0;min-width:max-content;"
+        >
           {currentTime}
         </p>
-        <SeekBar bind:fullSize={barSize["size"]} bind:currentSize={barSize["current"]} isSeekBar={true} />
+        <SeekBar
+          bind:fullSize={barSize["size"]}
+          bind:currentSize={barSize["current"]}
+          isSeekBar={true}
+        />
         {duration}
       </div>
     </div>

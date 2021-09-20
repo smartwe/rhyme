@@ -13,7 +13,12 @@
   {#if image}
     <img src={image} alt="" />
   {:else}
-    <svelte:component this={component} size="100" firstFill={$currentTheme["textColor"]} secondFill={$currentTheme["panelsColor"]} />
+    <svelte:component
+      this={component}
+      size="100"
+      firstFill={$currentTheme["textColor"]}
+      secondFill={$currentTheme["panelsColor"]}
+    />
   {/if}
   <div class="titles">
     <h4 class="ellipsis-text">{firstTitle}</h4>
