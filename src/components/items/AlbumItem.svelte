@@ -2,11 +2,7 @@
   export let album = {};
   export let key;
   import { UnknownAlbum } from "rhyme-icons";
-  import { push } from "svelte-spa-router";
   import Item from "./Item.svelte";
-  const onClick = () => {
-    push(`/album-view?id=${key}`);
-  };
 </script>
 
 {#if album["songs"].length === 1}

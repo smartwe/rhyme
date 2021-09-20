@@ -8,13 +8,7 @@
     AlbumFilled,
     AlbumOutlined,
   } from "rhyme-icons";
-  import { location as spaLocation } from "svelte-spa-router";
   import SidebarLink from "../components/controls/SidebarLink.svelte";
-  import { currentTheme } from "../store";
-  function navigateLink(event) {
-    event.preventDefault();
-    location.href = event.target.href;
-  }
 </script>
 
 <main>
