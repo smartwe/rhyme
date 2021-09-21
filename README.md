@@ -2,137 +2,54 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
-    <img src="build/linux/icons/128x128.png" alt="Logo">
+    <img src="build/linux/icons/64x64.png" alt="Logo">
   </a>
   <h1 align="center">Rhyme</h1>
-  <h4 align="center">
-    Support us by sharing the app or up voting us on product hunt
-    <br/>
-    <br/>
-    <a href="https://www.producthunt.com/posts/rhyme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-rhyme" target="_blank">
-      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?v=1&post_id=307173&theme=dark" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-  </h2>
-  <h1 align="center">
-    <a href="https://app.element.io/#/room/#rhymes-player:matrix.org">
+  <p align="center">The Home of your Music</p>
+  <h3 align="center">
+    <a href="(https://matrix.to/#/#rhymes-player:matrix.org">
       <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
     </a>
     <a href="https://github.com/Rhyme-Player/Rhyme/releases">
       <img src ="https://img.shields.io/github/downloads/Rhyme-Player/RhymeApp/total">
     </a>
-  </h1>
-  <h3 align="center">
-    The Home of your Music
-    <br/>
-    <br/>
-    <img src="https://user-images.githubusercontent.com/77546233/133614526-452649b3-fb72-4347-9ee4-73ef8c6eea3f.png" />
   </h3>
+
+  <img align="center" src="https://user-images.githubusercontent.com/77546233/133614526-452649b3-fb72-4347-9ee4-73ef8c6eea3f.png" />
+
 </p>
 
-<br/>
-<br/>
-<br/>
+<br />
 
-## Features
+## :hear_no_evil: What is `Rhyme` ?
 
-- Supports: mp3, opus, ogg, wav, aac, m4a and webm.
-- Install themes made by the community
-- Home: Contains your local installed music reads music from default music folder change this in settings
-- Albums: Displays all the albums that are included in the id3 of the music files
-- Playlists: Create and suffle through playlists (Work in progress)
-- Artists: View all the artists that came included with the music files' id3 tag
-- Theme manager:
-  - Dark and light theme come by default
-  - Theme maker to create and use your own theme and you have an option to upload it to the store
-- More comming, if you want a feature implemented feel free to open an issue with a feature request
+[Rhyme](rhyme.netlify.app) is a music player which allows the user to play their music with a simple and good looking user interface,
+[Rhyme](rhyme.netlify.app) can play multiple type of files like `.mp3`, `.m4a`, `.webm`, `.wav`, `.aac`, `.ogg` and `.opus`.
+A theme manager has been implemented so that you can customize the colors of the app the way you want the theme store, theme maker, and the way to change themes is still not implemented
 
-<br/>
+<br />
 
-> Note: If you have questions or want to talk about the app join our public [Matrix Channel](https://app.element.io/#/room/#rhymes-player:matrix.org)
+## :package: Install
 
-<br/>
+For instructions to install rhyme click on your os
+[Windows](https://github.com/Rhyme-Player/Rhyme/wiki/Windows),
+[Mac](https://github.com/Rhyme-Player/Rhyme/wiki/Mac),
+[Linux](https://github.com/Rhyme-Player/Rhyme/wiki/Linux)
 
-# Download
+For instructions to compile or contribute to the app click [here](https://github.com/Rhyme-Player/Rhyme/wiki/Compile-or-Contribute)
 
-## From source
+<br />
 
-- clone repo and `cd` into it
-- run `yarn` or `npm i` to install dependencies
-- run `yarn build && yarn electron-builder` or `npm run build && npm run electron-builder` to generate executable for your os in the `build_dist` dir
+## :thinking: Questions
 
-### build on linux with flatpak-builder
+If you want to ask any questions about the project, join us on our public Matrix channel at [#rhymes-player:matrix.org](https://matrix.to/#/#rhymes-player:matrix.org)
 
-- Add flathub repo
+If you are trying out Rhyme and you encounter an error or any problem feel free to just open an issue here on GitHub.
 
-```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
+<br />
 
-- Install SDK, sdk node extension, etc
+## :clap: Supporters
 
-```sh
-flatpak install flathub org.electronjs.Electron2.BaseApp
+[![Stargazers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/stars/Rhyme-Player/Rhyme)](https://github.com/Rhyme-Player/Rhyme/stargazers)
 
-flatpak install flathub org.freedesktop.Sdk.Extension.node14
-
-flatpak install flathub org.freedesktop.org.freedesktop.Sdk
-
-flatpak install flathub org.freedesktop.org.freedesktop.Platform
-```
-
-- Build app
-
-```sh
-flatpak-builder build com.github.rhyme_player.rhyme.yml --force-clean --install --user
-```
-
-> Wait till it compile and it will show in your applications menu
-
-## On linux
-
-|        Snapcraft        | Flathub       	|
-|------------------------	|---------------	|
-<a href="https://snapcraft.io/rhyme"><img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="200px" /></a>|<a href="https://flathub.org/apps/details/com.github.rhyme_player.rhyme"><img src="https://flathub.org/assets/badges/flathub-badge-i-en.svg" width="200px" /></a>
-
-### Github
-
-- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
-- Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
-
-Or
-
-- Download from [site](https://rhyme.netlify.app/downloads/linux/) not supported
-
-<br/>
-
-## On windows
-
-- Download from [site](https://rhyme.netlify.app/downloads/win/) not supported
-
-Or
-
-- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
-- Search for file we currently support `exe` and `msi` files
-
-<br/>
-
-## On mac os
-
-- Download from [site](https://rhyme.netlify.app/downloads/mac/) not supported
-
-Or
-
-- Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
-- Search for file we currently support `dmg` and `pkg` files
-
-# Contributing
-
-When contributing to `Rhyme`, please first discuss the change you wish to make via a discussion or an issue
-When creating a pull request please use Emojis for your commits
-See also [gitmoji](https://gitmoji.carloscuesta.me/).
-to view comments or notes left in the code run `yarn notes-checker`or `npm run notes-checker`
-
-# Pull Requests
-
-Please put in mind that even if you have the write access to merge a PR wait for reviews from me or other contributors
-if the feature that the PR implements is still not finished please convert the PR to a draft to let reviewers know that it is incomplete
-before you make your PR ready for reviews you must make sure that it passed all the checks
+[![Forkers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/forks/Rhyme-Player/Rhyme)](https://github.com/Rhyme-Player/Rhyme/network/members)
