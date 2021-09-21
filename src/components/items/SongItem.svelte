@@ -32,7 +32,7 @@
       firstTitle={songName}
       secondTitle={artistName}
       image={imgSrc}
-      bgColor={!normalSong ? "#fff" : null}
+      bgColor={!normalSong ? $currentTheme["backgroundColor"] : null}
       {onClick}
     />
   {:else}
@@ -40,7 +40,7 @@
       firstTitle={songName}
       secondTitle={artistName}
       component={UnknownSong}
-      bgColor={!normalSong ? "#fff" : null}
+      bgColor={!normalSong ? $currentTheme["backgroundColor"] : null}
       {onClick}
     />
   {/if}
@@ -66,7 +66,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.3s;
-    background-color: rgba(127, 127, 127, 0.646);
+    background-color: #7f7f7fa5;
     border-radius: 8px;
     display: flex;
     align-items: center;
