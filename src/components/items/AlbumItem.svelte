@@ -10,7 +10,21 @@
 </script>
 
 {#if album["songs"].length === 1}
-  <Item firstTitle={album["name"]} secondTitle={album["songs"].length + " Song" + (album["songs"].length > 1 ? "s" : "")} image={album["songs"][0].imgSrc} {onClick} />
+  <Item
+    firstTitle={album["name"]}
+    secondTitle={album["songs"].length +
+      " Song" +
+      (album["songs"].length > 1 ? "s" : "")}
+    image={album["songs"][0].imgSrc}
+    {onClick}
+  />
 {:else}
-  <Item firstTitle={album["name"]} secondTitle={album["songs"].length + " Song" + (album["songs"].length > 1 ? "s" : "")} component={UnknownAlbum} {onClick} />
+  <Item
+    firstTitle={album["name"]}
+    secondTitle={album["songs"].length +
+      " Song" +
+      (album["songs"].length > 1 ? "s" : "")}
+    component={UnknownAlbum}
+    {onClick}
+  />
 {/if}
