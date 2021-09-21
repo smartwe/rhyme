@@ -29,6 +29,12 @@ A theme manager has been implemented so that you can customize the colors of the
 
 <br />
 
+## :bulb: Want a feature or idea to be added ?
+
+Open an issue here at github giving details of the request. if the feature seems appropriate and legal we will implement.
+
+<br />
+
 ## :package: Install
 
 For instructions to install rhyme click on your os
