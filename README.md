@@ -89,30 +89,24 @@ flatpak-builder build com.github.rhyme_player.rhyme.yml --force-clean --install 
 
 ## On linux
 
-### Snap
-
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/rhyme)
-
-### Flatpak
-
-Coming soon
-
-### Package manager
-
-- `apt` - Not yet supported
-- `pacman` - Not yet supported
-- `dnf` - Not yet supported
+|        Snapcraft        | Flathub       	|
+|------------------------	|---------------	|
+<a href="https://snapcraft.io/rhyme"><img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="200px" /></a>|<a href="https://flathub.org/apps/details/com.github.rhyme_player.rhyme"><img src="https://flathub.org/assets/badges/flathub-badge-i-en.svg" width="200px" /></a>
 
 ### Github
 
 - Go to [Releases Page](https://github.com/Rhyme-Player/RhymeApp/releases)
 - Search for file we currently support `AppImage`, `deb`, `rpm` and `pacman` files
 
+Or
+
+- Download from [site](https://rhyme.netlify.app/downloads/linux/) not supported
+
 <br/>
 
 ## On windows
 
-- Download from [site](https://rhyme.netlify.app/downloads/win/)
+- Download from [site](https://rhyme.netlify.app/downloads/win/) not supported
 
 Or
 
@@ -123,7 +117,7 @@ Or
 
 ## On mac os
 
-- Download from [site](https://rhyme.netlify.app/downloads/mac/)
+- Download from [site](https://rhyme.netlify.app/downloads/mac/) not supported
 
 Or
 
