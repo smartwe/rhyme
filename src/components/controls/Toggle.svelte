@@ -1,7 +1,6 @@
 <script lang="ts">
   export let checked = false;
   export let clickEvent = () => {};
-  import { currentTheme } from "../store";
 </script>
 
 <main class:checked on:click={clickEvent} />

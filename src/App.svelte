@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Sidebar from "./components/Sidebar.svelte";
-  import BottomBar from "./components/BottomBar.svelte";
+  import Sidebar from "./widgets/Sidebar.svelte";
+  import BottomBar from "./widgets/BottomBar.svelte";
 
   import Router from "svelte-spa-router";
   // Routes

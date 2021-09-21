@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SearchBar from "../controls/SearchBar.svelte";
-  import SongItem from "../controls/SongItem.svelte";
+  import SearchBar from "../components/controls/SearchBar.svelte";
+  import SongItem from "../components/items/SongItem.svelte";
   let searchVal = "";
   import { songs, recentlyPlayed } from "../store";
   import { onMount } from "svelte";
@@ -23,6 +23,7 @@
               artistName={song["artist"]}
               songName={song["song"]}
               imgSrc={song["imgSrc"]}
+              file={song["file"]}
               normalSong={false}
             />
           {/if}
@@ -41,6 +42,7 @@
               artistName={song["artist"]}
               songName={song["song"]}
               imgSrc={song["imgSrc"]}
+              file={song["file"]}
             />
           {/if}
         {:else}
@@ -48,6 +50,7 @@
             artistName={song["artist"]}
             songName={song["song"]}
             imgSrc={song["imgSrc"]}
+            file={song["file"]}
           />
         {/if}
       {/each}

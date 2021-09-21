@@ -4,7 +4,6 @@
   export let defaultPath = "";
   export let onEnd = () => {};
   const { ipcRenderer } = require("electron");
-  import { settings } from "../store";
   async function openDialog() {
     folderPath = await ipcRenderer.invoke("show-dialog", {
       dialogType: "openDirectory",

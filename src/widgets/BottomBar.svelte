@@ -19,7 +19,7 @@
     VolumeOff,
     VolumeUp,
   } from "rhyme-icons";
-  import SeekBar from "../controls/SeekBar.svelte";
+  import SeekBar from "../components/controls/SeekBar.svelte";
 
   let currentTime = "";
   let duration = "";
@@ -120,7 +120,7 @@
               $songsPlayer.previous();
             }}
           >
-            <SkipPrevious size="28" fill={$currentTheme["textColor"]} />
+            <SkipPrevious size="24" fill={$currentTheme["textColor"]} />
           </div>
           <div class="play-pause">
             {#if !$songPlaying}
@@ -129,7 +129,7 @@
                   $songsPlayer.resume();
                 }}
               >
-                <PlayCircleFilled size="36" fill={$currentTheme["textColor"]} />
+                <PlayCircleFilled size="30" fill={$currentTheme["textColor"]} />
               </div>
             {:else}
               <div
@@ -138,7 +138,7 @@
                 }}
               >
                 <PauseCircleFilled
-                  size="36"
+                  size="30"
                   fill={$currentTheme["textColor"]}
                 />
               </div>
@@ -149,7 +149,7 @@
               $songsPlayer.next();
             }}
           >
-            <SkipNext size="28" fill={$currentTheme["textColor"]} />
+            <SkipNext size="24" fill={$currentTheme["textColor"]} />
           </div>
           <div
             on:click={() => {
@@ -214,7 +214,7 @@
   main {
     min-height: $height;
     display: flex;
-    box-shadow: #5c5c5c5c 1px -15px 15px;
+    box-shadow: #7f7f7fa5 1px -15px 15px;
     z-index: 1;
     background-color: white;
     transition: 0.3s;

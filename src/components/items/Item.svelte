@@ -1,30 +1,28 @@
 <script lang="ts">
-  export let album = {};
-  export let key;
-  import { currentTheme } from "../store";
-  import { UnknownAlbum } from "rhyme-icons";
-  import { push } from "svelte-spa-router";
-  const onClick = () => {
-    push(`/album-view?id=${key}`);
-  };
+  import { currentTheme } from "../../store";
+
+  export let image: string = null;
+  export let component = null;
+  export let firstTitle: string;
+  export let secondTitle: string;
+  export let bgColor: string = null;
+  export let onClick = () => {};
 </script>
 
-<main on:click={onClick}>
-  {#if album["songs"].length === 1}
-    <img src={album["songs"][0]["imgSrc"]} alt="" />
+<main on:click={onClick} style={bgColor ? "background-color:" + bgColor : ""}>
+  {#if image}
+    <img src={image} alt="" />
   {:else}
-    <UnknownAlbum
+    <svelte:component
+      this={component}
       size="100"
       firstFill={$currentTheme["textColor"]}
       secondFill={$currentTheme["panelsColor"]}
     />
   {/if}
   <div class="titles">
-    <h4 class="ellipsis-text">{album["name"]}</h4>
-    <p class="ellipsis-text">
-      {album["songs"].length}
-      {album["songs"].length === 1 ? "Song" : "Songs"}
-    </p>
+    <h4 class="ellipsis-text">{firstTitle}</h4>
+    <p class="ellipsis-text">{secondTitle}</p>
   </div>
 </main>
 
@@ -33,6 +31,7 @@
     display: flex;
     background-color: var(--panels-color);
     flex-direction: column;
+    flex-shrink: 0;
     border-radius: 8px;
     width: 140px;
     height: 180px;
@@ -40,7 +39,6 @@
     justify-content: center;
     cursor: pointer;
     gap: 6px;
-    position: relative;
 
     img {
       width: 100px;

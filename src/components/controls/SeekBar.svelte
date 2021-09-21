@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { songsPlayer } from "../store";
+  import { songsPlayer } from "../../store";
   export let fullSize = 0;
   export let currentSize = 0;
   export let height = "7px";

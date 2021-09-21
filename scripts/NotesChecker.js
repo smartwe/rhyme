@@ -43,6 +43,8 @@ Background Colors
 const path = require("path");
 const fs = require("fs");
 
+__dirname = path.dirname(__dirname);
+
 function getFiles(filePath, array) {
   let folderContent = array || [];
   fs.readdirSync(filePath).forEach((file) => {

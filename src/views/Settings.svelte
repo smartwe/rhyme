@@ -1,7 +1,7 @@
 <script lang="ts">
-  import PathChooser from "../controls/PathChooser.svelte";
-  import PopUpDialog from "../controls/PopUpDialog.svelte";
-  import Toggle from "../controls/Toggle.svelte";
+  import PathChooser from "../components/controls/PathChooser.svelte";
+  import PopUpDialog from "../components/controls/PopUpDialog.svelte";
+  import Toggle from "../components/controls/Toggle.svelte";
   import { setWatcher } from "../lib/RhymeUtils";
   import {
     settings,

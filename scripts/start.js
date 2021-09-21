@@ -10,10 +10,17 @@ let rollup = require("child_process").spawn("npm", ["run", "start"], {
 
 function exit() {
   rollup.kill();
+  rollup.disconnect();
   electron.kill();
+  electron.disconnect();
 }
 
+electron.on("disconnect", exit);
+electron.on("error", exit);
+electron.on("close", exit);
 electron.on("exit", exit);
-electron.on("exit", exit);
+
+rollup.on("disconnect", exit);
+rollup.on("error", exit);
 rollup.on("close", exit);
-rollup.on("close", exit);
+rollup.on("exit", exit);
