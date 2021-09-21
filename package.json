@@ -3,7 +3,7 @@
   "productName": "Rhyme",
   "description": "The Home of your Music.",
   "author": "Abdallah Mohammad",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": false,
   "license": "GPL-3.0-or-later",
   "main": "electron.js",
@@ -55,13 +55,6 @@
       "icon": "build/icons/icon.ico",
       "target": [
         {
-          "target": "msi",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
           "target": "nsis",
           "arch": [
             "x64",
@@ -72,34 +65,10 @@
     },
     "linux": {
       "target": [
-        {
-          "target": "AppImage",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
-          "target": "deb",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
-          "target": "pacman",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
-          "target": "rpm",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
+        "AppImage",
+        "deb",
+        "pacman",
+        "rpm"
       ],
       "category": "AudioVideo",
       "maintainer": "Abdallah Mohammad",
