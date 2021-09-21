@@ -15,6 +15,7 @@
 
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
+    if (!folderPath || folderPath === "") return;
     songs.set([]);
     recentlyPlayed.set([]);
     $songsPlayer.songs = [];
