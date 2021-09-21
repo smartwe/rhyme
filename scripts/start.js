@@ -14,4 +14,11 @@ function exit() {
 }
 
 electron.on("disconnect", exit);
+electron.on("error", exit);
+electron.on("close", exit);
+electron.on("exit", exit);
+
 rollup.on("disconnect", exit);
+rollup.on("error", exit);
+rollup.on("close", exit);
+rollup.on("exit", exit);
