@@ -31,7 +31,8 @@ export function getMusicFilesFromPath(
         file.endsWith(".wav") ||
         file.endsWith(".aac") ||
         file.endsWith(".ogg") ||
-        file.endsWith(".opus")
+        file.endsWith(".opus") ||
+        file.endsWith("flac")
       ) {
         folderContent.push(file);
       }
