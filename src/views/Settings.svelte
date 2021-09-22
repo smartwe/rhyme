@@ -2,6 +2,7 @@
   import PathChooser from "../components/controls/PathChooser.svelte";
   import PopUpDialog from "../components/controls/PopUpDialog.svelte";
   import Toggle from "../components/controls/Toggle.svelte";
+  import Store from "../components/store/Store.svelte";
   import { setWatcher } from "../lib/RhymeUtils";
   import {
     settings,
@@ -49,7 +50,9 @@
 
 <main class="page">
   {#if showThemesPopUp}
-    <PopUpDialog width="90%" height="90%" bind:show={showThemesPopUp} />
+    <PopUpDialog width="90%" height="90%" bind:show={showThemesPopUp}>
+      <Store />
+    </PopUpDialog>
   {/if}
 
   <h2>General</h2>
