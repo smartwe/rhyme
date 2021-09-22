@@ -15,6 +15,7 @@
   import Item from "./Item.svelte";
   const isSongPlaying = $currentSong && $currentSong["file"] === file;
   function onClick() {
+    if (!songsPlayer) return;
     $songsPlayer.play(
       $songs.findIndex((song) => {
         return song["file"] === file;
