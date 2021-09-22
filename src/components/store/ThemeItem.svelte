@@ -1,17 +1,15 @@
 <script lang="ts">
   import { ThemeItem as ThemeIcon } from "rhyme-icons";
+  import { themeManager } from "../../store";
   export let theme;
+  function onClick() {
+    $themeManager["currentTheme"] = theme.id;
+  }
 </script>
 
-<main>
+<main on:click={onClick}>
   <div class="icon">
-    <ThemeIcon
-      width="120px"
-      accentColor={theme.accentColor}
-      bgColor={theme.backgroundColor}
-      panelsColor={theme.panelsColor}
-      textColor={theme.textColor}
-    />
+    <ThemeIcon width="120px" accentColor={theme.accentColor} bgColor={theme.backgroundColor} panelsColor={theme.panelsColor} textColor={theme.textColor} />
   </div>
   <div class="titles">
     <h4 class="ellipsis-text">{theme.name}</h4>
