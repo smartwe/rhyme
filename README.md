@@ -24,7 +24,7 @@
 ## :hear_no_evil: What is `Rhyme` ?
 
 [Rhyme](rhyme.netlify.app) is a music player which allows the user to play their music with a simple and good looking user interface,
-rhyme can play multiple type of files like `.mp3`, `.m4a`, `.webm`, `.wav`, `.aac`, `.ogg` and `.opus`.
+rhyme can play multiple type of files like `.mp3`, `.m4a`, `.webm`, `.flac`, `.wav`, `.aac`, `.ogg` and `.opus`.
 A theme manager has been implemented so that you can customize the colors of the app the way you want the theme store, theme maker, and the way to change themes is still not implemented
 
 <br />
