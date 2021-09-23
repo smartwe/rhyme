@@ -16,7 +16,6 @@
 
 <main>
   <div class="sidebar">
-    <h1>Store</h1>
     <a href="/" on:click={navigate} class:active={link === "/"}>Installed</a>
   </div>
   <div class="main">
@@ -33,6 +32,9 @@
 </main>
 
 <style lang="scss">
+  * {
+    transition: 0.4s;
+  }
   main {
     width: 100%;
     height: 100%;
@@ -56,12 +58,7 @@
     padding: 1em 1.5em;
     display: flex;
     flex-direction: column;
-    h1 {
-      text-align: center;
-      font-weight: 300;
-      color: var(--accent-color);
-      margin-bottom: 30px;
-    }
+
     a {
       padding: 0.5em 1em;
       border-radius: 0.3em;

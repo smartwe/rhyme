@@ -1,21 +1,22 @@
 <script lang="ts">
-  import { ThemeItem as ThemeIcon } from "rhyme-icons";
-  import { themeManager } from "../../store";
+  import { ThemeItem as ThemeIcon, CheckCircle } from "rhyme-icons";
+  import { currentTheme, themeManager } from "../../store";
   export let theme;
   function onClick() {
+    if (usedTheme) return;
     $themeManager["currentTheme"] = theme.id;
   }
+  $: usedTheme = $themeManager["currentTheme"] === theme.id;
 </script>
 
 <main on:click={onClick}>
+  {#if usedTheme}
+    <div class="usedTheme">
+      <CheckCircle fill={$currentTheme["accentColor"]} />
+    </div>
+  {/if}
   <div class="icon">
-    <ThemeIcon
-      width="120px"
-      accentColor={theme.accentColor}
-      bgColor={theme.backgroundColor}
-      panelsColor={theme.panelsColor}
-      textColor={theme.textColor}
-    />
+    <ThemeIcon width="120px" accentColor={theme.accentColor} bgColor={theme.backgroundColor} panelsColor={theme.panelsColor} textColor={theme.textColor} />
   </div>
   <div class="titles">
     <h4 class="ellipsis-text">{theme.name}</h4>
@@ -24,6 +25,17 @@
 </main>
 
 <style lang="scss">
+  .usedTheme {
+    position: absolute;
+    top: 14px;
+    background-color: #7f7f7fa5;
+    width: 120px;
+    height: 64px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   main {
     display: flex;
     background-color: var(--panels-color);
@@ -36,6 +48,7 @@
     justify-content: center;
     cursor: pointer;
     gap: 10px;
+    position: relative;
   }
   h4,
   p {
