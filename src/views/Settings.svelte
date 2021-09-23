@@ -4,7 +4,15 @@
   import Toggle from "../components/controls/Toggle.svelte";
   import Store from "../components/store/Store.svelte";
   import { setWatcher } from "../lib/RhymeUtils";
-  import { settings, songs, currentSong, recentlyPlayed, songsPlayer, themeManager, currentTheme } from "../store";
+  import {
+    settings,
+    songs,
+    currentSong,
+    recentlyPlayed,
+    songsPlayer,
+    themeManager,
+    currentTheme,
+  } from "../store";
 
   let folderPath = $settings["musicPath"];
   function changeMusicDir() {
@@ -54,7 +62,12 @@
   <ul>
     <li>
       <span> Music folder path </span>
-      <PathChooser bind:folderPath defaultPath={$settings["musicPath"]} title="Choose the folder containing your music" onEnd={changeMusicDir} />
+      <PathChooser
+        bind:folderPath
+        defaultPath={$settings["musicPath"]}
+        title="Choose the folder containing your music"
+        onEnd={changeMusicDir}
+      />
     </li>
     <li>
       <span>
@@ -65,7 +78,10 @@
     </li>
     <li>
       <span>Show notifications</span>
-      <Toggle bind:checked={showNotifications} clickEvent={toggleShowNotifications} />
+      <Toggle
+        bind:checked={showNotifications}
+        clickEvent={toggleShowNotifications}
+      />
     </li>
   </ul>
   <br />
