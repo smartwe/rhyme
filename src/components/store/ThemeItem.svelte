@@ -9,12 +9,15 @@
   $: usedTheme = $themeManager["currentTheme"] === theme.id;
 </script>
 
-<main on:click={onClick}>
+<main>
   {#if usedTheme}
     <div class="usedTheme">
       <CheckCircle fill={$currentTheme["accentColor"]} />
     </div>
   {/if}
+  <div class:hover={!usedTheme} style="display: none;">
+    <button on:click={onClick}>Use this theme</button>
+  </div>
   <div class="icon">
     <ThemeIcon width="120px" accentColor={theme.accentColor} bgColor={theme.backgroundColor} panelsColor={theme.panelsColor} textColor={theme.textColor} />
   </div>
@@ -36,6 +39,24 @@
     align-items: center;
     justify-content: center;
   }
+  .hover {
+    position: absolute;
+    top: 14px;
+    background-color: #7f7f7fa5;
+    width: 120px;
+    height: 64px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    button {
+      padding: 0.4em;
+      background-color: var(--accent-color);
+      color: var(--sidebar-active-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
   main {
     display: flex;
     background-color: var(--panels-color);
@@ -46,9 +67,13 @@
     height: 140px;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     gap: 10px;
     position: relative;
+    &:hover {
+      .hover {
+        display: flex !important;
+      }
+    }
   }
   h4,
   p {
