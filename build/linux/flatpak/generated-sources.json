@@ -2462,13 +2462,6 @@
     },
     {
         "type": "file",
-        "url": "https://registry.npmjs.org/rhyme-icons/-/rhyme-icons-1.2.4.tgz",
-        "sha512": "42665938cf2140102bba7dbcc1461abcda4766b1cccf5d8f9a1eb753f058a9e55b8395468e74859e7057d7b7dc55a36998abd1d5231353cffd219a704b835809",
-        "dest-filename": "rhyme-icons-1.2.4.tgz",
-        "dest": "flatpak-node/yarn-mirror"
-    },
-    {
-        "type": "file",
         "url": "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz",
         "sha512": "b968db68a20add3d4e495a6dcd7ecd97a3ef437a801ad284b5546346e6b38df2f7071e5e238d3d5594aa80d0fee143679b32d574f8fd16a14934fa81645bdee3",
         "dest-filename": "rimraf-2.7.1.tgz",
@@ -3669,6 +3662,13 @@
         "url": "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76",
         "sha512": "53d9c7f3c6b77dcfde902175974fd43f5228b22b888f24e1ee106f5d530762055c7c6bedf3ded782e8f650e2c3788e411b69bbfeec3268b553e9f6ed0b04f2cf",
         "dest-filename": "reusify-1.0.4.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.yarnpkg.com/rhyme-icons/-/rhyme-icons-1.3.3.tgz#5aec3b6b8cf3adcbef8f64b173c39bd031a45c46",
+        "sha512": "38d4c39650e96c031684ea94f71447735dcd4addae9d095273a3712cbf4ea3098ddc18c8ee14e2c0a7c01fe2641abc8a1dd7ce01068a290acd7cf447969997f0",
+        "dest-filename": "rhyme-icons-1.3.3.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {

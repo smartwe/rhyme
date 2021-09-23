@@ -100,7 +100,7 @@
     "node-sass": "6.0.1",
     "prettier": "2.4.1",
     "prettier-plugin-svelte": "2.4.0",
-    "rhyme-icons": "1.2.4",
+    "rhyme-icons": "1.3.3",
     "rollup": "2.57.0",
     "rollup-plugin-css-only": "3.1.0",
     "rollup-plugin-livereload": "2.0.5",
