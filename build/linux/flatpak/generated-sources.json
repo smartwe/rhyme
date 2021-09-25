@@ -3393,6 +3393,13 @@
     },
     {
         "type": "file",
+        "url": "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.0.0.tgz#5f98cdee871066d09f56b83faf7dc3cd533cc3fc",
+        "sha512": "82e800451e36c95ebe5cacaed49488b47d5f4e26da08584d5c2a2e0e533fb662a5b4e4a17ade88cb1a8cd52075081caac8ee775242fc068082d462daeb6f8673",
+        "dest-filename": "cutagerjs-1.0.0.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
         "url": "https://registry.yarnpkg.com/debounce-fn/-/debounce-fn-4.0.0.tgz#ed76d206d8a50e60de0dd66d494d82835ffe61c7",
         "sha512": "f296024222fd5dd720d143d20f777ed0a3253a3a7e28653910fc1875d83343b0c04ec8387ee5038d0b6c60b9968e7936a1b9cd1e0577bc4d98e237a348e25505",
         "dest-filename": "debounce-fn-4.0.0.tgz",
