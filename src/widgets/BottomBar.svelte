@@ -38,51 +38,6 @@
       });
     }
   });
-
-  document.body.addEventListener("keydown", keyDown);
-
-  function keyDown(event) {
-    if (document.activeElement instanceof HTMLInputElement) {
-      return;
-    }
-    event.preventDefault();
-    switch (event.key) {
-      case "ArrowRight":
-        $songsPlayer.sound.seek($songsPlayer.sound.seek() + 5);
-        break;
-      case "ArrowLeft":
-        let seekedValue = $songsPlayer.sound.seek();
-        $songsPlayer.sound.seek(seekedValue >= 5 ? seekedValue - 5 : 0);
-        break;
-      case "ArrowUp":
-        if ($volume !== 100) {
-          $volume += 1;
-        }
-        break;
-      case "ArrowDown":
-        if ($volume !== 0) {
-          $volume -= 1;
-        }
-        break;
-      case " ":
-        if ($songPlaying) {
-          $songsPlayer.pause();
-        } else {
-          $songsPlayer.resume();
-        }
-        break;
-      case "Home":
-        if ($songsPlayer.sound.seek() <= 5) {
-          $songsPlayer.previous();
-        } else {
-          $songsPlayer.sound.seek(0);
-        }
-        break;
-      case "End":
-        $songsPlayer.next();
-        break;
-    }
-  }
 </script>
 
 {#if $currentSong}
