@@ -121,6 +121,6 @@
     "howler": "^2.2.1",
     "music-metadata": "^7.8.6",
     "smooth-scrollbar": "^8.6.2",
-    "svelte": "3.42.6"
+    "svelte": "3.43.0"
   }
 }
