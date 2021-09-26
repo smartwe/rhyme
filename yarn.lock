@@ -951,10 +951,10 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-cutagerjs@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.0.0.tgz#5f98cdee871066d09f56b83faf7dc3cd533cc3fc"
-  integrity sha512-gugARR42yV6+XKyu1JSItH1fTibaCFhNXCouDlM/tmKltOShet6IyxqM1SB1CByqyO53UkL8BoCC1GLa62+Gcw==
+cutagerjs@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.1.1.tgz#3f8d9fd384483cc6969b108b092d64cc6f07105d"
+  integrity sha512-eJgnBa9jvaLFqok0j9EXgvAHtOMkqO08yj/CWSd+0XAbnLhSrelyvkeyWJ8nvW/nNOMyTBo17x07xlehSckS/g==
 
 dashdash@^1.12.0:
   version "1.14.1"

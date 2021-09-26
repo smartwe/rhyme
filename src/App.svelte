@@ -26,6 +26,7 @@
     setWatcher,
   } from "./lib/RhymeUtils";
   import Player from "./lib/Player";
+  import "./lib/ShortcutsManager";
   let files = getMusicFilesFromPath($settings["musicPath"]);
 
   async function getSongs() {
