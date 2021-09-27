@@ -104,7 +104,7 @@ if (!gotTheLock) {
     ]);
     tray.setContextMenu(contextMenu);
 
-    win.loadFile(htmlFile);
+    win.loadURL(`file:///${htmlFile}`);
     if (isDev) {
       win.setMenu(
         Menu.buildFromTemplate([
