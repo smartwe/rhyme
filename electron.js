@@ -6,6 +6,7 @@ const {
   app,
   ipcMain,
   dialog,
+  globalShortcut,
 } = require("electron");
 const path = require("path");
 const isDev = !app.isPackaged;
@@ -175,6 +176,18 @@ if (!gotTheLock) {
       }
 
       return false;
+    });
+
+    globalShortcut.register("MediaPlayPause", () => {
+      win.webContents.send("play/pause");
+    });
+
+    globalShortcut.register("MediaPreviousTrack", () => {
+      win.webContents.send("previous");
+    });
+
+    globalShortcut.register("MediaNextTrack", () => {
+      win.webContents.send("next");
     });
   });
   app.on("second-instance", (_event, _commandLine, _workingDirectory) => {
