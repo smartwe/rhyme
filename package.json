@@ -9,12 +9,11 @@
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
-    "dev": "node ./scripts/start.js",
+    "rhyme": "npm run build && concurrently \"npm:start\" \"npm:electron\"",
     "start": "rollup -c -w",
     "electron": "electron .",
     "snap": "yarn build && yarn electron-builder -l snap",
-    "notes-checker": "node ./scripts/NotesChecker.js",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "notes-checker": "node ./scripts/notes-checker.js",
     "format-check": "prettier --check \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\"",
     "format": "prettier --write \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\""
   },
@@ -94,6 +93,7 @@
     "@rollup/plugin-typescript": "8.2.5",
     "@tsconfig/svelte": "2.0.1",
     "@types/node": "16.9.6",
+    "concurrently": "^6.2.1",
     "electron": "15.0.0",
     "electron-builder": "22.11.7",
     "electron-reload": "1.5.0",
