@@ -9,7 +9,7 @@
   "main": "electron.js",
   "scripts": {
     "build": "rollup -c",
-    "rhyme": "npm run build && concurrently \"npm:start\" \"npm:electron\"",
+    "rhyme": "npm run build && concurrently -k \"npm:start\" \"npm:electron\"",
     "start": "rollup -c -w",
     "electron": "electron .",
     "snap": "yarn build && yarn electron-builder -l snap",
