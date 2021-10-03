@@ -3288,9 +3288,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@types/node/-/node-16.10.1.tgz#f3647623199ca920960006b3dccf633ea905f243",
-        "sha512": "e3f67d0cc3ca15ec598ff1a7dcbca51606a634a1e6e0add00e2d20cfd076e9493473c8b361ff7b0797f17e9b2930d916945ba96e528cfe757cf8d03d15fbebfb",
-        "dest-filename": "@types-node-16.10.1.tgz",
+        "url": "https://registry.yarnpkg.com/@types/node/-/node-16.10.2.tgz#5764ca9aa94470adb4e1185fe2e9f19458992b2e",
+        "sha512": "cc27252f8febc7e5b94904f316cf70cafbf20b0a0af50b41a6b6adab3d88609dcef149ab9f49b79ec4efd3040193db111a9bd47bd0b03c3ad0141d747f51488d",
+        "dest-filename": "@types-node-16.10.2.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -3372,9 +3372,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/concurrently/-/concurrently-6.2.1.tgz#d880fc1d77559084732fa514092a3d5109a0d5bf",
-        "sha512": "7a6830847f9ece4b982921d943e024804a685196656e93d560256fed8671d2bf93edf9f2d47d37af69d845e6e98b60ee7474789f54606e8d984f128ec55278fa",
-        "dest-filename": "concurrently-6.2.1.tgz",
+        "url": "https://registry.yarnpkg.com/concurrently/-/concurrently-6.2.2.tgz#81c11b85d9a7de56ad4388ff6aab4a94ddea51f2",
+        "sha512": "edae3906355a900977a69acb39ea9a3a865f21665199d0baf0d923cb33db2aed3fa44e82466a92de5f111bb436717f4b9d11e4074a0f33a69ff0f4bb34442f61",
+        "dest-filename": "concurrently-6.2.2.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -3400,9 +3400,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.2.0.tgz#2784ac4d93b865aa5d79c4469f60d201f91398ab",
-        "sha512": "7366d2b947d5c787076dcbaa64fbaa20a5b46e5e91fa1e4bfa8d3ab917a5a472d9c37d5709ead751d9a8f708c953ba4eb7749622bdde21a8c7444f2e8cd65478",
-        "dest-filename": "cutagerjs-1.2.0.tgz",
+        "url": "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.2.1.tgz#576702bafb59cc146157883f9d06c2826e3bd4cb",
+        "sha512": "ea75e773e7306a134f3301e4c9ab0151d9c8f5b3baa9f2dbad30fa0a6513693c73ec880c2fcdd204d663f9a9665883c31477196e470439ab17fc8913e5669d6c",
+        "dest-filename": "cutagerjs-1.2.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -3792,16 +3792,16 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.9.4.tgz#1a81c47994b94a8ee8a8cadf10763053dd486e24",
-        "sha512": "6749944011ad13e6594affc77ab4521deeee909a24c6388f7877bb88f3885ec784a11c39d47dcafd587a38c20cb2d7adcd9d75bd63bdac2b17483fee51402b98",
-        "dest-filename": "svelte-preprocess-4.9.4.tgz",
+        "url": "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.9.7.tgz#80610768e6094361cc20e29fc963f3f4f1c5b181",
+        "sha512": "8cf8a2ccca864e9e17dc7bf4d2a4cf6c61f6af9921baa35acf396a49764d24aa38e272d54183320d8335aceab7311af30ace57937278f24ebbbbc73a7c606cbd",
+        "dest-filename": "svelte-preprocess-4.9.7.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/svelte/-/svelte-3.43.0.tgz#d28d06ec523bf0cea3de15558a3241c339a85762",
-        "sha512": "4f6a4c3c7af15e9f9233ca4b2d45cb42091da3e2614e5b3b6aa8fd703ef3f304f671c3fe3ab0809ad412ee1ea9bcc8e2b5a6615c536708ae7cd8dc43a72f074b",
-        "dest-filename": "svelte-3.43.0.tgz",
+        "url": "https://registry.yarnpkg.com/svelte/-/svelte-3.43.1.tgz#8370c08a970bcc1c118baaa86a38fae82e0a8396",
+        "sha512": "9ef3c868ac781cbcd895276ab88499a601b52aaaf65405908d93addc8c26dd485baa60342e74b1e24d58a513048634185b7642a90a0af0482da3db6fe187b030",
+        "dest-filename": "svelte-3.43.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
