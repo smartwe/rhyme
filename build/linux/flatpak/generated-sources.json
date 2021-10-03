@@ -3400,9 +3400,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.1.3.tgz#611c9f07de3553a270a48e31165c4aa9fd6f3a29",
-        "sha512": "aa590078d7aed888cb50ef5919af3591e51a49d745521b1ab917201d5e375d650ab1a8fcb2da2dc5c43ccdc16c97cb9acf7b81bd389af54e2f3d4744b5580f8a",
-        "dest-filename": "cutagerjs-1.1.3.tgz",
+        "url": "https://registry.yarnpkg.com/cutagerjs/-/cutagerjs-1.2.0.tgz#2784ac4d93b865aa5d79c4469f60d201f91398ab",
+        "sha512": "7366d2b947d5c787076dcbaa64fbaa20a5b46e5e91fa1e4bfa8d3ab917a5a472d9c37d5709ead751d9a8f708c953ba4eb7749622bdde21a8c7444f2e8cd65478",
+        "dest-filename": "cutagerjs-1.2.0.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
