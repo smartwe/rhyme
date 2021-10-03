@@ -3372,9 +3372,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/concurrently/-/concurrently-6.2.2.tgz#81c11b85d9a7de56ad4388ff6aab4a94ddea51f2",
-        "sha512": "edae3906355a900977a69acb39ea9a3a865f21665199d0baf0d923cb33db2aed3fa44e82466a92de5f111bb436717f4b9d11e4074a0f33a69ff0f4bb34442f61",
-        "dest-filename": "concurrently-6.2.2.tgz",
+        "url": "https://registry.yarnpkg.com/concurrently/-/concurrently-6.3.0.tgz#63128cb4a6ed54d3c0ed8528728590a5fe54582a",
+        "sha512": "9389358d01871cab1f6eace452ccd57f6f6a10206b92f04a91c3c91140d3c9547bb597751bf24e7e7b2de20d6c61b16f2785231d98ac8f5696411f322caa463f",
+        "dest-filename": "concurrently-6.3.0.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
