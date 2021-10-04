@@ -1,19 +1,17 @@
 const Store = require("electron-store");
 const store = new Store();
 
-import ModuleWindow from "./module-window";
+import Module from "./module";
+import { app } from "electron";
 
-class StorageManagerModule extends ModuleWindow {
-  app: Electron.App;
-
-  constructor(dirname: string, win: Electron.BrowserWindow, app: Electron.App) {
-    super(dirname, win);
-    this.app = app;
+class StorageManagerModule extends Module {
+  constructor(dirname: string) {
+    super(dirname);
   }
 
   async load() {
     this.setDataToStore("settings", {
-      musicPath: this.app.getPath("music"),
+      musicPath: app.getPath("music"),
       heyRhymeActivate: false,
       showNotifications: true,
       minimizeToTray: false,

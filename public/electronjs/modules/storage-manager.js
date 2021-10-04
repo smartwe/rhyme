@@ -5,15 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Store = require("electron-store");
 const store = new Store();
-const module_window_1 = __importDefault(require("./module-window"));
-class StorageManagerModule extends module_window_1.default {
-    constructor(dirname, win, app) {
-        super(dirname, win);
-        this.app = app;
+const module_1 = __importDefault(require("./module"));
+const electron_1 = require("electron");
+class StorageManagerModule extends module_1.default {
+    constructor(dirname) {
+        super(dirname);
     }
     async load() {
         this.setDataToStore("settings", {
-            musicPath: this.app.getPath("music"),
+            musicPath: electron_1.app.getPath("music"),
             heyRhymeActivate: false,
             showNotifications: true,
             minimizeToTray: false,

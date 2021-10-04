@@ -33,7 +33,6 @@ const storage_manager_1 = __importDefault(require("./modules/storage-manager"));
 const tray_1 = __importDefault(require("./modules/tray"));
 const isDev = !electron_1.app.isPackaged;
 const htmlFile = path_1.default.join(__dirname, "public", "index.html");
-let quitApp = false;
 if (isDev) {
     require("electron-reload")(path_1.default.join(__dirname, "public"));
 }
@@ -90,7 +89,7 @@ electron_1.app.on("ready", () => {
     else {
         win.setMenu(null);
     }
-    ModulesManager.init(new global_shortcuts_1.default(__dirname, win), new tray_1.default(__dirname, win), new storage_manager_1.default(__dirname, win, electron_1.app)).catch((error) => {
+    ModulesManager.init(new global_shortcuts_1.default(__dirname, win), new tray_1.default(__dirname, win), new storage_manager_1.default(__dirname)).catch((error) => {
         if (error)
             throw error;
     });

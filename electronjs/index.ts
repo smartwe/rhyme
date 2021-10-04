@@ -18,7 +18,6 @@ import StorageManagerModule from "./modules/storage-manager";
 import TrayModule from "./modules/tray";
 const isDev = !app.isPackaged;
 const htmlFile = path.join(__dirname, "public", "index.html");
-let quitApp = false;
 
 if (isDev) {
   require("electron-reload")(path.join(__dirname, "public"));
@@ -88,7 +87,7 @@ app.on("ready", () => {
   ModulesManager.init(
     new GlobalShortcutsModule(__dirname, win),
     new TrayModule(__dirname, win),
-    new StorageManagerModule(__dirname, win, app)
+    new StorageManagerModule(__dirname)
   ).catch((error: Error) => {
     if (error) throw error;
   });
