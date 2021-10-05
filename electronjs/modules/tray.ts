@@ -6,11 +6,12 @@ import ModuleWindow from "./module-window";
 
 class TrayModule extends ModuleWindow {
   async load() {
+    const trayIcons = {
+      icon: path.join(this.dirname, "build", "linux", "icons", "32x32.png"),
+      winIcon: path.join(this.dirname, "build", "icons", "icon.ico"),
+    };
     const tray = new Tray(
-      path.join(
-        this.dirname,
-        "icon" + (process.platform === "win32" ? ".ico" : ".png")
-      )
+      process.platform === "win32" ? ".ico" : trayIcons.icon
     );
     const window = this.window;
     let items = [
