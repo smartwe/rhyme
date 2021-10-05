@@ -24,7 +24,7 @@ let win: Electron.BrowserWindow;
 
 app.on("ready", () => {
   win = new BrowserWindow({
-    icon: path.join(__dirname, "icon.png"),
+    icon: path.join(__dirname, "build", "linux", "icons", "128x128.png"),
     title: "Rhyme",
     minWidth: 800,
     minHeight: 400,
