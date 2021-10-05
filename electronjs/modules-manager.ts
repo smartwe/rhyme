@@ -3,9 +3,14 @@ import type Module from "./modules/module";
 export const init = async (...modules: Module[]) => {
   await Promise.all(
     modules.map((module) =>
-      module.init().catch((err) => {
-        throw err;
-      })
+      module
+        .init()
+        .then(() => {
+          console.log(`${module.constructor.name} was loaded successfully`);
+        })
+        .catch((err) => {
+          throw err;
+        })
     )
   ).catch((err) => {
     console.error(

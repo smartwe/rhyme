@@ -3,6 +3,8 @@
 # Folders
 /node_modules/
 /public/build/
+/public/electronjs/
+/public/share/
 /build_dist/
 .DS_Store
 .vscode

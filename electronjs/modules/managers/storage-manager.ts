@@ -1,7 +1,7 @@
 const Store = require("electron-store");
 const store = new Store();
 
-import Module from "./module";
+import Module from "../module";
 import { app } from "electron";
 
 class StorageManagerModule extends Module {
@@ -15,6 +15,12 @@ class StorageManagerModule extends Module {
       heyRhymeActivate: false,
       showNotifications: true,
       minimizeToTray: false,
+    });
+    this.setDataToStore("window-bounds", {
+      x: 0,
+      y: 0,
+      width: 900,
+      height: 600,
     });
     this.setDataToStore("theme-manager", {
       currentTheme: "default-dark",
