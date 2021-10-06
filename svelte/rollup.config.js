@@ -10,10 +10,10 @@ import css from "rollup-plugin-css-only";
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "svelte/main.ts",
+  input: "./svelte/main.ts",
   output: {
     sourcemap: true,
-    format: "iife",
+    format: "cjs",
     name: "app",
     file: "public/build/bundle.js",
   },

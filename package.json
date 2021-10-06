@@ -93,6 +93,7 @@
     "@rollup/plugin-typescript": "8.2.5",
     "@tsconfig/svelte": "2.0.1",
     "@types/node": "16.10.2",
+    "@types/ps-node": "^0.1.1",
     "concurrently": "^6.3.0",
     "electron": "15.0.0",
     "electron-builder": "22.11.7",
@@ -120,6 +121,7 @@
     "electron-store": "^8.0.1",
     "howler": "^2.2.1",
     "music-metadata": "^7.8.6",
+    "ps-node": "^0.1.6",
     "smooth-scrollbar": "^8.6.2",
     "svelte": "3.43.1"
   }

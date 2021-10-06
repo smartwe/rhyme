@@ -11,7 +11,7 @@ class Module {
     this.platforms = ["win32", "linux", "darwin"];
   }
 
-  // To not be overriden
+  // To not be overridden
   async init(): Promise<void> {
     if (this.loaded)
       throw new TypeError(`Module ${this.constructor.name} is already loaded`);
