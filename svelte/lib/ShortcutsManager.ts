@@ -1,6 +1,9 @@
 import { CutagerJS, Action, KeyCombo } from "cutagerjs";
 import { get } from "svelte/store";
 import { songPlaying, songsPlayer, volume } from "../store";
+const { ipcRenderer } = require("electron");
+import channels from "../../share/channels";
+
 const cutager = new CutagerJS();
 let shortcuts: Action[] = [
   new Action("PlayOrPause", new KeyCombo("space"), () => {
@@ -36,6 +39,9 @@ let shortcuts: Action[] = [
   }),
   new Action("Next", new KeyCombo("end"), () => {
     get(songsPlayer).next();
+  }),
+  new Action("Quit", new KeyCombo("ctrl+q"), () => {
+    ipcRenderer.send(channels.QUIT_APP);
   }),
 ];
 

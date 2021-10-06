@@ -10,10 +10,10 @@ import css from "rollup-plugin-css-only";
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "src/main.ts",
+  input: "./svelte/main.ts",
   output: {
     sourcemap: true,
-    format: "iife",
+    format: "cjs",
     name: "app",
     file: "public/build/bundle.js",
   },
@@ -42,6 +42,7 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
+      tsconfig: "./svelte/tsconfig.json",
     }),
 
     // Watch the `public` directory and refresh the

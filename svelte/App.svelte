@@ -27,6 +27,7 @@
   } from "./lib/RhymeUtils";
   import Player from "./lib/Player";
   import "./lib/ShortcutsManager";
+  import "./lib/ipc-manager";
   let files = getMusicFilesFromPath($settings["musicPath"]);
 
   async function getSongs() {

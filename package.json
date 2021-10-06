@@ -6,14 +6,14 @@
   "version": "0.6.2",
   "private": false,
   "license": "GPL-3.0-or-later",
-  "main": "electron.js",
+  "main": "public/electronjs/index.js",
   "scripts": {
-    "build": "rollup -c",
-    "rhyme": "npm run build && concurrently -k \"npm:start\" \"npm:electron\"",
-    "start": "rollup -c -w",
+    "build": "rollup -c svelte/rollup.config.js && tsc -p electronjs",
+    "watch-ts": "tsc -w -p electronjs",
+    "rhyme": "npm run build && concurrently -k npm:start npm:electron",
+    "start": "rollup -c svelte/rollup.config.js -w",
     "electron": "electron .",
     "snap": "yarn build && yarn electron-builder -l snap",
-    "notes-checker": "node ./scripts/notes-checker.js",
     "format-check": "prettier --check \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\"",
     "format": "prettier --write \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\""
   },
@@ -92,6 +92,7 @@
     "@rollup/plugin-node-resolve": "13.0.5",
     "@rollup/plugin-typescript": "8.2.5",
     "@tsconfig/svelte": "2.0.1",
+    "@types/ps-node": "^0.1.1",
     "@types/node": "16.10.3",
     "concurrently": "^6.3.0",
     "electron": "15.1.1",
@@ -120,6 +121,7 @@
     "electron-store": "^8.0.1",
     "howler": "^2.2.1",
     "music-metadata": "^7.8.6",
+    "ps-node": "^0.1.6",
     "smooth-scrollbar": "^8.6.2",
     "svelte": "3.43.1"
   }

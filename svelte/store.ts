@@ -5,6 +5,7 @@ const store = new Store();
 
 const { Howler } = require("howler");
 const { FSWatcher } = require("chokidar");
+const { ipcRenderer } = require("electron");
 
 // Chokidar directory watcher
 export const watcher = writable<typeof FSWatcher>(null);
@@ -114,6 +115,18 @@ export const shuffle = writable<boolean>(null);
 
 // Current song
 export const currentSong = writable<object>(null);
+currentSong.subscribe((value) => {
+  if (!value) return;
+  value = [
+    { label: `Playing ${value["song"]}`, enabled: false },
+    { label: `by ${value["artist"]}`, enabled: false },
+    { label: `on ${value["album"]}`, enabled: false },
+    {
+      type: "separator",
+    },
+  ];
+  ipcRenderer.send("song-changed", value);
+});
 
 // Volume level
 export const volume = writable<number>(100);
