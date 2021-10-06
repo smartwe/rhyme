@@ -1,4 +1,4 @@
-import { Tray, Menu } from "electron";
+import { Tray, Menu, app } from "electron";
 import path from "path";
 import channels from "../../share/channels";
 
@@ -19,42 +19,36 @@ class TrayModule extends ModuleWindow {
         label: "Previous",
         click() {
           window.webContents.send(channels.PREVIOUS);
-          console.log("YS");
         },
       },
       {
         label: "Play Or Pause",
         click() {
           window.webContents.send(channels.PLAY_OR_PAUSE);
-          console.log("YS");
         },
       },
       {
         label: "Next",
         click() {
           window.webContents.send(channels.NEXT);
-          console.log("YS");
         },
       },
       {
         label: "Show",
         click() {
-          window.webContents.send(channels.SHOW_WINDOW);
-          console.log("YS");
+          window.show();
         },
       },
       {
         label: "Hide",
         click() {
-          window.webContents.send(channels.HIDE_WINDOW);
-          console.log("YS");
+          window.hide();
         },
       },
       {
         label: "Quit",
         click() {
-          window.webContents.send(channels.QUIT_APP);
-          console.log("YS");
+          app.quit();
         },
       },
     ];
