@@ -44,14 +44,14 @@
       ]
     },
     "mac": {
-      "icon": "build/icons/icon.icns",
+      "icon": "data/icons/icon.icns",
       "target": [
         "dmg",
         "pkg"
       ]
     },
     "win": {
-      "icon": "build/icons/icon.ico",
+      "icon": "data/icons/icon.ico",
       "target": [
         {
           "target": "nsis",
@@ -71,7 +71,7 @@
       ],
       "category": "AudioVideo",
       "maintainer": "Abdallah Mohammad",
-      "icon": "build/linux/icons"
+      "icon": "data/linux/icons"
     },
     "snap": {
       "plugs": [
