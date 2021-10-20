@@ -90,7 +90,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-node-resolve": "13.0.5",
-    "@rollup/plugin-typescript": "8.2.5",
+    "@rollup/plugin-typescript": "8.3.0",
     "@tsconfig/svelte": "2.0.1",
     "@types/ps-node": "^0.1.1",
     "@types/node": "16.11.1",
