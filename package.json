@@ -29,15 +29,20 @@
   },
   "homepage": "https://github.com/Rhyme-Player/Rhyme#readme",
   "dependencies": {
+    "cutagerjs": "^1.2.1",
     "electron-store": "^8.0.1",
     "ps-node": "0.1.6",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1"
   },
   "devDependencies": {
     "@types/ps-node": "^0.1.1",
     "@types/react": "17.0.31",
     "@types/react-dom": "17.0.10",
+    "@types/react-redux": "^7.1.20",
+    "@types/redux": "^3.6.0",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
     "clean-terminal-webpack-plugin": "3.0.0",
