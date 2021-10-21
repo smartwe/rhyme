@@ -1,5 +1,9 @@
 {
+  "$schema": "http://json.schemastore.org/electron-builder",
   "appId": "com.github.rhyme-player.rhyme",
+  "directories": {
+    "output": "build"
+  },
   "mac": {
     "category": "public.app-category.music",
     "target": [
