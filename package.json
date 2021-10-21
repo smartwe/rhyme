@@ -1,128 +1,70 @@
 {
   "name": "rhyme",
-  "productName": "Rhyme",
-  "description": "The Home of your Music.",
-  "author": "Abdallah Mohammad",
-  "version": "0.6.2",
-  "private": false,
-  "license": "GPL-3.0-or-later",
-  "main": "public/electronjs/index.js",
+  "version": "1.0.0",
+  "description": "The Home of your music.",
+  "main": "dist/main/bundle.js",
   "scripts": {
-    "build": "rollup -c svelte/rollup.config.js && tsc -p electronjs",
-    "watch-ts": "tsc -w -p electronjs",
-    "rhyme": "npm run build && concurrently -k npm:start npm:electron",
-    "start": "rollup -c svelte/rollup.config.js -w",
+    "build": "webpack --config webpack/webpack.prod.js --color",
+    "dev": "webpack --config webpack/webpack.dev.js --color --watch",
+    "serve": "fast-live-reload dist/renderer",
     "electron": "electron .",
-    "snap": "yarn build && yarn electron-builder -l snap",
-    "format-check": "prettier --check \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\"",
-    "format": "prettier --write \"{,!(node_modules|public|build)/**/}*.{js,ts,css,scss,json,svelte}\""
+    "rhyme": "npm run build && concurrently npm:serve npm:dev npm:electron",
+    "test:lint": "eslint . --ext .tsx,.ts,.js",
+    "test:formatting": "prettier --check \"./**/*.{ts,tsx,js}\"",
+    "fix:lint": "eslint . --ext .tsx,.ts,.js --fix",
+    "fix:formatting": "prettier --write \"./**/*.{ts,tsx,js}\"",
+    "package:snap": "electron-builder -l",
+    "package:linux": "electron-builder -l",
+    "package:windows": "electron-builder -w",
+    "package:mac": "electron-builder -m"
   },
-  "build": {
-    "appId": "com.github.rhyme_player.rhyme",
-    "directories": {
-      "output": "build_dist"
-    },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "rhyme-player",
-        "repo": "RhymePlayer"
-      }
-    ],
-    "dmg": {
-      "contents": [
-        {
-          "x": 120,
-          "y": 220
-        },
-        {
-          "x": 400,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "mac": {
-      "icon": "data/icons/icon.icns",
-      "target": [
-        "dmg",
-        "pkg"
-      ]
-    },
-    "win": {
-      "icon": "data/icons/icon.ico",
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb",
-        "pacman",
-        "rpm"
-      ],
-      "category": "AudioVideo",
-      "maintainer": "Abdallah Mohammad",
-      "icon": "data/linux/icons"
-    },
-    "snap": {
-      "plugs": [
-        "desktop",
-        "desktop-legacy",
-        "home",
-        "x11",
-        "browser-support",
-        "network",
-        "pulseaudio",
-        "audio-playback",
-        "alsa"
-      ]
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rhyme-Player/Rhyme.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Rhyme-Player/Rhyme/issues"
+  },
+  "homepage": "https://github.com/Rhyme-Player/Rhyme#readme",
+  "dependencies": {
+    "electron-store": "^8.0.1",
+    "ps-node": "0.1.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "21.0.1",
-    "@rollup/plugin-node-resolve": "13.0.5",
-    "@rollup/plugin-typescript": "8.3.0",
-    "@tsconfig/svelte": "2.0.1",
     "@types/ps-node": "^0.1.1",
-    "@types/node": "16.11.1",
+    "@types/react": "17.0.31",
+    "@types/react-dom": "17.0.10",
+    "@typescript-eslint/eslint-plugin": "5.1.0",
+    "@typescript-eslint/parser": "5.1.0",
+    "clean-terminal-webpack-plugin": "3.0.0",
+    "clean-webpack-plugin": "4.0.0",
     "concurrently": "^6.3.0",
-    "electron": "15.2.0",
+    "css-loader": "6.4.0",
+    "electron": "15.3.0",
     "electron-builder": "22.13.1",
-    "electron-reload": "1.5.0",
-    "node-sass": "6.0.1",
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.26.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "html-webpack-plugin": "5.4.0",
+    "mini-css-extract-plugin": "2.4.3",
+    "node-loader": "2.0.0",
+    "node-sass": "^6.0.1",
     "prettier": "2.4.1",
-    "prettier-plugin-svelte": "2.4.0",
-    "rhyme-icons": "1.3.3",
-    "rollup": "2.58.0",
-    "rollup-plugin-css-only": "3.1.0",
-    "rollup-plugin-livereload": "2.0.5",
-    "rollup-plugin-svelte": "7.1.0",
-    "rollup-plugin-terser": "7.0.2",
-    "sass": "1.43.2",
-    "sirv-cli": "1.0.14",
-    "svelte-check": "2.2.7",
-    "svelte-preprocess": "4.9.8",
-    "svelte-spa-router": "3.2.0",
-    "tslib": "2.3.1",
-    "typescript": "4.4.4"
-  },
-  "dependencies": {
-    "chokidar": "^3.5.1",
-    "cutagerjs": "^1.2.1",
-    "electron-store": "^8.0.1",
-    "howler": "^2.2.1",
-    "music-metadata": "^7.8.6",
-    "ps-node": "^0.1.6",
-    "smooth-scrollbar": "^8.6.2",
-    "svelte": "3.44.0"
+    "prettier-eslint": "13.0.0",
+    "terser-webpack-plugin": "5.2.4",
+    "ts-loader": "9.2.6",
+    "typescript": "4.4.4",
+    "webpack": "5.59.1",
+    "webpack-cli": "4.9.1",
+    "webpack-merge": "5.8.0",
+    "webpackbar": "5.0.0-3"
   }
 }

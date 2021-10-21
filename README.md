@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
-    <img src="data/linux/icons/128x128.png" alt="Logo">
+    <img src="icons/png/128x128.png" alt="Logo">
   </a>
   <h1 align="center">Rhyme</h1>
   <p align="center">The Home of your Music</p>
@@ -15,7 +15,7 @@
     </a>
   </h3>
 
-  <img align="center" src="https://user-images.githubusercontent.com/77546233/133614526-452649b3-fb72-4347-9ee4-73ef8c6eea3f.png" />
+  <img align="center" src="screenshot.png" />
 
 </p>
 

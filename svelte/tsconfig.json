@@ -1,8 +1,0 @@
-{
-  "extends": "@tsconfig/svelte/tsconfig.json",
-
-  "include": ["**/*"],
-  "compilerOptions": {
-    "moduleResolution": "node"
-  }
-}
