@@ -1,7 +1,6 @@
 import { app, ipcMain } from 'electron';
-import channels from '@/share/channels';
-
 import ModuleWindow from '../module-window';
+import channels from '@/share/channels';
 
 class IpcManagerModule extends ModuleWindow {
   quitApp = false;

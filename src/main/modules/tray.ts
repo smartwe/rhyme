@@ -6,8 +6,8 @@ import os from 'os';
 import path from 'path';
 import ps from 'ps-node';
 import { Tray, Menu, app, ipcMain, nativeImage } from 'electron';
-import channels from '@/share/channels';
 import ModuleWindow from './module-window';
+import channels from '@/share/channels';
 
 class TrayModule extends ModuleWindow {
   protected tray: Electron.Tray | null;
@@ -48,6 +48,7 @@ class TrayModule extends ModuleWindow {
         {
           command: 'gnome-shell',
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (err: Error, _processes: Record<string, any>) => {
           if (err) {
             console.warn(err);

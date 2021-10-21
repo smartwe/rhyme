@@ -1,6 +1,6 @@
+import path from 'path';
 import Store from 'electron-store';
 const store = new Store();
-import path from 'path';
 import { app, Menu } from 'electron';
 
 import ModuleWindow from '../module-window';

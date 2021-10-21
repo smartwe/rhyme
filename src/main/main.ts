@@ -1,5 +1,5 @@
-import { BrowserWindow, Notification as ElectronNotification, app, ipcMain, dialog, screen } from 'electron';
 import path from 'path';
+import { BrowserWindow, Notification as ElectronNotification, app, ipcMain, dialog, screen } from 'electron';
 
 import Store from 'electron-store';
 
@@ -19,7 +19,7 @@ __dirname = app.getAppPath();
 
 app.on('ready', () => {
   const currentDisplayBounds = screen.getPrimaryDisplay().bounds;
-  let bounds: { width: number; x: number; y: number; height: number } = (store.get('window-bounds') as {
+  const bounds: { width: number; x: number; y: number; height: number } = (store.get('window-bounds') as {
     width: number;
     x: number;
     y: number;
@@ -56,7 +56,7 @@ app.on('ready', () => {
   });
 
   ipcMain.handle('show-dialog', async (_event, config) => {
-    let data = await dialog.showOpenDialog(window, {
+    const data = await dialog.showOpenDialog(window, {
       properties: [config.dialogType],
       title: config.title,
       defaultPath: config.defaultPath,

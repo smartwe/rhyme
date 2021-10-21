@@ -1,4 +1,4 @@
-import type Module from "./modules/module";
+import type Module from './modules/module';
 
 export const init = async (...modules: Module[]) => {
   await Promise.all(

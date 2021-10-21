@@ -1,8 +1,7 @@
-const Store = require("electron-store");
+import { app } from 'electron';
+import Store from 'electron-store';
+import Module from '../module';
 const store = new Store();
-
-import Module from "../module";
-import { app } from "electron";
 
 class StorageManagerModule extends Module {
   constructor(dirname: string) {
@@ -10,42 +9,42 @@ class StorageManagerModule extends Module {
   }
 
   async load() {
-    this.setDataToStore("settings", {
-      musicPath: app.getPath("music"),
+    this.setDataToStore('settings', {
+      musicPath: app.getPath('music'),
       heyRhymeActivate: false,
       showNotifications: true,
       minimizeToTray: false,
     });
-    this.setDataToStore("window-bounds", {
+    this.setDataToStore('window-bounds', {
       x: 0,
       y: 0,
       width: 900,
       height: 600,
     });
-    this.setDataToStore("theme-manager", {
-      currentTheme: "default-dark",
+    this.setDataToStore('theme-manager', {
+      currentTheme: 'default-dark',
       installedThemes: [
         {
-          id: "default-dark",
-          name: "Default dark",
-          author: "Rhyme Designers",
-          accentColor: "#ea3548",
-          sidebarActiveColor: "#fff",
-          panelsColor: "#121212",
-          textColor: "#bbbbbb",
-          titleColor: "#fff",
-          backgroundColor: "#000",
+          id: 'default-dark',
+          name: 'Default dark',
+          author: 'Rhyme Designers',
+          accentColor: '#ea3548',
+          sidebarActiveColor: '#fff',
+          panelsColor: '#121212',
+          textColor: '#bbbbbb',
+          titleColor: '#fff',
+          backgroundColor: '#000',
         },
         {
-          id: "default-light",
-          name: "Default light",
-          author: "Rhyme Designers",
-          accentColor: "#ea3548",
-          sidebarActiveColor: "#fff",
-          panelsColor: "#e0e0e0",
-          textColor: "#5c5c5c",
-          titleColor: "#000",
-          backgroundColor: "#fff",
+          id: 'default-light',
+          name: 'Default light',
+          author: 'Rhyme Designers',
+          accentColor: '#ea3548',
+          sidebarActiveColor: '#fff',
+          panelsColor: '#e0e0e0',
+          textColor: '#5c5c5c',
+          titleColor: '#000',
+          backgroundColor: '#fff',
         },
       ],
     });

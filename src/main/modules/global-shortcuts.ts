@@ -1,7 +1,6 @@
 import { globalShortcut } from 'electron';
-import channels from '@/share/channels';
-
 import ModuleWindow from './module-window';
+import channels from '@/share/channels';
 
 class GlobalShortcutsModule extends ModuleWindow {
   async load() {
