@@ -20,14 +20,21 @@ const rendererConfig = {
     publicPath: './',
   },
   target: 'electron-renderer',
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/renderer/index.html',
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/renderer/index.html',
-      filename: 'index.html',
     }),
     new WebpackBar({
       name: 'Renderer',
