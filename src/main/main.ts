@@ -36,15 +36,12 @@ app.on('ready', () => {
         ? path.join(__dirname, 'icons', 'icon.ico')
         : path.join(__dirname, 'icons', 'png', '128x128.png'),
     title: 'Rhyme',
-    titleBarStyle: 'hiddenInset',
     minWidth: 800,
     minHeight: 400,
     width: bounds.width,
     height: bounds.height,
     x: bounds.x,
     y: bounds.y,
-    transparent: true,
-    frame: false,
     webPreferences: {
       webSecurity: true,
       contextIsolation: false,

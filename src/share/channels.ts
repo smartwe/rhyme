@@ -1,4 +1,4 @@
-const CHANNELS = {
+const channels = {
   QUIT_APP: 'QUIT_APP',
   PLAY_OR_PAUSE: 'PLAY_OR_PAUSE',
   NEXT: 'NEXT',
@@ -8,4 +8,4 @@ const CHANNELS = {
   SHOW_WINDOW: 'SHOW_WINDOW',
 };
 
-export default CHANNELS;
+export default channels;
