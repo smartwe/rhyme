@@ -1,15 +1,12 @@
 {
   "parserOptions": { "parser": "@typescript-eslint/parser" },
-  "plugins": ["@typescript-eslint", "jsx-a11y", "import"],
+  "plugins": ["@typescript-eslint", "import"],
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:react-hooks/recommended",
     "prettier"
   ],
-  "settings": { "react": { "version": "detect" } },
   "rules": {
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-unused-vars": "off",

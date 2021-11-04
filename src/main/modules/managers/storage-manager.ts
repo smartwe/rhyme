@@ -9,7 +9,7 @@ class StorageManagerModule extends Module {
 
   async load() {
     this.setDataToStore('settings', {
-      musicPath: app.getPath('music'),
+      musicFolder: app.getPath('music'),
       showNotifications: true,
       minimizeToTray: false,
     });

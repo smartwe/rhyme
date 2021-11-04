@@ -5,6 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { IgnorePlugin } = require('webpack');
+
+const optionalPlugins = [];
+if (process.platform !== 'darwin') {
+  // don't ignore on OSX
+  optionalPlugins.push(new IgnorePlugin({ resourceRegExp: /^fsevents$/ }));
+}
 
 /**
  * Renderer process bundle
@@ -12,7 +19,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
  */
 const rendererConfig = {
   entry: {
-    main: ['./src/renderer/main.tsx'],
+    main: ['./src/renderer/main.ts'],
+  },
+  resolve: {
+    alias: {
+      svelte: path.dirname(require.resolve('svelte/package.json')),
+    },
+    extensions: ['.ts', '.js', '.svelte'],
+    mainFields: ['svelte', 'browser', 'module', 'main'],
   },
   output: {
     path: `${__dirname}/../dist/renderer`,
@@ -23,18 +37,23 @@ const rendererConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.svelte$/,
+        use: {
+          loader: 'svelte-loader',
+        },
+      },
+      {
+        // required to prevent errors from Svelte on Webpack 5+
+        test: /node_modules\/svelte\/.*\.mjs$/,
+        resolve: {
+          fullySpecified: false,
+        },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/renderer/index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
     }),
     new WebpackBar({
       name: 'Renderer',
@@ -80,7 +99,6 @@ const sharedConfig = {
     extensions: ['.mjs', '.ts', '.tsx', '.js', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
-      icons: path.resolve(__dirname, '../icons'),
     },
   },
   module: {
@@ -145,7 +163,7 @@ const sharedConfig = {
     modules: false,
     reasons: false,
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin(), ...optionalPlugins],
 };
 
 /**
