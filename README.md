@@ -1,4 +1,3 @@
-> Note the app is being re-written with react
 <!-- Link to latest file: https://github.com/Rhyme-Player/RhymeApp/releases/latest/download/file.name -->
 <!-- PROJECT LOGO -->
 <p align="center">
