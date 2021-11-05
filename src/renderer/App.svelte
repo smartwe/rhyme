@@ -22,7 +22,7 @@
   <Router {routes} />
 </main>
 
-<style>
+<style lang="scss">
   main {
     width: 100vw;
     height: 100vh;

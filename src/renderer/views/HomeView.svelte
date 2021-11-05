@@ -3,5 +3,5 @@
 
 <main class="page">Home</main>
 
-<style>
+<style lang="scss">
 </style>

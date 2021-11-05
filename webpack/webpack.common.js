@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
+const sveltePreprocess = require('svelte-preprocess');
 
 const optionalPlugins = [];
 if (process.platform !== 'darwin') {
@@ -40,6 +41,9 @@ const rendererConfig = {
         test: /\.svelte$/,
         use: {
           loader: 'svelte-loader',
+          options: {
+            preprocess: sveltePreprocess(),
+          },
         },
       },
       {
