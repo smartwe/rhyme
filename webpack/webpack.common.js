@@ -43,6 +43,10 @@ const rendererConfig = {
         },
       },
       {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
         // required to prevent errors from Svelte on Webpack 5+
         test: /node_modules\/svelte\/.*\.mjs$/,
         resolve: {
@@ -55,6 +59,7 @@ const rendererConfig = {
     new HtmlWebpackPlugin({
       template: 'src/renderer/index.html',
     }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new WebpackBar({
       name: 'Renderer',
       color: 'green',
@@ -111,25 +116,6 @@ const sharedConfig = {
             exclude: /node_modules/,
           },
           {
-            test: /\.module\.css$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: {
-                    localIdentName: '[local]___[hash:base64:5]',
-                    exportLocalsConvention: 'dashesOnly',
-                  },
-                  importLoaders: 1,
-                  sourceMap: true,
-                },
-              },
-              'postcss-loader',
-            ],
-            exclude: path.join(__dirname, 'node_modules'),
-          },
-          {
             test: /\.css$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader'],
             include: path.join(__dirname, 'node_modules'),
@@ -142,10 +128,6 @@ const sharedConfig = {
             test: /\.(png|jpg|ico)([?]?.*)$/,
             type: 'asset/resource',
             exclude: /node_modules/,
-          },
-          {
-            test: /\.node$/,
-            use: 'node-loader',
           },
           {
             // Hotfix for iconv-lite https://github.com/ashtuchkin/iconv-lite/issues/204
