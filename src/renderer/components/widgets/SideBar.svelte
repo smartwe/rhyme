@@ -1,20 +1,23 @@
 <script lang="ts">
-  // your script goes here
-
   import LinkItem from '../controls/LinkItem.svelte';
   import { HomeFilled, HomeOutlined } from 'rhyme-icons';
 </script>
 
 <main>
-  <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" />
+  <div class="links">
+    <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" />
+    <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" link="S" />
+  </div>
 </main>
 
 <style lang="scss">
   main {
-    width: 240px;
+    width: 230px;
     height: 100%;
     background-color: var(--panels-color);
-    flex-shrink: 0;
     padding: 1em;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
   }
 </style>

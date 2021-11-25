@@ -9,6 +9,12 @@ class SongsManager {
     FilesManager.on('add', (file) => {
       FilesParser.getFileMetadata(file).then((song) => {
         this.songs.set([...get(this.songs), song]);
+        get(this.songs).sort((a, b) => {
+          const aTitle = a.name.toLowerCase();
+          const bTitle = b.name.toLowerCase();
+
+          return bTitle > aTitle ? -1 : aTitle > bTitle ? 1 : 0;
+        });
       });
     });
 

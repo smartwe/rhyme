@@ -13,9 +13,7 @@ class WindowManagerModule extends ModuleWindow {
   }
 
   async load() {
-    this.window.loadURL(
-      isDev ? 'http:localhost:9000' : `file://${path.join(this.dirname, 'dist', 'renderer', 'index.html')}`
-    );
+    this.window.loadURL(`file://${path.join(this.dirname, 'dist', 'renderer', 'index.html')}`);
     this.window.setMenu(null);
 
     if (isDev) {
@@ -26,6 +24,12 @@ class WindowManagerModule extends ModuleWindow {
             label: 'Dev Tools',
             click() {
               self.window.webContents.toggleDevTools();
+            },
+          },
+          {
+            label: 'Reload',
+            click() {
+              self.window.reload();
             },
           },
         ])

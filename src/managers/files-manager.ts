@@ -54,4 +54,6 @@ class FilesManager {
   }
 }
 
-export default new FilesManager();
+const manager = new FilesManager();
+
+export default manager;

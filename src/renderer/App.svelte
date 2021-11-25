@@ -3,6 +3,11 @@
   import Router from 'svelte-spa-router';
   import { currentTheme } from './services/store';
   import SideBar from './components/widgets/SideBar.svelte';
+  import StatusBar from './components/widgets/StatusBar.svelte';
+
+  import Scrollbar from 'smooth-scrollbar';
+  import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+  Scrollbar.use(OverscrollPlugin);
 
   const routes = {
     '/': HomeView,
@@ -18,14 +23,26 @@
   --sidebar-active-color:{$currentTheme.colors.sidebarActiveColor};
   --text-color:{$currentTheme.colors.textColor};"
 >
-  <SideBar />
-  <Router {routes} />
+  <div class="main-content">
+    <SideBar />
+    <div class="router">
+      <Router {routes} />
+    </div>
+  </div>
+  <StatusBar />
 </main>
 
 <style lang="scss">
   main {
     width: 100vw;
     height: 100vh;
+  }
+  .main-content {
+    width: 100%;
+    height: calc(100% - 24px);
     display: flex;
+  }
+  .router {
+    width: calc(100% - 230px);
   }
 </style>
