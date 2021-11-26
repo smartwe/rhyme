@@ -6,8 +6,8 @@
 <main>
   <div class="links">
     <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" />
-    <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" link="S" />
   </div>
+  <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Settings" link="settings" />
 </main>
 
 <style lang="scss">

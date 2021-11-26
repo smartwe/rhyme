@@ -47,6 +47,10 @@ const rendererConfig = {
         },
       },
       {
+        test: /\.node$/,
+        loader: 'node-loader',
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
