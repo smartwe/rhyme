@@ -1,13 +1,13 @@
 <script lang="ts">
   import LinkItem from '../controls/LinkItem.svelte';
-  import { HomeFilled, HomeOutlined } from 'rhyme-icons';
+  import { HomeFilled, HomeOutlined, SettingsFilled, SettingsOutlined } from 'rhyme-icons';
 </script>
 
 <main>
   <div class="links">
     <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Home" />
   </div>
-  <LinkItem icons={{ active: HomeFilled, default: HomeOutlined }} text="Settings" link="settings" />
+  <LinkItem icons={{ active: SettingsFilled, default: SettingsOutlined }} text="Settings" link="settings" />
 </main>
 
 <style lang="scss">
@@ -19,5 +19,6 @@
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
+    justify-content: space-between;
   }
 </style>
