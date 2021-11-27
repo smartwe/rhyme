@@ -5,9 +5,23 @@
 
   export let song: Song;
   export let isARecentlyPlayed = false;
+
+  // Tool Tip
+  import { createPopperActions } from 'svelte-popperjs';
+  const [popperRef, popperContent] = createPopperActions();
+  const popperOptions = {
+    modifiers: [{ name: 'offset', options: { offset: [0, 8] } }],
+  };
+
+  let showTooltip = false;
 </script>
 
-<main style={isARecentlyPlayed ? 'background-color:var(--background-color)' : ''}>
+<main
+  style={isARecentlyPlayed ? 'background-color:var(--background-color)' : ''}
+  use:popperRef
+  on:mouseenter={() => (showTooltip = true)}
+  on:mouseleave={() => (showTooltip = false)}
+>
   <div class="art">
     {#if song.image}
       <img src={song.image} alt="" />
@@ -22,6 +36,13 @@
     <h4 class="ellipsis-text">{song.name}</h4>
     <p class="ellipsis-text">{song.artist}</p>
   </div>
+  <!-- ToolTip -->
+  {#if showTooltip && !isARecentlyPlayed}
+    <div id="tooltip" use:popperContent={popperOptions}>
+      <p>{song.name}</p>
+      <p>{song.artist}</p>
+    </div>
+  {/if}
 </main>
 
 <style type="scss">
@@ -55,6 +76,27 @@
       font-weight: normal;
       color: var(--titles-color);
       font-size: 1em;
+    }
+  }
+
+  #tooltip {
+    background-color: var(--panels-color);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 10px 1px var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    animation: fade 0.7s;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>
