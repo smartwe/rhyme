@@ -65,7 +65,7 @@
     "svelte-popperjs": "^1.2.6",
     "svelte-preprocess": "^4.9.8",
     "svelte-spa-router": "^3.2.0",
-    "terser-webpack-plugin": "5.2.4",
+    "terser-webpack-plugin": "5.2.5",
     "ts-loader": "9.2.6",
     "typescript": "4.4.4",
     "webpack": "5.62.1",
