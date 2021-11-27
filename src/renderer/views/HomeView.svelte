@@ -9,7 +9,7 @@
   import { shell } from 'electron';
 </script>
 
-{#if $songs.length < 0}
+{#if $songs.length > 0}
   <Scrollable>
     <main class="page">
       <RecentlyPlayed />
