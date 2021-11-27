@@ -8,7 +8,6 @@
       Next: {$songs[1]?.name ?? ''}
     </li>
     <li>{$songs.length} song/s</li>
-    <li>Total time: Unknown</li>
   </ul>
   <ul class="right" />
 </main>

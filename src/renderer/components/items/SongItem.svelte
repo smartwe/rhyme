@@ -1,6 +1,7 @@
 <script type="ts">
+  import { currentTheme } from '@/renderer/services/store';
   import { Song } from '@/share/interfaces';
-  // import UnknownSong from 'rhyme-icons/src/icons/UnknownSong.svelte';
+  import { UnknownSong } from 'rhyme-icons';
 
   export let song: Song;
   export let isARecentlyPlayed = false;
@@ -11,7 +12,10 @@
     {#if song.image}
       <img src={song.image} alt="" />
     {:else}
-      <!-- <UnknownSong size="100" /> -->
+      <UnknownSong
+        backgroundColor={isARecentlyPlayed ? $currentTheme.colors.panelsColor : $currentTheme.colors.backgroundColor}
+        iconColor={$currentTheme.colors.textColor}
+      />
     {/if}
   </div>
   <div class="info">

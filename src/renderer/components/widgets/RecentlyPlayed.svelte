@@ -9,30 +9,32 @@
 </script>
 
 <h2>Recently Played</h2>
-<Scrollable>
-  <main>
-    {#each $songs as song, key}
-      {#if key < 15}
+<main>
+  <Scrollable>
+    <div class="songs">
+      {#each $songs as song}
         <SongItem {song} isARecentlyPlayed={true} />
-      {/if}
-    {/each}
-  </main>
-</Scrollable>
+      {/each}
+    </div>
+  </Scrollable>
+</main>
 
 <style lang="scss">
   h2 {
     font-weight: 500;
   }
-  main {
-    margin-top: 10px;
+  .songs {
     height: 220px;
-    border-radius: 10px;
     width: max-content;
-    min-width: 100%;
-    padding: 0.8em;
-    background-color: var(--panels-color);
     align-items: center;
     gap: 10px;
     display: flex;
+    padding: 0.8em;
+  }
+
+  main {
+    border-radius: 10px;
+    background-color: var(--panels-color);
+    margin-top: 10px;
   }
 </style>
