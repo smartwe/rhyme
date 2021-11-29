@@ -4,10 +4,10 @@
 /node_modules/
 /dist/
 /build_dist/
-.DS_Store
-.vscode
+/.DS_Store/
+/.vscode/
+/build/
 
 # Files
-package-lock.json
-yarn.lock
+*lock*
 *.log
