@@ -54,7 +54,7 @@
     "html-webpack-plugin": "5.5.0",
     "mini-css-extract-plugin": "^2.4.4",
     "node-loader": "^2.0.0",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "prettier-eslint": "13.0.0",
     "rhyme-icons": "^2.2.0",
     "sass": "^1.43.4",
