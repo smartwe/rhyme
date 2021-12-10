@@ -3,12 +3,9 @@ import { FSWatcher, watch } from 'chokidar';
 import StorageManager from './json-storage-manager';
 import path from 'path';
 import { Settings } from '@/share/interfaces';
-import { writable, Writable, get } from 'svelte/store';
 
 class FilesManager {
   private watcher: FSWatcher;
-
-  files: Writable<string[]> = writable([]);
 
   listeners = {
     onAdd: [] as ((file: string) => void)[],
@@ -23,18 +20,12 @@ class FilesManager {
 
     this.watcher.on('add', async (file: string) => {
       if (!isExtensionSupported(path.extname(file))) return;
-      this.files.set([...get(this.files), file]);
       this.listeners.onAdd.map((callback) => {
         callback(file);
       });
     });
 
     this.watcher.on('unlink', (file: string) => {
-      this.files.set(
-        get(this.files).filter((value) => {
-          return value !== file;
-        })
-      );
       this.listeners.onRemove.map((callback) => {
         callback(file);
       });
@@ -54,6 +45,4 @@ class FilesManager {
   }
 }
 
-const manager = new FilesManager();
-
-export default manager;
+export default new FilesManager();
