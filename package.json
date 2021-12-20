@@ -36,7 +36,7 @@
     "ps-node": "0.1.6"
   },
   "devDependencies": {
-    "@popperjs/core": "2.9.x",
+    "@popperjs/core": "2.11.x",
     "@tsconfig/svelte": "^2.0.1",
     "@types/ps-node": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
