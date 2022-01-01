@@ -25,5 +25,6 @@
   main {
     width: 100%;
     height: 100%;
+    flex-shrink: 1;
   }
 </style>

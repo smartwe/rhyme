@@ -25,7 +25,6 @@ body {
   flex-grow: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: var(--text-color);
-  /* overflow: auto; */
 }
 
 .scrollbar-track {
@@ -56,5 +55,4 @@ body {
   height: 100%;
   padding: 1em;
   background-color: var(--background-color);
-  flex-shrink: 1;
 }

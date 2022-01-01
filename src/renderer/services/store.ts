@@ -1,5 +1,6 @@
 import JsonStorageManager from '@/managers/json-storage-manager';
 import { Settings, Theme, ThemeManager } from '@/share/interfaces';
+import player from '@/share/lib/player';
 import { writable, get } from 'svelte/store';
 
 export const settings = writable<Settings>(JsonStorageManager.get('settings') as Settings);
@@ -10,4 +11,11 @@ export const currentTheme = writable<Theme>(
   })[0] as Theme
 );
 
-export default '';
+export const isPaused = writable(player.isPaused());
+
+player.on('pause', () => {
+  isPaused.set(true);
+});
+player.on('play', () => {
+  isPaused.set(false);
+});

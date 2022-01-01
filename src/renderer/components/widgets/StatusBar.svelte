@@ -1,11 +1,13 @@
 <script>
+  import playingManager, { playerIndex } from '@/managers/playing-manager';
+
   import { songs } from '@/managers/songs-manager';
 </script>
 
 <main>
   <ul class="left">
     <li class="bold ellipsis-text" style="max-width:250px">
-      Next: {$songs[1]?.name ?? ''}
+      Next: {$songs[$playerIndex + 1]?.name ?? ''}
     </li>
     <li>{$songs.length} song/s</li>
   </ul>

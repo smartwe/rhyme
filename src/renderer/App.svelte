@@ -7,6 +7,7 @@
 
   import Scrollbar from 'smooth-scrollbar';
   import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
+  import BottomBar from './components/widgets/BottomBar.svelte';
   Scrollbar.use(OverscrollPlugin);
 
   const routes = {
@@ -27,6 +28,7 @@
     <SideBar />
     <div class="router">
       <Router {routes} />
+      <BottomBar />
     </div>
   </div>
   <StatusBar />
@@ -44,5 +46,7 @@
   }
   .router {
     width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
   }
 </style>

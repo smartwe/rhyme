@@ -8,12 +8,14 @@
 
   // Tool Tip
   import { createPopperActions } from 'svelte-popperjs';
+  import PlayingManager, { playerIndex } from '@/managers/playing-manager';
   const [popperRef, popperContent] = createPopperActions();
   const popperOptions = {
     modifiers: [{ name: 'offset', options: { offset: [0, 8] } }],
   };
 
   let showTooltip = false;
+  $: isSongPlaying = $playerIndex >= 0 ? PlayingManager.audioList[$playerIndex].file === song.file : false;
 </script>
 
 <main
@@ -21,7 +23,17 @@
   use:popperRef
   on:mouseenter={() => (showTooltip = true)}
   on:mouseleave={() => (showTooltip = false)}
+  on:click={() => {
+    PlayingManager.play(song.file);
+  }}
 >
+  <!-- The Song Playing Animation -->
+  <ul class:playing={isSongPlaying && !isARecentlyPlayed} class="floating">
+    <li />
+    <li />
+    <li />
+    <li />
+  </ul>
   <div class="art">
     {#if song.image}
       <img src={song.image} alt="" />
@@ -58,6 +70,7 @@
     justify-content: center;
     cursor: pointer;
     gap: 6px;
+    position: relative;
     img {
       width: 100px;
       height: 100px;
@@ -74,7 +87,7 @@
     }
     h4 {
       font-weight: normal;
-      color: var(--titles-color);
+      color: var(--title-color);
       font-size: 1em;
     }
   }
@@ -89,6 +102,7 @@
     align-items: center;
     gap: 3px;
     animation: fade 0.7s;
+    z-index: 4;
   }
 
   @keyframes fade {
@@ -98,5 +112,25 @@
     100% {
       opacity: 1;
     }
+  }
+
+  .floating {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    pointer-events: none;
+    transition: 0.3s;
+    background-color: #7f7f7fa5;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  .playing {
+    animation: fade 0.5s forwards;
   }
 </style>

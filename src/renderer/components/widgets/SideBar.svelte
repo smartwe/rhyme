@@ -20,5 +20,6 @@
     flex-shrink: 0;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 3;
   }
 </style>
