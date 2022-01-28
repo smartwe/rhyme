@@ -2,10 +2,11 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Rhyme-Player/RhymeApp">
-    <img src="icons/png/128x128.png" alt="Logo">
+    <img src="https://user-images.githubusercontent.com/77546233/151598469-117af60b-b1d4-4a5c-b775-1e7317aa9fb7.png" alt="Logo">
+
   </a>
   <h1 align="center">Rhyme</h1>
-  <p align="center">The Home of your Music</p>
+  <p align="center">The Home of Music</p>
   <h3 align="center">
     <a href="(https://matrix.to/#/#rhymes-player:matrix.org">
       <img src ="https://img.shields.io/matrix/rhymes-player:matrix.org">
