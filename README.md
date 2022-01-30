@@ -57,6 +57,6 @@ If you are trying out Rhyme and you encounter an error or any problem feel free 
 
 ## :clap: Supporters
 
-[![Stargazers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/stars/Rhyme-Player/Rhyme)](https://github.com/Rhyme-Player/Rhyme/stargazers)
+[![Stargazers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/stars/rhyme-project/rhyme)](https://github.com/rhyme-project/rhyme/stargazers)
 
-[![Forkers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/forks/Rhyme-Player/Rhyme)](https://github.com/Rhyme-Player/Rhyme/network/members)
+[![Forkers repo roster for @Rhyme-Player/Rhyme](https://reporoster.com/forks/rhyme-project/rhyme)](https://github.com/rhyme-project/rhyme/network/members)
